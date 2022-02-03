@@ -15,3 +15,6 @@ jobs:
         server-dir: domains/boz.avametix.xyz/public_html/
         username: uboz
         password: ${{ secrets.password }}
+        exclude: |
+          **/.git*
+          **/.git*/**
