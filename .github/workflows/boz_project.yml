@@ -14,4 +14,4 @@ jobs:
         server: ftp.boz.avametix.xyz
         server-dir: domains/boz.avametix.xyz/public_html/
         username: uboz
-        password: ${{ secrets.ftp_password }}
+        password: ${{ secrets.password }}
