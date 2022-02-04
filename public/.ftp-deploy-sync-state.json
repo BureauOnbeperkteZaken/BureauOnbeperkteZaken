@@ -1,0 +1,17 @@
+{
+    "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
+    "version": "1.0.0",
+    "generatedTime": 1643962660675,
+    "data": [
+        {
+            "type": "folder",
+            "name": ".vscode"
+        },
+        {
+            "type": "file",
+            "name": ".vscode/sftp.json",
+            "size": 254,
+            "hash": "6d8eea6529c6c644646e3a9d858126b354c89ef08053e3fd4027973d6a99d25e"
+        }
+    ]
+}
