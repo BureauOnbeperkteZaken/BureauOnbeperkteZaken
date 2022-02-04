@@ -71,3 +71,12 @@ jobs:
           sudo apt-get -qq install git-ftp
           echo "Deploying project to ftp server..."
           git ftp push --user "${username}" --passwd "${password}" ${ftp_location}
+
+workflows:
+  version: 2
+  main-deploy:
+    jobs:
+      - deploy:
+        filters:
+          branches:
+            only: main
