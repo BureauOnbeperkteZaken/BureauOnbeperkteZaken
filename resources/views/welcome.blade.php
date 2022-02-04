@@ -20,7 +20,7 @@ $page['Title'] = "Bureau Onbeperkte Zaken";
             <div class="center off">
                 <h1><?=$page['Title']?></h1>
                 <p>
-                    SO-L, 04/02/2022, <a href="https://laravel.com/docs/8.x">Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})</a>, <a href="https://github.com/Pixel-Null/BureauOnbeperkteZaken">Github Repository</a><br/>
+                    SO-L, 04/02/2022, <a href="https://laravel.com/docs/7.x">Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})</a>, <a href="https://github.com/Pixel-Null/BureauOnbeperkteZaken">Github Repository</a><br/>
                     Hosted by <a href="https://avametix.com">Avametix</a>.
                 </p>
             </div>
