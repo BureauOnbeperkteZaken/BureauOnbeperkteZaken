@@ -11,10 +11,12 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.2.0
       with:
-        server: ftp.boz.avametix.xyz
+        server: ftp.avametix.xyz
         server-dir: domains/boz.avametix.xyz/public_html/
         username: uboz
         password: ${{ secrets.password }}
         exclude: |
           **/.git*
           **/.git*/**
+          **/.vs*
+          **/.vs*/**
