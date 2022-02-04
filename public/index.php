@@ -18,9 +18,10 @@ $page['Title'] = "Bureau Onbeperkte Zaken";
         </header>
         <main>
             <div class="center off">
-                <h1>Bureau Onbeperkte Zaken</h1>
+                <h1><?=$page['Title']?></h1>
                 <p>
-                    SO-L, 04/02/2022, Laravel (PHP 8.1)
+                    SO-L, 04/02/2022, <a href="https://laravel.com/docs/8.x">Laravel</a> (PHP 8.1), <a href="https://github.com/Pixel-Null/BureauOnbeperkteZaken">Github Repository</a><br/>
+                    Hosted by <a href="https://avametix.com">Avametix</a>.
                 </p>
             </div>
         </main>
