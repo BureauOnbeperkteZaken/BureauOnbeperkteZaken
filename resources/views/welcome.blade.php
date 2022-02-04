@@ -15,7 +15,7 @@ $page['Title'] = "Bureau Onbeperkte Zaken";
     <body>
         <header>
             <a href="https://avametix.com" class="image"><img src="https://avametix.com/media/assets/icons/Logo-White.svg" alt="Avametix logo" width="40"></a>
-        </header>https://boz.avametix.xyz/
+        </header>
         <main>
             <div class="center off">
                 <h1><?=$page['Title']?></h1>
