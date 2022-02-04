@@ -1,30 +1,55 @@
 <?php
 
-$page['Title'] = "Bureau Onbeperkte Zaken";
+use Illuminate\Contracts\Http\Kernel;
+use Illuminate\Http\Request;
 
-?>
+define('LARAVEL_START', microtime(true));
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link async="" rel="preload" href="https://avametix.com/stylesheets/stylesheet.css?ver=0" as="style">
-        <link async="" href="https://avametix.com/stylesheets/stylesheet.css?ver=0" rel="stylesheet" type="text/css">
-        <title><?=$page['Title']?> - Avametix</title>
-    </head>
-    <body>
-        <header>
-            <a href="https://avametix.com" class="image"><img src="https://avametix.com/media/assets/icons/Logo-White.svg" alt="Avametix logo" width="40"></a>
-        </header>
-        <main>
-            <div class="center off">
-                <h1><?=$page['Title']?></h1>
-                <p>
-                    SO-L, 04/02/2022, <a href="https://laravel.com/docs/8.x">Laravel</a> (PHP 8.1), <a href="https://github.com/Pixel-Null/BureauOnbeperkteZaken">Github Repository</a><br/>
-                    Hosted by <a href="https://avametix.com">Avametix</a>.
-                </p>
-            </div>
-        </main>
-        <script src="https://avametix.com/javascript/javascript.js"></script>
-    </body>
-</html>
+/*
+|--------------------------------------------------------------------------
+| Check If The Application Is Under Maintenance
+|--------------------------------------------------------------------------
+|
+| If the application is in maintenance / demo mode via the "down" command
+| we will load this file so that any pre-rendered content can be shown
+| instead of starting the framework, which could cause an exception.
+|
+*/
+
+if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
+    require $maintenance;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Register The Auto Loader
+|--------------------------------------------------------------------------
+|
+| Composer provides a convenient, automatically generated class loader for
+| this application. We just need to utilize it! We'll simply require it
+| into the script here so we don't need to manually load our classes.
+|
+*/
+
+require __DIR__.'/../vendor/autoload.php';
+
+/*
+|--------------------------------------------------------------------------
+| Run The Application
+|--------------------------------------------------------------------------
+|
+| Once we have the application, we can handle the incoming request using
+| the application's HTTP kernel. Then, we will send the response back
+| to this client's browser, allowing them to enjoy our application.
+|
+*/
+
+$app = require_once __DIR__.'/../bootstrap/app.php';
+
+$kernel = $app->make(Kernel::class);
+
+$response = $kernel->handle(
+    $request = Request::capture()
+)->send();
+
+$kernel->terminate($request, $response);
