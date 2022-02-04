@@ -31,8 +31,6 @@ jobs:
           name: "Install Dependencies"
           command: composer install -n --prefer-dist
 
-      - run: composer require laravel/passport
-
       - save_cache:
           key: v1-dependencies-{{ checksum "composer.json" }}
           paths:
