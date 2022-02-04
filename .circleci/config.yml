@@ -60,14 +60,14 @@ jobs:
   deploy:
     docker:
       - image: circleci/node:8-browsers
-      working_directory: ~/repo
-      steps:
-      - checkout
-      - run: npm install
-      - run:
-        name: Deploy main branch on remote ftp server
-        command: |
-          sudo apt-get update
-          sudo apt-get -qq install git-ftp
-          echo "Deploying project to ftp server..."
-          git ftp push --user "${username}" --passwd "${password}" ${ftp_location}
+    working_directory: ~/repo
+    steps:
+    - checkout
+    - run: npm install
+    - run:
+      name: Deploy main branch on remote ftp server
+      command: |
+        sudo apt-get update
+        sudo apt-get -qq install git-ftp
+        echo "Deploying project to ftp server..."
+        git ftp push --user "${username}" --passwd "${password}" ${ftp_location}
