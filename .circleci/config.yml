@@ -74,7 +74,7 @@ jobs:
 
 workflows:
   version: 2
-  CI-CD-main:
+  cicd-main:
     jobs:
       - build
       - deploy:
