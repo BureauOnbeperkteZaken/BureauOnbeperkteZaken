@@ -2,7 +2,11 @@
 #
 # Check https://circleci.com/docs/2.0/language-php/ for more details
 #
-version: 2
+version: 2.1
+
+orbs: 
+  discord: antonioned/discord@0.1.0
+
 jobs:
   build:
     docker:
@@ -57,6 +61,12 @@ jobs:
       - run:
           name: "Run Tests"
           command: ./vendor/bin/phpunit
+
+      # send discord webhook
+      - discord/status:
+          fail_only: true
+          failure_message: "${CIRCLE_USERNAME}'s build: ${CIRCLE_JOB} failed."
+          webhook: "${discord_webhook}"
   deploy:
     docker:
       - image: circleci/node:8-browsers
@@ -71,6 +81,13 @@ jobs:
           sudo apt-get -qq install git-ftp
           echo "Deploying project to ftp server..."
           git ftp push --user "${username}" --passwd "${password}" ${ftp_location}
+
+    # send discord webhook
+    - discord/status:
+        fail_only: false
+          failure_message: "${CIRCLE_USERNAME}'s build: ${CIRCLE_JOB} failed."
+          webhook: "${discord_webhook}"
+          success_message: "${CIRCLE_USERNAME} deployed ${CIRCLE_BRANCH} to ${ftp_location}"
 
 workflows:
   version: 2
