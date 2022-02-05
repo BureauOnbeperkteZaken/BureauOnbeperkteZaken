@@ -70,11 +70,11 @@ jobs:
           sudo apt-get update
           sudo apt-get -qq install git-ftp
           echo "Deploying project to ftp server..."
-          git ftp --user "${username}" --passwd "${password}" ${ftp_location}
+          git ftp init --init-if-not-exists --user "${username}" --passwd "${password}" ${ftp_location}
 
 workflows:
   version: 2
-  main-deploy:
+  CI-CD-main:
     jobs:
       - build
       - deploy:
