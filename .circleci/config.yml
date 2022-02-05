@@ -87,7 +87,7 @@ jobs:
         fail_only: false
         failure_message: "${CIRCLE_USERNAME}'s build: ${CIRCLE_JOB} failed."
         webhook: "${discord_webhook}"
-        success_message: "${CIRCLE_USERNAME} deployed ${CIRCLE_BRANCH} to ${ftp_location}"
+        success_message: "${CIRCLE_USERNAME} deployed ${CIRCLE_BRANCH} to ${ftp_location} ."
 
 workflows:
   version: 2
