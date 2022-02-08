@@ -11,17 +11,10 @@ jobs:
   build:
     docker:
       # Specify the version you desire here
-      - image: circleci/php:7.4-node-browsers
+      - image: cimg/php:8.1.2
 
     steps:
       - checkout
-
-      - run:
-          name: "Prepare Environment"
-          command: |
-            sudo apt update
-            sudo docker-php-ext-install zip
-
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -65,7 +58,7 @@ jobs:
       # send discord webhook
       - discord/status:
           fail_only: true
-          failure_message: "${CIRCLE_USERNAME}'s build: ${CIRCLE_JOB} failed."
+          failure_message: "${CIRCLE_USERNAME}'s build in ${CIRCLE_BRANCH}: ${CIRCLE_JOB} failed."
           webhook: "${discord_webhook}"
   deploy:
     docker:
@@ -81,6 +74,16 @@ jobs:
           sudo apt-get -qq install git-ftp
           echo "Deploying project to ftp server..."
           git ftp push --user "${username}" --passwd "${password}" ${ftp_location}
+    - run:
+        name: Restart Laravel project
+        command: |
+          sudo apt-get -qq install sshpass
+          echo "Restarting artisan"
+          sshpass -p "${password}" ssh ${username}@${ssh_server} -p 7685
+          cd ${ssh_directory}
+          composer update -W
+          php artisan optimize:clear
+          php artisan serve
 
     # send discord webhook
     - discord/status:
@@ -91,7 +94,7 @@ jobs:
 
 workflows:
   version: 2
-  cicd-main:
+  build-branch-deploy-if-main:
     jobs:
       - build
       - deploy:
