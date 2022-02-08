@@ -79,7 +79,7 @@ jobs:
         command: |
           sudo apt-get -qq install sshpass
           echo "Restarting artisan"
-          sshpass -p "${password}" ssh ${username}@${ssh_server} -p 7685
+          sshpass -p "${password}" -v ssh ${username}@${ssh_server} -p 7685
           cd ${ssh_directory}
           composer update -W
           php artisan optimize:clear
