@@ -15,13 +15,6 @@ jobs:
 
     steps:
       - checkout
-
-      - run:
-          name: "Prepare Environment"
-          command: |
-            sudo apt update
-            sudo docker-php-ext-install zip
-
       # Download and cache dependencies
       - restore_cache:
           keys:
