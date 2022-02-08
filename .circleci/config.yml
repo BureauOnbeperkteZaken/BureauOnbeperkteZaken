@@ -58,7 +58,7 @@ jobs:
       # send discord webhook
       - discord/status:
           fail_only: true
-          failure_message: "${CIRCLE_USERNAME}'s build: ${CIRCLE_JOB} failed."
+          failure_message: "${CIRCLE_USERNAME}'s build in ${CIRCLE_BRANCH}: ${CIRCLE_JOB} failed."
           webhook: "${discord_webhook}"
   deploy:
     docker:
@@ -94,7 +94,7 @@ jobs:
 
 workflows:
   version: 2
-  cicd-main:
+  build-branch-deploy-if-main:
     jobs:
       - build
       - deploy:
