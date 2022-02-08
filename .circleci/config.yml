@@ -79,11 +79,7 @@ jobs:
         command: |
           sudo apt-get -qq install sshpass
           echo "Restarting artisan"
-          sshpass -p "${password}" -v ssh -o StrictHostKeyChecking=no ${username}@${ssh_server} -p 7685
-          cd ${ssh_directory}
-          composer update -W
-          php artisan optimize:clear
-          php artisan serve
+          sshpass -p "${password}" -v ssh -o StrictHostKeyChecking=no ${username}@${ssh_server} -p 7685 "cd ${ssh_directory}; composer update -W; php artisan optimize:clear; php artisan serve"
 
     # send discord webhook
     - discord/status:
