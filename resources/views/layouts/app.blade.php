@@ -10,7 +10,7 @@
             <title>{{ config('app.name') }}</title>
         @endif
     </head>
-    <body>
+    <body {{ View::hasSection('sidebar') ? "" : "fullwidth" }}>
         <header>
             <a href="#main" class="hidden-until-focus">{{ __('accessibility.skip_to_content') }}</a>
             <nav>

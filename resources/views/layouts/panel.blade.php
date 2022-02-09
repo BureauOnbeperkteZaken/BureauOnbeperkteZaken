@@ -4,7 +4,7 @@
         <link rel="stylesheet" type="text/css" href="{{ url('/stylesheets/panel.css') }}" />
         @hasSection('title')
             <title>
-                @yield('title') - {{ __('panel.title') }} | {{ config('app.name') }}
+                @yield('title') - {{ __('panel.title') }} - {{ config('app.name') }}
             </title>
         @else
             <title>{{ __('panel.title') }} - {{ config('app.name') }}</title>

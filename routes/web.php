@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('app/home');
 });
+
+Route::get('/fullscreen', function () {
+    return view('app/fullscreen');
+});
+
+Route::get('/login', function() {
+    return redirect()->guest(route('panel'));
+});

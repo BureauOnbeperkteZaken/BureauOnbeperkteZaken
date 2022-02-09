@@ -46,6 +46,8 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
+        $this->mapDomainRoutes();
+
         //
     }
 
@@ -60,12 +62,35 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::middleware('web')
             ->namespace($this->namespace)
+            ->name('web')
             ->group(base_path('routes/web.php'));
 
-        Route::domain('panel.' . env('APP_URL'))
-            ->middleware('web')
-            ->namespace($this->namespace)
-            ->group(base_path('routes/panel.php'));
+        if ($this->app->environment('local', 'testing')) {
+            Route::prefix('panel')
+                ->middleware('web')
+                ->namespace($this->namespace)
+                ->name('panel')
+                ->group(base_path('routes/panel.php'));
+        }
+    }
+
+    /**
+     * Define the "domain" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapDomainRoutes()
+    {
+
+        if ($this->app->environment('production')) {
+            Route::domain('panel.' . env('APP_URL'))
+                ->middleware('web')
+                ->namespace($this->namespace)
+                ->name('panel')
+                ->group(base_path('routes/panel.php'));
+        }
     }
 
     /**
