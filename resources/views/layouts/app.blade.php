@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="{{ config('app.locale') }}">
     <head>
         <link rel="stylesheet" type="text/css" href="{{ url('/stylesheets/stylesheet.css') }}" />
         @hasSection('title')
             <title>
-                @yield('title') - Bureau Onbeperkte Zaken
+                @yield('title') - {{ config('app.name') }}
             </title>
         @else
-            <title>Bureau Onbeperkte Zaken</title>
+            <title>{{ config('app.name') }}</title>
         @endif
     </head>
     <body>
         <header>
-            <a href="#main" class="hidden-until-focus">Doorgaan naar inhoud</a>
+            <a href="#main" class="hidden-until-focus">{{ __('accessibility.skip_to_content') }}</a>
             <nav>
                 <a href="{{ url('/') }}">Home</a>
                 <a href="{{ url('/projecten') }}">Projecten</a>
@@ -33,7 +33,7 @@
         @endif
 
         <footer>
-            Copyright ©2022 Stichting BOZ, Bureau Onbeperkte Zaken - Alle rechten voorbehouden
+            {{ __('main.copyright_notice') }}
         </footer>
     </body>
 </html>

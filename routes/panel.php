@@ -14,5 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('app/home');
+    // return view('panel/home');
+    return "Seperate domain";
 });
