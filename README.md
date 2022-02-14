@@ -20,7 +20,7 @@ Updating your project is as easy as pulling all new changes from the remote bran
 ## CI/CD
 All branches are tested after every push to guarantee a working version of the project. Without passing tests the branch will not be able to be pulled into development or main.
 
-::: mermaid
+```mermaid
 graph TD
     A[Push to branch] --> B[Test with CircleCI];
     B --> C{Branch is main branch};
@@ -32,7 +32,7 @@ graph TD
     click B "https://app.circleci.com/pipelines/github/Pixel-Null/BureauOnbeperkteZaken" "Open CircleCI app" _blank;
     click D "https://boz.avametix.xyz" "Open production server" _blank;
     click F "https://staging.boz.avametix.xyz" "Open staging server" _blank;
-:::
+```
 
 ## Contributing
 Contributions to this project are only done by the following users. Make sure to write tests, and test your branch thoroughly.
