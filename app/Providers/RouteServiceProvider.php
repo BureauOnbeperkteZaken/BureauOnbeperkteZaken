@@ -84,7 +84,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapDomainRoutes()
     {
 
-        if ($this->app->environment('production')) {
+        if ($this->app->environment('production') || $this->app->environment('staging')) {
             Route::domain('panel.' . env('APP_URL'))
                 ->middleware('web')
                 ->namespace($this->namespace)
