@@ -88,7 +88,7 @@ jobs:
     - checkout
     - run: npm install
     - run:
-        name: Deploy main branch on remote ftp server
+        name: Deploy development branch on remote ftp server
         command: |
           sudo apt-get update
           sudo apt-get -qq install git-ftp
@@ -106,7 +106,7 @@ jobs:
         fail_only: false
         failure_message: "${CIRCLE_USERNAME}'s build: ${CIRCLE_JOB} failed."
         webhook: "${discord_webhook}"
-        success_message: "${CIRCLE_USERNAME} deployed ${CIRCLE_BRANCH} to ${ftp_location} ."
+        success_message: "${CIRCLE_USERNAME} deployed ${CIRCLE_BRANCH} to a live environment."
 
 workflows:
   version: 2
