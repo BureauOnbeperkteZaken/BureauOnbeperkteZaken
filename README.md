@@ -1,5 +1,7 @@
 # Bureau Onbeperkte Zaken
-[![CircleCI](https://circleci.com/gh/Pixel-Null/BureauOnbeperkteZaken/tree/main.svg?style=shield)](https://circleci.com/gh/Pixel-Null/BureauOnbeperkteZaken/tree/main)
+| Main | Staging |
+|---|---|
+|[![CircleCI](https://circleci.com/gh/Pixel-Null/BureauOnbeperkteZaken/tree/main.svg?style=shield)](https://circleci.com/gh/Pixel-Null/BureauOnbeperkteZaken/tree/main)| [![CircleCI](https://circleci.com/gh/Pixel-Null/BureauOnbeperkteZaken/tree/development.svg?style=shield)](https://circleci.com/gh/Pixel-Null/BureauOnbeperkteZaken/tree/development) |
 
 This repository contains the "Bureau Onbeperkte Zaken" laravel project. This project is meant to compete with the current WordPress installation and serves as a means to create pages, upload projects and maintain information.
 
