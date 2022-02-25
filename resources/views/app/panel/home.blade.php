@@ -1,9 +1,9 @@
-@extends('layouts.panel')
+@extends('layouts.panel', ['title' => 'Home'])
 
 @section('sidebar')
     <p>Dit is een sidebar</p>
-@show
+@endsection
 
-@section('page-content')
+@section('main')
     <p>Dit is de main content</p>
-@show
+@endsection

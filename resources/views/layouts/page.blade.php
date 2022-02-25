@@ -5,8 +5,6 @@
     </head>
     <body {{ View::hasSection('sidebar') ? "" : "fullwidth" }}>
         @yield('content')
-        <footer>
-            {{ __('main.copyright_notice') }}
-        </footer>
+        <footer>{{ __('main.copyright_notice') }}</footer>
     </body>
 </html>

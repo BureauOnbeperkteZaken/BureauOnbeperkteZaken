@@ -1,12 +1,12 @@
-@include('layouts.page')
+@extends('layouts.page')
 
 @section('content')
     <div class="wrapper">
         <aside>
-            @include('layouts.sidebar')
+            @yield('sidebar')
         </aside>
         <main>
-            @yield('page-content')
+            @yield('main')
         </main>
     </div>
-@show
+@endsection
