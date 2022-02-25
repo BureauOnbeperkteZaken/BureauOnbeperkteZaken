@@ -1,25 +1,12 @@
-<!DOCTYPE html>
-<html lang="{{ config('app.locale') }}">
-    <head>
-        <link rel="stylesheet" type="text/css" href="{{ url('/stylesheets/panel.css') }}" />
-        @hasSection('title')
-            <title>
-                @yield('title') - {{ __('panel.title') }} - {{ config('app.name') }}
-            </title>
-        @else
-            <title>{{ __('panel.title') }} - {{ config('app.name') }}</title>
-        @endif
-    </head>
-    <body>
+@include('layouts.page', ['titlebase' => 'BOZ Admin'])
 
-        <main id="main">
-            @yield('content')
-        </main>
-
-        @hasSection('sidebar')
+@section('content')
+    <div class="wrapper">
         <aside>
-            @yield('sidebar')
+            @include('layouts.sidebar')
         </aside>
-        @endif
-    </body>
-</html>
+        <main>
+            @yield('page-content')
+        </main>
+    </div>
+@show
