@@ -13,14 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('app/home');
+Route::get('/{page}', function ($page) {
+    return view('app/' . $page);
 });
 
-Route::get('/fullscreen', function () {
-    return view('app/fullscreen');
-});
-
-Route::get('/login', function() {
+Route::get('/login', function () {
     return redirect()->guest(route('panel'));
 });
