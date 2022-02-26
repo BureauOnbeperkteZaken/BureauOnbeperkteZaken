@@ -113,7 +113,11 @@ workflows:
   version: 2
   build-test-deploy:
     jobs:
-      - build
+      - build:
+          post-steps:
+            - jira/notify:
+                environment_type: development
+                job_type: build
       - deploy-main:
           filters:
             branches:

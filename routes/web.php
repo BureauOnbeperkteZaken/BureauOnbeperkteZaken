@@ -17,10 +17,10 @@ Route::get('/', function () {
     return view('app/home');
 });
 
-Route::get('/fullscreen', function () {
-    return view('app/fullscreen');
+Route::get('/{page}', function ($page) {
+    return view('app/' . $page);
 });
 
-Route::get('/login', function() {
+Route::get('/login', function () {
     return redirect()->guest(route('panel'));
 });

@@ -15,6 +15,16 @@
     --color-white-background: #CAFCED;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-white);
+}
+
+.card {
+    background-color: var(--color-white-background);
+}
+
 .hidden-until-focus {
     position: absolute;
     top: 20px;
