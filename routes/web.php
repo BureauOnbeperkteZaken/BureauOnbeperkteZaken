@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+<<<<<<< HEAD
     return view('app/home');
 });
 
@@ -23,4 +24,11 @@ Route::get('/{page}', function ($page) {
 
 Route::get('/login', function () {
     return redirect()->guest(route('panel'));
+=======
+    return view('home');
+});
+
+Route::get('/onbeperkt-anders', function () {
+    return view('onbeperkt-anders');
+>>>>>>> Opzetje video zichtbaar
 });
