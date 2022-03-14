@@ -6,7 +6,11 @@
 <body>
     <div>
         <?php
-        $videoLink = "https://player.vimeo.com/video/682661192";
+
+        use Illuminate\Support\Facades\DB;
+        use App\Project;
+
+        $videoLink = Project::first()->video_link;
         ?>
         <h1>Onbeperkt Anders</h1>
 
