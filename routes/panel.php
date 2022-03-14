@@ -14,13 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('app/home');
-});
-
-Route::get('/{page}', function ($page) {
-    return view('app/' . $page);
-});
-
-Route::get('/login', function () {
-    return redirect()->guest(route('panel'));
+    return view('app/panel/home');
 });

@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --color-attention: #000;
+    --color-attention-background: #fff;
+
+    --color-primary: #50C9A3;
+    --color-primary-darker: #3C967A;
+    --color-secondary-lighter: #5E656B;
+    --color-secondary: #323639;
+
+    --color-white: #fff;
+    --color-white-background: #CAFCED;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-white);
+}
+
+.card {
+    background-color: var(--color-white-background);
+}
+
+.hidden-until-focus {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 26px 18px;
+    color: var(--color-attention);
+    border: 2px solid var(--color-attention);
+    background-color: var(--color-attention-background);
+    transform: translateY(-150px);
+    font-size: 1.3em;
+    z-index: 50;
+}
+
+.hidden-until-focus:focus {
+    transform: translateY(0);
+}
