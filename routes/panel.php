@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\ProjectController;
+use App\Services\VideoService;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\Console\Input\Input;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('app/panel/home');
 });
+
+
+Route::get('/new_project', [ProjectController::class, 'create'])->middleware('auth');
+
+Route::post('/new_project', [ProjectController::class, 'store'])->middleware('auth');
