@@ -12,13 +12,13 @@
     <div>
         <?php
 
-        use App\Project;
+        use App\Http\Controllers\VideoController;
 
-        $videoLink = Project::first()->video_link;
+        $video = VideoController::getOnbeperktAndersVideoLink();
         ?>
 
         <div class="video-container">
-            <iframe src=<?php echo $videoLink; ?> frameBorder="0" allowfullscreen></iframe>
+            <iframe src=<?php echo $video; ?> frameBorder="0" allowfullscreen></iframe>
         </div>
 
         <div>
