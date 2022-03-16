@@ -11,15 +11,9 @@
         <a class="active" href="/onbeperkt-anders">Project Oberperkt Anders</a>
     </div>
     <div>
-        <?php
-
-        use App\Http\Controllers\VideoController;
-
-        $video = VideoController::getOnbeperktAndersVideoLink();
-        ?>
 
         <div class="video-container">
-            <iframe src=<?php echo $video; ?> frameBorder="0" allowfullscreen></iframe>
+            <iframe src="{{$videoLink}}" frameBorder="0" allowfullscreen></iframe>
         </div>
 
         <div>

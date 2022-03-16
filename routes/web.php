@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +18,7 @@ Route::get('/', function () {
     return view('app/home');
 });
 
-Route::get('/onbeperkt-anders', function () {
-    return view('onbeperkt-anders');
-});
-
+Route::get('/onbeperkt-anders', [VideoController::class, 'get']);
 
 Route::get('/login', function () {
     return redirect()->guest(route('panel'));
