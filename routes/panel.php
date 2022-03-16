@@ -14,14 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('app/home');
-});
-
-Route::get('/onbeperkt-anders', function () {
-    return view('onbeperkt-anders');
-});
-
-
-Route::get('/login', function () {
-    return redirect()->guest(route('panel'));
+    return view('app/panel/home');
 });
