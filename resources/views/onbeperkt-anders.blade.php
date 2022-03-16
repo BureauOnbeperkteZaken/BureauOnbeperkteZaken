@@ -3,6 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="onbeperkt-anders.css">
+</head>
 
 <body>
     <div class="topnav">
@@ -34,6 +35,5 @@
     </div>
 
 </body>
-</head>
 
 </html>
