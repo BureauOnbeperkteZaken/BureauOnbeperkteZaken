@@ -63,11 +63,12 @@ jobs:
           webhook: "${discord_webhook}"
   deploy-main:
     docker:
-      - image: circleci/node:8-browsers
+      - image: cimg/node:8-browsers
     working_directory: ~/repo
     steps:
     - checkout
     - run: npm install
+    - run: git status
     - run:
         name: Deploy main branch on remote ftp server
         command: |
@@ -83,11 +84,12 @@ jobs:
           sshpass -p "${password_prod}" -v ssh -o StrictHostKeyChecking=no ${username_prod}@${ftp_server_prod} -p ${ssh_port_prod} "cd ${ftp_location_prod}; composer update -W; php artisan optimize:clear; exit"
   deploy-staging:
     docker:
-      - image: circleci/node:8-browsers
+      - image: cimg/node:8-browsers
     working_directory: ~/repo
     steps:
     - checkout
     - run: npm install
+    - run: git status
     - run:
         name: Deploy development branch on remote ftp server
         command: |
