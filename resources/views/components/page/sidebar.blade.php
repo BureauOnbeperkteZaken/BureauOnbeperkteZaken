@@ -1,10 +1,11 @@
 @props([
     'title' => $view_name, 
     'titlebase' => config("app.name"),
-    'sidebar' => ''
+    'sidebar' => '',
+    'background' => ''
 ])
 
-<x-page.base title="{{ $title }}" titlebase="{{ $titlebase }}">
+<x-page.base title="{{ $title }}" titlebase="{{ $titlebase }}" background="{{ $background }}">
     <main>
         {!! $slot !!}
     </main>

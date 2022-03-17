@@ -1,6 +1,7 @@
 @props([
     'title' => '', 
-    'titlebase' => config("app.name")
+    'titlebase' => config("app.name"),
+    'background' => ''
 ])
 
 <!DOCTYPE html>
@@ -17,6 +18,7 @@
     <header>
         @include('layouts.menu')
     </header>
+        {!! $background ? '<div id="background">' . $background . '</div>' : "" !!}
     <div class="wrapper">
         {!! $slot !!}
     </div>
