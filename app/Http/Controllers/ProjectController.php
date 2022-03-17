@@ -10,6 +10,13 @@ use Vimeo\Laravel\Facades\Vimeo;
 
 class ProjectController extends Controller
 {
+    public function index(int $id){
+        $videoLink = Project::where('id', $id)
+            ->first()
+            ->video_link;
+        return view('app/home')->with('videoLink', $videoLink);
+    }
+
     public function create(){
         return view('app/panel/new_project');
     }
@@ -26,6 +33,6 @@ class ProjectController extends Controller
         $project->video_link = $embedUrl;
         $project->save();
 
-        return redirect(route('panelhome'));
+        return redirect("projects/$project->id")->with('videoLink', $embedUrl);
     }
 }
