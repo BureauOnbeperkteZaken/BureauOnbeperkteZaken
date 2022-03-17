@@ -20,7 +20,3 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return redirect()->guest(route('panel'));
 });
-
-Route::get('/onbeperkt-anders', function () {
-    return view('onbeperkt-anders');
-});
