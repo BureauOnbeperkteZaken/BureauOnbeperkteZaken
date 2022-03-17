@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400;1,600&family=Oswald:wght@400;600&display=swap');
+
 * {
     box-sizing: border-box;
 }
@@ -19,6 +21,15 @@ html, body {
     margin: 0;
     padding: 0;
     background-color: var(--color-white);
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif;
+}
+
+h4, h5, h6 {
+    color: var(--color-primary-darker);
 }
 
 .card {
@@ -33,11 +44,92 @@ html, body {
     color: var(--color-attention);
     border: 2px solid var(--color-attention);
     background-color: var(--color-attention-background);
-    transform: translateY(-150px);
+    transform: translateY(-999px);
     font-size: 1.3em;
     z-index: 50;
 }
 
 .hidden-until-focus:focus {
     transform: translateY(0);
+}
+
+/* Page styling */
+
+header {
+    position: fixed;
+    top: 160px;
+    left: 0;
+    z-index: 5;
+}
+
+header > nav > a {
+    position: relative;
+    text-decoration: none;
+    color: var(--color-secondary);
+    padding: 14px 18px;
+    background-color: var(--color-primary);
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    box-sizing: content-box;
+}
+
+header > nav > a.current {
+    color: var(--color-white);
+    background-color: var(--color-secondary);
+    border: 10px solid var(--color-primary-darker);
+}
+
+#background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    height: 100vh;
+}
+
+#background > * {
+    width: 100vw;
+    height: 56.25vw;
+    display: block;
+    border: none;
+}
+
+.wrapper {
+    position: relative;
+    margin-top: 60vh;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 160px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+#background:focus + .wrapper {
+    margin-top: 66.25vw;
+}
+
+.wrapper > main {
+    flex: 3;
+    margin-top: 20vh;
+    background-color: var(--color-white-background);
+    padding: 80px 120px;
+    pointer-events: all;
+}
+
+.wrapper > aside {
+    flex: 1;
+    background-color: var(--color-primary);
+    padding: 40px 60px;
+    pointer-events: all;
+}
+
+footer {
+    position: relative;
+    width: 100%;
+    padding: 40px 60px;
+    background-color: var(--color-primary-darker);
+    text-align: center;
+    bottom: 0;
 }
