@@ -1,7 +1,8 @@
 <x-page.sidebar>
     <x-slot:background>
+
         <iframe id="ytplayer" type="text/html" width="1920" height="1080"
-  src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
+  src="@isset($videoLink){{$videoLink }} @else https://player.vimeo.com/video/188017888?h=dc7d85e4c7' @endisset"
   frameborder="0"></iframe>
     </x-slot:background>
     <h5>Test h6</h5>
