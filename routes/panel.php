@@ -18,9 +18,10 @@ use Symfony\Component\Console\Input\Input;
 
 Route::get('/', function () {
     return view('app/panel/home');
-});
+})->name('home');
 
 
 Route::get('/new_project', [ProjectController::class, 'create'])->middleware('auth');
 
 Route::post('/new_project', [ProjectController::class, 'store'])->middleware('auth');
+

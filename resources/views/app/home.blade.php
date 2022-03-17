@@ -5,6 +5,10 @@
 <div class="topnav">
     <a class="active" href="/">Home</a>
     <a href="/onbeperkt-anders">Project Oberperkt Anders</a>
+    <form action="{{route('logout')}}" method="post">
+        @csrf
+        <button name="logout" value="logout">logout</button>
+    </form>
 </div>
 <p>Dit is de main content</p>
 @endsection

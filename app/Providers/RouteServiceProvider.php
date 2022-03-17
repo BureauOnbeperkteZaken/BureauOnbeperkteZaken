@@ -62,7 +62,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::middleware('web')
             ->namespace($this->namespace)
-            ->name('web')
+            /*->name('web')*/
             ->group(base_path('routes/web.php'));
 
         if ($this->app->environment('local', 'testing')) {

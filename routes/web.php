@@ -1,6 +1,9 @@
 <?php
 
+
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\VideoController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +23,19 @@ Route::get('/', function () {
 
 Route::get('/onbeperkt-anders', [VideoController::class, 'get']);
 
-Route::get('/login', function () {
-    return redirect()->guest(route('panel'));
-});
+
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+// Authentication Routes...
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
+// Registration Routes...
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register');
+
+// Password Reset Routes...
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
