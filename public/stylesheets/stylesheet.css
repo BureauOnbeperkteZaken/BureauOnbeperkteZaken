@@ -85,6 +85,14 @@ header > nav > a.current {
     left: 0;
     right: 0;
     z-index: 0;
+    height: 100vh;
+}
+
+#background > * {
+    width: 100vw;
+    height: 56.25vw;
+    display: block;
+    border: none;
 }
 
 .wrapper {
@@ -96,6 +104,10 @@ header > nav > a.current {
     gap: 160px;
     z-index: 2;
     pointer-events: none;
+}
+
+#background:focus + .wrapper {
+    margin-top: 66.25vw;
 }
 
 .wrapper > main {
