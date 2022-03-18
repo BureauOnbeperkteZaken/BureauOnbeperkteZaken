@@ -65,13 +65,11 @@ class RouteServiceProvider extends ServiceProvider
             /*->name('web')*/
             ->group(base_path('routes/web.php'));
 
-        if ($this->app->environment('local', 'testing')) {
-            Route::prefix('panel')
-                ->middleware('web')
-                ->namespace($this->namespace)
-                ->name('panel')
-                ->group(base_path('routes/panel.php'));
-        }
+        Route::prefix('panel')
+            ->middleware('web')
+            ->namespace($this->namespace)
+            ->name('panel')
+            ->group(base_path('routes/panel.php'));
     }
 
     /**
@@ -83,14 +81,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapDomainRoutes()
     {
-
-        if ($this->app->environment('production') || $this->app->environment('staging')) {
-            Route::domain('panel.' . env('APP_URL'))
-                ->middleware('web')
-                ->namespace($this->namespace)
-                ->name('panel')
-                ->group(base_path('routes/panel.php'));
-        }
+        //
     }
 
     /**
