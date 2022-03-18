@@ -81,7 +81,7 @@ jobs:
         command: |
           sudo apt-get -qq install sshpass
           echo "Restarting artisan"
-          sshpass -p "${password_prod}" -v ssh -o StrictHostKeyChecking=no ${username_prod}@${ftp_server_prod} -p ${ssh_port_prod} "cd ${ftp_location_prod}; composer update -W; php artisan optimize:clear; exit"
+          sshpass -p "${password_prod}" -v ssh -o StrictHostKeyChecking=no ${username_prod}@${ftp_server_prod} -p ${ssh_port_prod} "cd ${ftp_location_prod}; composer update -W; npm install; php artisan optimize:clear; exit"
   deploy-staging:
     docker:
       - image: circleci/node:8-browsers
@@ -102,7 +102,7 @@ jobs:
         command: |
           sudo apt-get -qq install sshpass
           echo "Restarting artisan"
-          sshpass -p "${password_dev}" -v ssh -o StrictHostKeyChecking=no ${username_dev}@${ftp_server_dev} -p ${ssh_port_prod} "cd ${ftp_location_dev}; composer update -W; php artisan optimize:clear; exit"
+          sshpass -p "${password_dev}" -v ssh -o StrictHostKeyChecking=no ${username_dev}@${ftp_server_dev} -p ${ssh_port_prod} "cd ${ftp_location_dev}; composer update -W; npm install; php artisan migrate:fresh --seed; php artisan optimize:clear; exit"
 
     # send discord webhook
     - discord/status:
