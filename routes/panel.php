@@ -25,3 +25,4 @@ Route::get('/new_project', [ProjectController::class, 'create'])->middleware('au
 
 Route::post('/new_project', [ProjectController::class, 'store'])->middleware('auth');
 
+

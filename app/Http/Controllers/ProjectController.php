@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProjectCreateRequest;
 use App\Project;
-use Illuminate\Http\Request;
 use Vimeo\Laravel\Facades\Vimeo;
 
 
@@ -18,7 +17,7 @@ class ProjectController extends Controller
     }
 
     public function create(){
-        return view('app/panel/new_project');
+        return view('app.panel.new_project');
     }
 
     public function store(ProjectCreateRequest $request){
