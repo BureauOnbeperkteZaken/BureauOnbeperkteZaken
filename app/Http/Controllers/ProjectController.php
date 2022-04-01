@@ -10,18 +10,21 @@ use Vimeo\Laravel\Facades\Vimeo;
 
 class ProjectController extends Controller
 {
-    public function index(int $id){
+    public function index(int $id)
+    {
         $videoLink = Project::where('id', $id)
             ->first()
             ->video_link;
         return view('app/home')->with('videoLink', $videoLink);
     }
 
-    public function create(){
+    public function create()
+    {
         return view('app/panel/new_project');
     }
 
-    public function store(ProjectCreateRequest $request){
+    public function store(ProjectCreateRequest $request)
+    {
         $request->validated();
         $file = $request->file('video_file');
         $name = $request->get('video_name');

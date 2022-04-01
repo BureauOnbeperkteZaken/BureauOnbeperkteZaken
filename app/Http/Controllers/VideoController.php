@@ -11,4 +11,9 @@ class VideoController extends Controller
         $videoLink = Project::first()->video_link;
         return view('app/home')->with('videoLink', $videoLink);
     }
+
+    public static function upload()
+    {
+        return view('app/panel/content_upload');
+    }
 }

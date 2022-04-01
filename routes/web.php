@@ -23,6 +23,8 @@ Route::get('/', function () {
 
 Route::get('/onbeperkt-anders', [VideoController::class, 'get']);
 
+Route::get('/content_upload', [VideoController::class, 'upload']);
+
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 // Authentication Routes...
