@@ -15,11 +15,14 @@
 </head>
 
 <body>
-    <header>
-        @include('layouts.menu')
-    </header>
+    @auth
+        @include('layouts.admin')
+    @endauth
+    <div @class(['wrapper', 'no-background' => empty($background) ])>
+        <header>
+            @include('layouts.menu')
+        </header>
         {!! $background ? '<div id="background">' . $background . '</div>' : "" !!}
-    <div class="wrapper">
         {!! $slot !!}
     </div>
     <footer>
