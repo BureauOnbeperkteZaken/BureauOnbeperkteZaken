@@ -12,5 +12,6 @@
         <div class=" alert alert-danger">{{ $message }}</div>
         @enderror
         <input type="submit" value="Upload">
+        <p>Na het succesvol uploaden van een file kom je weer op deze pagina terecht voor het eventueel uploaden van nog een bestand.</p>
     </form>
 </x-page.sidebar>

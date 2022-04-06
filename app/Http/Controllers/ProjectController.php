@@ -52,10 +52,8 @@ class ProjectController extends Controller
             'upload' => 'required|file|mimes:pdf,xls,xlsx,png,jpeg,jpg,webp,svg,gif',
             'name' => 'required|string|max:255',
         ]);
-        //store request in variable
         $file = $request->file('upload');
-        $fileName = $request->name;
-        //store file in storage
+        $fileName = $request->get('name');
         Storage::disk('public')->put('uploads', $file);
         return redirect('/content_upload');
     }
