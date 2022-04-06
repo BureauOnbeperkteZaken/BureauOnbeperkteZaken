@@ -68,18 +68,6 @@ jobs:
 
     steps:
       - checkout
-
-      - run:
-          name: "Prepare Environment"
-          command: |
-            sudo apt update
-            sudo docker-php-ext-install zip
-
-      - run:
-          name: "Create Environment file"
-          command: |
-            mv .env.testing .env
-
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -88,6 +76,7 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
+      - run: composer update
       - run:
           name: "Install Dependencies"
           command: composer install -n --prefer-dist
@@ -97,9 +86,12 @@ jobs:
           paths:
             - ./vendor
 
+      # prepare the database
       - run:
-          name: "Generate App key"
-          command: php artisan key:generate
+          name: "Create Environment file and generate app key"
+          command: |
+            mv .env.testing .env
+            php artisan key:generate
 
       - run:
           name: "Create database and run migration"
