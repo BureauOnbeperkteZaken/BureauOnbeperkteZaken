@@ -8,6 +8,7 @@
     --color-attention: #000;
     --color-attention-background: #fff;
 
+    --color-primary-lighter: #61e0b8;
     --color-primary: #50C9A3;
     --color-primary-darker: #3C967A;
     --color-secondary-lighter: #5E656B;
@@ -15,25 +16,69 @@
 
     --color-white: #fff;
     --color-white-background: #CAFCED;
+    --color-white-background-lighter: #dbfff4;
 }
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     background-color: var(--color-white);
     font-family: 'Open Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Oswald', sans-serif;
 }
 
-h4, h5, h6 {
+h4,
+h5,
+h6 {
     color: var(--color-primary-darker);
 }
 
 .card {
     background-color: var(--color-white-background);
+}
+
+#panel {
+    width: 300px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: var(--color-primary);
+    z-index: 20;
+    padding: 20px;
+}
+
+#panel nav {
+    background-color: var(--color-primary-lighter);
+}
+
+#panel a {
+    display: block;
+    padding: 8px 12px;
+    border: var(--color-primary-darker);
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    position: relative;
+    text-decoration: none;
+    color: var(--color-secondary);
+}
+
+#panel+.wrapper {
+    margin-left: 300px;
+    width: calc(100% - 300px);
 }
 
 .hidden-until-focus {
@@ -58,11 +103,11 @@ h4, h5, h6 {
 header {
     position: fixed;
     top: 160px;
-    left: 0;
-    z-index: 5;
+    z-index: 10;
+    pointer-events: all;
 }
 
-header > nav > a {
+header>nav>a {
     position: relative;
     text-decoration: none;
     color: var(--color-secondary);
@@ -73,7 +118,7 @@ header > nav > a {
     box-sizing: content-box;
 }
 
-header > nav > a.current {
+header>nav>a.current {
     color: var(--color-white);
     background-color: var(--color-secondary);
     border: 10px solid var(--color-primary-darker);
@@ -85,44 +130,53 @@ header > nav > a.current {
     left: 0;
     right: 0;
     z-index: 0;
-    height: 100vh;
+    width: 100%;
+    padding-top: 56.25%;
+    pointer-events: all;
 }
 
-#background > * {
-    width: 100vw;
-    height: 56.25vw;
-    display: block;
+#background>* {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
     border: none;
 }
 
 .wrapper {
-    position: relative;
-    margin-top: 60vh;
-    width: 100%;
     display: flex;
     flex-flow: row nowrap;
     gap: 160px;
     z-index: 2;
     pointer-events: none;
+    position: relative;
 }
 
-#background:focus + .wrapper {
+#background:focus+.wrapper {
     margin-top: 66.25vw;
 }
 
-.wrapper > main {
+.wrapper>main {
     flex: 3;
-    margin-top: 20vh;
+    margin-top: 80vh;
     background-color: var(--color-white-background);
     padding: 80px 120px;
     pointer-events: all;
+    z-index: 5;
 }
 
-.wrapper > aside {
+.no-background>main {
+    margin-top: unset;
+}
+
+.wrapper>aside {
     flex: 1;
+    margin-top: 60vh;
     background-color: var(--color-primary);
     padding: 40px 60px;
     pointer-events: all;
+    z-index: 5;
 }
 
 footer {
@@ -132,4 +186,20 @@ footer {
     background-color: var(--color-primary-darker);
     text-align: center;
     bottom: 0;
+}
+
+.cards .paragraph {
+    line-height: 1.62em;
+    padding: 40px 60px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--color-white)
+}
+
+.cards .paragraph+.paragraph {
+    margin-top: 80px;
+}
+
+.cards .content-wrapper {
+    margin-top: -160px;
+    border: 15px solid var(--color-white-background);
 }
