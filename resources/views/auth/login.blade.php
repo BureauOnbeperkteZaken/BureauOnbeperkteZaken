@@ -19,14 +19,14 @@
             <div>
                 <x-label for="email" :value="__('Email')" />
 
-                <x-input dusk='email' id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                <x-input placeholder="Vul hier je email in." dusk='email' id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
             <!-- Password -->
             <div class="mt-4">
                 <x-label for="password" :value="__('Wachtwoord')" />
 
-                <x-input dusk='password' id="password" class="block mt-1 w-full"
+                <x-input placeholder="Vul hier je wachtwoord in." dusk='password' id="password" class="block mt-1 w-full"
                                 type="password"
                                 name="password"
                                 required autocomplete="current-password" />

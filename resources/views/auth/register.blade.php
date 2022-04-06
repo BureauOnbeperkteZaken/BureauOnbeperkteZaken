@@ -16,21 +16,21 @@
             <div>
                 <x-label for="name" :value="__('Naam')" />
 
-                <x-input dusk="name" id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                <x-input placeholder="Vul hier de naam in." dusk="name" id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             </div>
 
             <!-- Email Address -->
             <div class="mt-4">
                 <x-label for="email" :value="__('Email')" />
 
-                <x-input dusk="email" id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                <x-input placeholder="Vul hier de email in." dusk="email" id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
 
             <!-- Password -->
             <div class="mt-4">
                 <x-label for="password" :value="__('Wachtwoord')" />
 
-                <x-input dusk="password" id="password" class="block mt-1 w-full"
+                <x-input placeholder="Vul hier je wachtwoord in." dusk="password" id="password" class="block mt-1 w-full"
                                 type="password"
                                 name="password"
                                 required autocomplete="new-password" />
