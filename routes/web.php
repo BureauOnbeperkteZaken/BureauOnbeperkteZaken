@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -23,8 +24,8 @@ Route::get('/', function () {
 
 Route::get('/onbeperkt-anders', [VideoController::class, 'get']);
 
-Route::get('/content_upload', [VideoController::class, 'upload']);
-
+Route::get('/content_upload', [ProjectController::class, 'fileUpload']);
+Route::post('/content_upload', [ProjectController::class, 'storeFile']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 // Authentication Routes...

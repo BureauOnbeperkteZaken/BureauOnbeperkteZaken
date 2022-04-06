@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProjectCreateRequest;
 use App\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Vimeo\Laravel\Facades\Vimeo;
 
 
@@ -37,5 +38,19 @@ class ProjectController extends Controller
         $project->save();
 
         return redirect("projects/$project->id")->with('videoLink', $embedUrl);
+    }
+
+    public static function fileUpload()
+    {
+        return view('app/panel/content_upload');
+    }
+
+    public function storeFile(Request $request)
+    {
+        //store request in variable
+        $file = $request->file('upload');
+        $fileName = $request->name;
+        //store file in storage
+        Storage::disk('public')->put('uploads', $file);
     }
 }
