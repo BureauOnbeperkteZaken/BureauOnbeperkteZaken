@@ -21,6 +21,10 @@ Route::get('/', function () {
     return view('app/home');
 });
 
+Route::get('/contact', function () {
+    return view('contact');
+});
+
 Route::get('/onbeperkt-anders', [VideoController::class, 'get']);
 
 
