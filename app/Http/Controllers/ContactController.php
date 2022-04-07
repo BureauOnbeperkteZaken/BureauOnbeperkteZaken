@@ -47,7 +47,7 @@ class ContactController extends Controller
         $message = Message::create($request->all());
 
         //Mail
-        Mail::to('jentevanderhoek@gmail.com')->send(new ContactMail($message));
+        Mail::to('development@boz.com')->send(new ContactMail($message));
 
         return view('contact')->with('success', 'Bericht verzonden');
     }
