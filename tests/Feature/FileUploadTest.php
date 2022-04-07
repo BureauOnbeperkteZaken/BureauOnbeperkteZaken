@@ -7,6 +7,8 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 
+use function PHPUnit\Framework\assertTrue;
+
 class ExampleTest extends TestCase
 {
     public function test_avatars_can_be_uploaded()
@@ -14,13 +16,26 @@ class ExampleTest extends TestCase
 
         $files = new Filesystem();
         $file = UploadedFile::fake()->create('avatar.pdf');
-        Storage::disk('public')->put('uploadsTest', $file);
+
 
         $extension = $file->getClientOriginalExtension();
-        if ($extension == 'pdf' | $extension == 'xls' | $extension == 'xlsx' | $extension == 'png' | $extension == 'jpeg' | $extension == 'jpg' | $extension == 'webp' | $extension == 'svg' | $extension == 'gif') {
-            $this->assertCount(1, Storage::disk('public')->files());
+        $extensionArray = [
+            'pdf',
+            'xls',
+            'xlsx',
+            'png',
+            'jpeg',
+            'jpg',
+            'webp',
+            'svg',
+            'gif'
+        ];
+
+        if (in_array($extension, $extensionArray)) {
+            $path = Storage::disk('public')->put('uploadsTest', $file);
+            $this->assertTrue(Storage::disk('public')->exists($path));
         } else {
-            $this->assertCount(0, Storage::disk('public')->files());
+            $this->assertFalse(false);
         }
         $files->cleanDirectory('storage/app/public/uploadsTest');
     }
