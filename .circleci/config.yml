@@ -103,6 +103,7 @@ jobs:
           name: "Install Dusk and Update Chrome Drivers"
           command: |
             composer require --dev laravel/dusk
+            php artisan dusk:chrome-driver
 
       # - run:
       #     name: Start Chrome Driver
