@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ProjectController;
 use App\Services\VideoService;
 use Illuminate\Support\Facades\Route;
@@ -16,12 +17,18 @@ use Symfony\Component\Console\Input\Input;
 |
 */
 
-Route::get('/', function () {
-    return view('app/panel/home');
-})->name('home');
+Route::middleware('auth')->group(function () {
+    Route::get('/', function () {
+        return view('app/panel/home');
+    })->name('home');
 
 
-Route::get('/new_project', [ProjectController::class, 'create'])->middleware('auth');
+    Route::get('/new_project', [ProjectController::class, 'create']);
 
-Route::post('/new_project', [ProjectController::class, 'store'])->middleware('auth');
+    Route::post('/new_project', [ProjectController::class, 'store']);
+
+    Route::get('/add_user', [RegisteredUserController::class, 'create'])->name('create_user');
+    Route::post('/add_user', [RegisteredUserController::class, 'store'])->name('add_user');
+
+});
 
