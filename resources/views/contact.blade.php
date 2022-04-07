@@ -24,18 +24,26 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
 <body class="container">
     <div class="card mx-auto my-5" style="width: 50%">
         <div class="card-body">
-            <form action-="{{route('store')}}" method="post">
+            <div class="form-group col-12 p-0">
+                @isset($success)
+                    <div class="alert alert-success">
+                        {{$success}}
+                    </div>
+                @endisset
+            </div>
+            <form action="{{route('store')}}" method="POST">
+                @csrf
                 <div class="mb-3">
                     <label for="inputEmail" class="form-label">Email</label>
-                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="inputName" class="form-label">Naam</label>
-                    <input type="email" name="fullName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="text" name="name" class="form-control" id="nameId" aria-describedby="nameHelp">
                 </div>
                 <div class="mb-3">
                     <label for="inputEmail" class="form-label">Bericht</label>
-                    <textarea type="email" name="message" class="form-control" id="exampleInputEmail1" aria-describedby="messageHelp"></textarea>
+                    <textarea type="email" name="message" class="form-control" id="messageId" aria-describedby="messageHelp"></textarea>
                     <span id="messageHelp" class="form-text">
                       Maximaal 500 karakters.
                     </span>

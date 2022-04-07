@@ -35,7 +35,16 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        dd($request);
+        $request->validate([
+            'email' => 'required',
+            'name' => 'required',
+            'message' => 'required',
+        ]);
+
+        Message::create($request->all());
+
+        return view('contact')->with('success', 'Bericht verzonden');
     }
 
     /**
