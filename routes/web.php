@@ -26,16 +26,8 @@ Route::get('/onbeperkt-anders', [VideoController::class, 'get']);
 Route::get('/content_upload', [ProjectController::class, 'fileUpload']);
 Route::post('/content_upload', [ProjectController::class, 'storeFile']);
 
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-// Authentication Routes...
-Route::post('login', 'Auth\LoginController@login');
-Route::post('logout', 'Auth\LoginController@logout')->name('logout');
-
-// Registration Routes...
-Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-Route::post('register', 'Auth\RegisterController@register');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
