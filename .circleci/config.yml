@@ -104,10 +104,10 @@ jobs:
           command: |
             composer require --dev laravel/dusk
 
-      - run:
-          name: Start Chrome Driver
-          command: ./vendor/laravel/dusk/bin/chromedriver-linux
-          background: true
+      # - run:
+      #     name: Start Chrome Driver
+      #     command: ./vendor/laravel/dusk/bin/chromedriver-linux
+      #     background: true
 
       - run:
           name: Run Laravel Server
