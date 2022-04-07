@@ -18,11 +18,6 @@ class ExampleTest extends TestCase
         $file = UploadedFile::fake()->create('avatar.pdf');
         Storage::disk('public')->put('uploadsTest', $file);
 
-        $response = $this->post('/public', [
-            'avatar' => $file,
-        ]);
-
-        //get $file extension
         $extension = $file->getClientOriginalExtension();
         if ($extension == 'pdf' | $extension == 'xls' | $extension == 'xlsx' | $extension == 'png' | $extension == 'jpeg' | $extension == 'jpg' | $extension == 'webp' | $extension == 'svg' | $extension == 'gif') {
             $this->assertCount(1, Storage::disk('public')->files());
