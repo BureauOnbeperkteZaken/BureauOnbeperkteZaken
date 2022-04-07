@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Vimeo\Laravel\Facades\Vimeo;
 
-
 class ProjectController extends Controller
 {
     public function index(int $id)
@@ -19,9 +18,8 @@ class ProjectController extends Controller
         return view('app/home')->with('videoLink', $videoLink);
     }
 
-    public function create()
-    {
-        return view('app/panel/new_project');
+    public function create(){
+        return view('app.panel.new_project');
     }
 
     public function store(ProjectCreateRequest $request)
