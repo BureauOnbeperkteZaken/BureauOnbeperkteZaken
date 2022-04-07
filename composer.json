@@ -17,14 +17,16 @@
         "symfony/mailgun-mailer": "^6.0",
         "van-ons/laraberg": "^v1.1.1",
         "vimeo/laravel": "^5.7.0",
-        "laravel/ui": "^v3.4.5"
+        "laravel/breeze": "v1.9.0"
     },
     "require-dev": {
-        "spatie/laravel-ignition": "^1.0",
         "fakerphp/faker": "^1.9.1",
+        "laravel/dusk": "^6.22",
+        "laravel/sail": "^1.13",
         "mockery/mockery": "^1.3.1",
         "nunomaduro/collision": "^6.0",
-        "phpunit/phpunit": "^9.0"
+        "phpunit/phpunit": "^9.0",
+        "spatie/laravel-ignition": "^1.0"
     },
     "config": {
         "optimize-autoloader": true,
