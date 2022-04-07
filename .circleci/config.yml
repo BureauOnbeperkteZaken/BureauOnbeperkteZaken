@@ -7,6 +7,7 @@ version: 2.1
 orbs:
   discord: antonioned/discord@0.1.0
   jira: circleci/jira@1.3.1
+  browser-tools: circleci/browser-tools@1.2.5
 
 jobs:
   build:
@@ -99,11 +100,12 @@ jobs:
             touch database/database.sqlite
             php artisan migrate --env=testing
 
+      - browser-tools/install-browser-tools
+
       - run:
-          name: "Install Dusk and Update Chrome Drivers"
+          name: "Install Dusk"
           command: |
             composer require --dev laravel/dusk
-            php artisan dusk:chrome-driver
 
       # - run:
       #     name: Start Chrome Driver
