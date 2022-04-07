@@ -17,7 +17,19 @@ class ExampleTest extends TestCase
         Storage::disk('public')->put('uploadsTest', $file);
 
         $extension = $file->getClientOriginalExtension();
-        if ($extension == 'pdf' | $extension == 'xls' | $extension == 'xlsx' | $extension == 'png' | $extension == 'jpeg' | $extension == 'jpg' | $extension == 'webp' | $extension == 'svg' | $extension == 'gif') {
+        $extensionArray = [
+            'pdf',
+            'xls',
+            'xlsx',
+            'png',
+            'jpeg',
+            'jpg',
+            'webp',
+            'svg',
+            'gif'
+        ];
+
+        if (in_array($extension, $extensionArray)) {
             $this->assertCount(1, Storage::disk('public')->files());
         } else {
             $this->assertCount(0, Storage::disk('public')->files());
