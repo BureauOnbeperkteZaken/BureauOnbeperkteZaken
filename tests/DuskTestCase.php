@@ -19,10 +19,9 @@ abstract class DuskTestCase extends BaseTestCase
      */
     public static function prepare()
     {
-        // Uncomment if local, should add an if statement
-        // if (! static::runningInSail()) {
-        //     static::startChromeDriver();
-        // }
+        if (!static::runningInSail() && config('app.env') != 'cicd') {
+            static::startChromeDriver();
+        }
     }
 
     /**
