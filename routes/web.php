@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\VideoController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +21,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/onbeperkt-anders', [VideoController::class, 'get']);
+
+Route::get('/content_upload', [ProjectController::class, 'fileUpload']);
+Route::post('/content_upload', [ProjectController::class, 'storeFile']);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
