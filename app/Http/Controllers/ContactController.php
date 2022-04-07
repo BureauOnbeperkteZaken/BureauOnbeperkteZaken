@@ -43,11 +43,11 @@ class ContactController extends Controller
             'name' => 'required',
             'message' => 'required',
         ]);
-
         $message = Message::create($request->all());
 
         //Mail
-        Mail::to('development@boz.com')->send(new ContactMail($message));
+        Mail::to('boz.mailforward@gmail.com')->send(new ContactMail($message));
+        //Gmail development account login email: boz.mailforward@gmail.com ww: ZJukqZ8HKzi7aMZ
 
         return view('contact')->with('success', 'Bericht verzonden');
     }

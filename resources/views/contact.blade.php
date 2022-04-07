@@ -22,6 +22,7 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
 </header>
 
 <body class="container">
+<h2 class="text-center mt-5">Contact opnemen</h2>
     <div class="card mx-auto my-5" style="width: 50%">
         <div class="card-body">
             <div class="form-group col-12 p-0">
@@ -43,7 +44,7 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
                 </div>
                 <div class="mb-3">
                     <label for="inputEmail" class="form-label">Bericht</label>
-                    <textarea type="email" name="message" class="form-control" id="messageId" aria-describedby="messageHelp"></textarea>
+                    <textarea type="text" name="message" class="form-control" id="messageId" maxlength="500" aria-describedby="messageHelp"></textarea>
                     <span id="messageHelp" class="form-text">
                       Maximaal 500 karakters.
                     </span>
