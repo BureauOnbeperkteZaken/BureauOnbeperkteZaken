@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMail;
 use App\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -35,14 +37,17 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request);
+        //DB Store
         $request->validate([
             'email' => 'required',
             'name' => 'required',
             'message' => 'required',
         ]);
 
-        Message::create($request->all());
+        $message = Message::create($request->all());
+
+        //Mail
+        Mail::to('jentevanderhoek@gmail.com')->send(new ContactMail($message));
 
         return view('contact')->with('success', 'Bericht verzonden');
     }

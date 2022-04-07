@@ -3,8 +3,9 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\VideoController;
+use App\Mail\ContactMail;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,7 @@ Route::get('/', function () {
     return view('app/home');
 });
 
+// Contact Routes
 Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index']);
 Route::post('index', [App\Http\Controllers\ContactController::class, 'store'])->name('store');
 Route::post('/contact', [App\Http\Controllers\ContactController::class, 'index'])->name('index');
