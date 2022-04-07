@@ -14,17 +14,21 @@ class ExampleTest extends TestCase
     public function test_avatars_can_be_uploaded()
     {
 
-        $file = UploadedFile::fake()->image('avatar.png');
+        $files = new Filesystem();
+        $file = UploadedFile::fake()->create('avatar.pdf');
         Storage::disk('public')->put('uploadsTest', $file);
 
         $response = $this->post('/public', [
             'avatar' => $file,
         ]);
 
-        // Storage::disk('public')->assertExists($file->getClientOriginalName());
-        //check if uploaded file exists
-        $this->assertCount(1, Storage::disk('public')->files());
-        $file = new Filesystem();
-        $file->cleanDirectory('storage/app/public/uploadsTest');
+        //get $file extension
+        $extension = $file->getClientOriginalExtension();
+        if ($extension == 'pdf' | $extension == 'xls' | $extension == 'xlsx' | $extension == 'png' | $extension == 'jpeg' | $extension == 'jpg' | $extension == 'webp' | $extension == 'svg' | $extension == 'gif') {
+            $this->assertCount(1, Storage::disk('public')->files());
+        } else {
+            $this->assertCount(0, Storage::disk('public')->files());
+        }
+        $files->cleanDirectory('storage/app/public/uploadsTest');
     }
 }
