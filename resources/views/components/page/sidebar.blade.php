@@ -2,14 +2,22 @@
     'title' => $view_name, 
     'titlebase' => config("app.name"),
     'sidebar' => '',
-    'background' => ''
+    'background' => '',
+    'leftSidebar' => false,
 ])
 
 <x-page.base title="{{ $title }}" titlebase="{{ $titlebase }}" background="{{ $background }}">
+    @if($leftSidebar)
+        <aside class="sidebar">
+            {{ $sidebar }}
+        </aside>
+    @endif
     <main>
         {!! $slot !!}
     </main>
-    <aside class="sidebar">
-        {!! $sidebar !!}
-    </aside>
+    @if(!$leftSidebar)
+        <aside class="sidebar">
+            {{ $sidebar }}
+        </aside>
+    @endif
 </x-page.base>

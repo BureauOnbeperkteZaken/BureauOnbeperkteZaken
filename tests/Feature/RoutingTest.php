@@ -10,9 +10,9 @@ use Tests\TestCase;
 
 /**
  * Routing test class
- * 
+ *
  * Class responsible for testing all routing options
- * 
+ *
  * @package Tests\Feature\RoutingTest
  */
 
@@ -20,7 +20,7 @@ class RoutingTest extends TestCase
 {
     /**
      * Array of app routing options to test
-     * 
+     *
      * @var array
      */
     private array $appRoutes = [
@@ -33,18 +33,18 @@ class RoutingTest extends TestCase
      * @var array
      */
     private array $panelRoutes = [
-        ['path' => '/', 'expectedResult' => 200],
+        ['path' => '/', 'expectedResult' => 302],
         ['path' => '/does-not-exist', 'expectedResult' => 404]
     ];
 
     /**
      * Tests all routing options in $appRoutes
-     * 
-     * @return void 
-     * @throws LogicException 
-     * @throws BadRequestException 
-     * @throws InvalidArgumentException 
-     * @throws ExpectationFailedException 
+     *
+     * @return void
+     * @throws LogicException
+     * @throws BadRequestException
+     * @throws InvalidArgumentException
+     * @throws ExpectationFailedException
      */
     public function testAppRouting()
     {
@@ -57,12 +57,12 @@ class RoutingTest extends TestCase
 
     /**
      * Tests all panel routing options in $panelRoutes
-     * 
-     * @return void 
-     * @throws LogicException 
-     * @throws BadRequestException 
-     * @throws InvalidArgumentException 
-     * @throws ExpectationFailedException 
+     *
+     * @return void
+     * @throws LogicException
+     * @throws BadRequestException
+     * @throws InvalidArgumentException
+     * @throws ExpectationFailedException
      */
     public function testPanelRouting()
     {
