@@ -125,7 +125,7 @@ jobs:
 
       - run:
           name: Run Browser Tests Tests
-          command: php artisan dusk
+          command: php artisan dusk:chrome-driver
 
       # send discord webhook
       - discord/status:
