@@ -23,9 +23,9 @@ Route::get('/', function () {
 });
 
 // Contact Routes
-Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index']);
-Route::post('index', [App\Http\Controllers\ContactController::class, 'store'])->name('store');
-Route::post('/contact', [App\Http\Controllers\ContactController::class, 'index'])->name('index');
+Route::get('/contact', [App\Http\Controllers\ContactController::class, 'contact_index']);
+Route::post('contact_index', [App\Http\Controllers\ContactController::class, 'contact_store'])->name('store');
+Route::post('/contact', [App\Http\Controllers\ContactController::class, 'contact_index'])->name('contact_index');
 
 Route::get('/onbeperkt-anders', [VideoController::class, 'get']);
 
