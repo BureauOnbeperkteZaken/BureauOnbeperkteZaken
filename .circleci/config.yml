@@ -100,7 +100,13 @@ jobs:
             touch database/database.sqlite
             php artisan migrate --env=testing
 
-      - browser-tools/install-browser-tools
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
+      - run:
+          name: Check Chrome install
+          command: |
+            google-chrome --version
+            chromedriver --version
 
       - run:
           name: "Install Dusk"
