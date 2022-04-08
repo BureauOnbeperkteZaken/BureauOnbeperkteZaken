@@ -131,7 +131,7 @@ jobs:
           name: Create Homepage Artifact
           command: |
             mkdir /tmp/artifacts
-            wget -P /tmp/artifacts -O index.html http://127.0.0.1:8000/
+            wget -P /tmp/artifacts -O index.html http://localhost:8000
 
       - run:
           name: Run Browser Tests
