@@ -69,18 +69,6 @@ jobs:
 
     steps:
       - checkout
-
-      - run:
-          name: "Prepare Environment"
-          command: |
-            sudo apt update
-            sudo apt install php-zip
-
-      - run:
-          name: "Create Environment file"
-          command: |
-            mv .env.testing .env
-
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -89,6 +77,7 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
+      - run: composer update
       - run:
           name: "Install Dependencies"
           command: composer install -n --prefer-dist
@@ -98,9 +87,12 @@ jobs:
           paths:
             - ./vendor
 
+      # prepare the database
       - run:
-          name: "Generate App key"
-          command: php artisan key:generate
+          name: "Create Environment file and generate app key"
+          command: |
+            mv .env.testing .env
+            php artisan key:generate
 
       - run:
           name: "Create database and run migration"
@@ -108,17 +100,27 @@ jobs:
             touch database/database.sqlite
             php artisan migrate --env=testing
 
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
       - run:
-          name: "Install Dusk and Update Chrome Drivers"
+          name: Check Chrome install
           command: |
-            composer require --dev laravel/dusk
-            composer require --dev staudenmeir/dusk-updater
-            php artisan dusk:update --detect
+            google-chrome --version
+            chromedriver --version
 
       - run:
-          name: Start Chrome Driver
-          command: ./vendor/laravel/dusk/bin/chromedriver-linux
-          background: true
+          name: "Install Dusk"
+          command: |
+            composer require --dev laravel/dusk
+
+      # - run:
+      #     name: Start Chrome Driver
+      #     command: ./vendor/laravel/dusk/bin/chromedriver-linux
+      #     background: true
+
+      - run:
+          name: Set Dusk Chrome Driver
+          command: php artisan dusk:chrome-driver
 
       - run:
           name: Run Laravel Server
@@ -126,8 +128,17 @@ jobs:
           background: true
 
       - run:
-          name: Run Browser Tests Tests
+          name: Run Browser Tests
           command: php artisan dusk
+
+      - run:
+          name: Create Homepage Artifact
+          command: |
+            mkdir /tmp/artifacts
+            wget -P /tmp/artifacts -O index.html http://127.0.0.1:8000/
+
+      - store_artifacts:
+          path: /tmp/artifacts
 
       # send discord webhook
       - discord/status:
