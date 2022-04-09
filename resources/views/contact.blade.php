@@ -22,12 +22,17 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
                         {{$success}}
                     </div>
                 @endisset
+                    @isset($fail)
+                        <div class="alert alert-danger">
+                            {{$fail}}
+                        </div>
+                    @endisset
             </div>
             <form action="{{route('store')}}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="inputEmail" class="form-label">Email</label>
-                    <input type="email" name="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp">
+                    <input  name="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="inputName" class="form-label">Naam</label>
@@ -35,7 +40,7 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
                 </div>
                 <div class="mb-3">
                     <label for="inputEmail" class="form-label">Bericht</label>
-                    <textarea type="text" name="message" class="form-control" id="messageId" maxlength="500" aria-describedby="messageHelp"></textarea>
+                    <textarea type="text" name="message" class="form-control" id="messageId"  aria-describedby="messageHelp"></textarea>
                     <span id="messageHelp" class="form-text">
                       Maximaal 500 karakters.
                     </span>
