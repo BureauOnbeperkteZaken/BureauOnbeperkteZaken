@@ -53,8 +53,6 @@ class RegistrationTest extends DuskTestCase
                 ->press('@register')
                 ->logout();
         });
-        $user = User::where('email', 'test@register.com')->first();
-        $this->assertTrue(Hash::check('test1234', $user->password));
     }
 
     public function testLoginFailTest()
