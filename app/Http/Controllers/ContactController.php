@@ -23,17 +23,11 @@ class ContactController extends Controller
      */
     public function contact_store(Request $request)
     {
-        if ( !filter_var(($request-> email), FILTER_VALIDATE_EMAIL) ){
-            return view('contact')->with('fail', 'Email niet geldig');
-        }
-        if ( strlen($request-> message) > 500 ){
-            return view('contact')->with('fail', 'Bericht te lang');
-        }
         //DB Store
         $request->validate([
-            'email' => 'required',
+            'email' => 'required|email',
             'name' => 'required',
-            'message' => 'required',
+            'message' => 'required|max:500',
         ]);
         $message = Message::create($request->all());
 

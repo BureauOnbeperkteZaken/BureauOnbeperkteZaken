@@ -17,16 +17,18 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
     <div class="card mx-auto my-5" style="width: 50%">
         <div class="card-body">
             <div class="form-group col-12 p-0">
+                @if($errors->any())
+                    <div class="alert alert-danger">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </div>
+                @endif
                 @isset($success)
                     <div class="alert alert-success">
                         {{$success}}
                     </div>
                 @endisset
-                    @isset($fail)
-                        <div class="alert alert-danger">
-                            {{$fail}}
-                        </div>
-                    @endisset
             </div>
             <form action="{{route('store')}}" method="POST">
                 @csrf
