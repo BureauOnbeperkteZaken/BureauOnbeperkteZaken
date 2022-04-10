@@ -3,7 +3,9 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\VideoController;
+use App\Mail\ContactMail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +22,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Contact Routes
+Route::get('/contact', [App\Http\Controllers\ContactController::class, 'contact_index']);
+Route::post('contact_index', [App\Http\Controllers\ContactController::class, 'contact_store'])->name('store');
+Route::post('/contact', [App\Http\Controllers\ContactController::class, 'contact_index'])->name('contact_index');
 
 Route::get('/onbeperkt-anders', [VideoController::class, 'get']);
 

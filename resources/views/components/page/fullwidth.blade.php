@@ -1,5 +1,5 @@
 @props([
-    'title' => $view_name, 
+    'title' => $view_name,
     'titlebase' => config("app.name"),
     'sidebar' => '',
     'background' => '',
