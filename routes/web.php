@@ -38,3 +38,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
+
+Route::get('/template/{id}', function (int $id = 0) {
+    return view('app.panel.templates.project_' . $id);
+});
