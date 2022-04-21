@@ -1,4 +1,4 @@
-<x-page.fullwidth :cards="false">
+<x-page.sidebar>
     <x-slot:background>
         <iframe id="ytplayer" type="text/html" title="Vimeo player"
                 src="@isset($videoLink){{ $videoLink }} @else https://player.vimeo.com/video/188017888?h=dc7d85e4c7' @endisset"></iframe>
