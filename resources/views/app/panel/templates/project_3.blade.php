@@ -1,4 +1,4 @@
-<x-page.sidebar>
+<x-page.sidebar :leftSidebar="true">
     <div class="editor">
         <div class="content">
             <h5>Subheading</h5>
