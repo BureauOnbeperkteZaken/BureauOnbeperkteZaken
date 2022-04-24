@@ -15,7 +15,6 @@
         "laravel/passport": "~10.0",
         "laravel/tinker": "^2.5",
         "symfony/mailgun-mailer": "^6.0",
-        "van-ons/laraberg": "^v1.1.1",
         "vimeo/laravel": "^5.7.0",
         "laravel/breeze": "v1.9.0"
     },
