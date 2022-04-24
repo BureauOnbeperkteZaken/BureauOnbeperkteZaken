@@ -152,3 +152,5 @@ php/
 
 Dockerfile
 docker-compose.yml
+
+**.code-workspace
