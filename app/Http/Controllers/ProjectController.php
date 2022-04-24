@@ -47,7 +47,8 @@ class ProjectController extends Controller
     public function storeFile(Request $request)
     {
         $validated = $request->validate([
-            'upload' => 'required|file|mimes:pdf,xls,xlsx,png,jpeg,jpg,webp,svg,gif'
+            'upload' => 'required|file|mimes:pdf,xls,xlsx,png,jpeg,jpg,webp,svg,gif',
+            'name' => 'required|string|max:255'
         ]);
         $file = $request->file('upload');
         $fileType = $file->getClientOriginalExtension();
