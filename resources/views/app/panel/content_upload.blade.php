@@ -6,11 +6,6 @@
         @error('upload')
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
-        <label for="name">Naam:</label>
-        <input type="text" id="name" name="name" , value="{{old('name')}}" /><br>
-        @error('name')
-        <div class=" alert alert-danger">{{ $message }}</div>
-        @enderror
         <input type="submit" value="Upload">
         <p>Na het succesvol uploaden van een file kom je weer op deze pagina terecht voor het eventueel uploaden van nog een bestand.</p>
     </form>
