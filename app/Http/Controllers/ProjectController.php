@@ -50,7 +50,8 @@ class ProjectController extends Controller
             'upload' => 'required|file|mimes:pdf,xls,xlsx,png,jpeg,jpg,webp,svg,gif'
         ]);
         $file = $request->file('upload');
-        $fileName = $file->getClientOriginalName();
+        $fileType = $file->getClientOriginalExtension();
+        $fileName = $request->get('name') . '.' . $fileType;
         $path = base_path() . '/storage/app/public/uploads/';
         $file->move($path, $fileName);
 
