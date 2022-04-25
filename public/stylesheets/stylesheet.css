@@ -46,6 +46,37 @@ h6 {
     color: var(--color-primary-darker);
 }
 
+hr {
+    width: 80%;
+    height: 2px;
+    border: 1px solid var(--color-primary-lighter);
+    margin: 32px auto;
+    position: relative;
+}
+hr[data-title]::after {
+    content: attr(data-title);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid var(--color-primary-lighter);
+    padding: 8px 16px;
+    background-color: var(--color-white);
+}
+
+.editor {
+    border: 2px solid var(--color-primary-lighter);
+    padding: 16px;
+    margin: -16px;
+    position: relative;
+}
+
+.editor-toolbar {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 .card {
     background-color: var(--color-white-background);
 }
@@ -107,7 +138,7 @@ header {
     pointer-events: all;
 }
 
-header>nav>a {
+header > nav > a {
     position: relative;
     text-decoration: none;
     color: var(--color-secondary);
@@ -118,10 +149,22 @@ header>nav>a {
     box-sizing: content-box;
 }
 
-header>nav>a.current {
+header > nav > a.current {
     color: var(--color-white);
     background-color: var(--color-secondary);
     border: 10px solid var(--color-primary-darker);
+}
+
+button {
+    position: relative;
+    text-decoration: none;
+    color: var(--color-secondary);
+    padding: 14px 18px;
+    background-color: var(--color-primary);
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    box-sizing: content-box;
+    border: none;
 }
 
 #background {
@@ -135,7 +178,7 @@ header>nav>a.current {
     pointer-events: all;
 }
 
-#background>* {
+#background > * {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -151,13 +194,16 @@ header>nav>a.current {
     z-index: 2;
     pointer-events: none;
     position: relative;
+    width: 100vw;
+    overflow-y: hidden;
+    padding-top: 25vh
 }
 
 #background:focus+.wrapper {
     margin-top: 66.25vw;
 }
 
-.wrapper>main {
+.wrapper > main {
     flex: 3;
     margin-top: 80vh;
     background-color: var(--color-white-background);
@@ -166,11 +212,11 @@ header>nav>a.current {
     z-index: 5;
 }
 
-.no-background>main {
+.no-background > main {
     margin-top: unset;
 }
 
-.wrapper>aside {
+.wrapper > aside {
     flex: 1;
     margin-top: 60vh;
     background-color: var(--color-primary);
@@ -202,4 +248,46 @@ footer {
 .cards .content-wrapper {
     margin-top: -160px;
     border: 15px solid var(--color-white-background);
+}
+
+.gallery {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 60px;
+    justify-content: center;
+}
+
+.gallery > .photo {
+    width: 270px;
+    height: 270px;
+    background-color: lightgray;
+    position: relative;
+    overflow: hidden;
+}
+
+.photo > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo > .details {
+    width: 40%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: #00000070;
+    color: var(--color-white);
+    text-align: right;
+    justify-content: space-evenly;
+    padding: 8px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.photo:hover > .details {
+    transform: translateX(0);
 }

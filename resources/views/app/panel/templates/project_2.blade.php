@@ -1,4 +1,4 @@
-<x-page.sidebar>
+<x-page.fullwidth>
     <div class="editor">
         <div class="content">
             <h5>Subheading</h5>
@@ -58,8 +58,4 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-</x-page.sidebar> 
-=======
-</x-page.sidebar>
->>>>>>> b3068328ab6b2fda60135843c6260e7201f7b01f
+    </x-page.sidebar>
