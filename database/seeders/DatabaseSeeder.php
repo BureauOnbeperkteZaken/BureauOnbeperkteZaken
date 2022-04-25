@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -15,5 +17,7 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'email' => 'testuser@boz.com',
         ]);
+        $this->call([LanguageSeeder::class]);
+        $this->call([TemplateSeeder::class]);
     }
 }
