@@ -1,4 +1,4 @@
-<x-page.sidebar>
+<x-page.sidebar :leftSidebar="true">
     <div class="editor">
         <div class="content">
             <h5>Subheading</h5>
@@ -24,7 +24,7 @@
             </p>
         </div>
         <div class="editor-toolbar">
-            <button><a href="{{route('template.edit', 2)}}">{{ __('edit') }}</a></button>
+            <button>{{ __('edit') }}</button>
         </div>
     </div>
     <hr data-title="{{ __('gallery') }}" />

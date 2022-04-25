@@ -1,4 +1,4 @@
-<x-page.sidebar :leftSidebar="true">
+<x-page.fullwidth>
     <div class="editor">
         <div class="content">
             <h5>Subheading</h5>
@@ -58,4 +58,4 @@
             </div>
         </div>
     </div>
-</x-page.sidebar>
+    </x-page.sidebar>

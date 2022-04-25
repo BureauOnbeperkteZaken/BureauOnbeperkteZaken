@@ -1,30 +1,36 @@
-<x-page.sidebar>
+<x-page.fullwidth :cards="true">
     <div class="editor">
         <div class="content">
-            <h5>Subheading</h5>
-            <h1>Title</h1>
-            <p>
-                Deserunt labore do mollit consectetur mollit sit ex dolor anim exercitation fugiat dolore fugiat Lorem. Et officia adipisicing Lorem aute ex in occaecat anim laborum cupidatat quis ut magna reprehenderit. Consectetur aute irure in dolor. Pariatur ea occaecat nisi officia esse non pariatur ullamco veniam est.
-            </p>
-            <p>
-                Tempor aliquip sint consequat Lorem proident sint nostrud aute ex adipisicing eu. Consequat exercitation et sint aliqua ullamco adipisicing ipsum ex. Occaecat eu do ipsum sunt velit culpa. Laborum aliqua exercitation consequat aute eiusmod ipsum sint irure sint reprehenderit ullamco.
-            </p>
-            <ul>
-                <li>This is</li>
-                <li>An unordered</li>
-                <li>List</li>
-            </ul>
-            <ol>
-                <li>This is</li>
-                <li>An unordered</li>
-                <li>List</li>
-            </ol>
-            <p>
-                Non ad excepteur nisi amet pariatur elit laboris. Duis ullamco ut voluptate laboris. Officia veniam sit proident amet nostrud do. Eiusmod tempor eiusmod proident aute dolor laborum.
-            </p>
+            <div class="paragraph">
+                <h5>Subheading</h5>
+                <h1>Title</h1>
+                <p>
+                    Deserunt labore do mollit consectetur mollit sit ex dolor anim exercitation fugiat dolore fugiat Lorem. Et officia adipisicing Lorem aute ex in occaecat anim laborum cupidatat quis ut magna reprehenderit. Consectetur aute irure in dolor. Pariatur ea occaecat nisi officia esse non pariatur ullamco veniam est.
+                </p>
+            </div>
+            <div class="paragraph">
+                <p>
+                    Tempor aliquip sint consequat Lorem proident sint nostrud aute ex adipisicing eu. Consequat exercitation et sint aliqua ullamco adipisicing ipsum ex. Occaecat eu do ipsum sunt velit culpa. Laborum aliqua exercitation consequat aute eiusmod ipsum sint irure sint reprehenderit ullamco.
+                </p>
+                <ul>
+                    <li>This is</li>
+                    <li>An unordered</li>
+                    <li>List</li>
+                </ul>
+                <ol>
+                    <li>This is</li>
+                    <li>An unordered</li>
+                    <li>List</li>
+                </ol>
+            </div>
+            <div class="paragraph">
+                <p>
+                    Non ad excepteur nisi amet pariatur elit laboris. Duis ullamco ut voluptate laboris. Officia veniam sit proident amet nostrud do. Eiusmod tempor eiusmod proident aute dolor laborum.
+                </p>
+            </div>
         </div>
         <div class="editor-toolbar">
-            <button>{{ __('edit') }}</button>
+            <button><a href="{{route('template.edit', 1)}}">{{ __('edit') }}</a></button>
         </div>
     </div>
     <hr data-title="{{ __('gallery') }}" />
@@ -58,8 +64,4 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-</x-page.sidebar> 
-=======
 </x-page.sidebar>
->>>>>>> b3068328ab6b2fda60135843c6260e7201f7b01f
