@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\VideoController;
+use App\Http\Controllers\TemplateController;
 use App\Mail\ContactMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -41,4 +42,13 @@ require __DIR__ . '/auth.php';
 
 Route::get('/template/{id}', function (int $id = 0) {
     return view('app.panel.templates.project_' . $id);
+});
+
+Route::get('/template/{template}/edit', [TemplateController::class, 'edit'])->name('template.edit');
+Route::put('/template/{template}/edit', [TemplateController::class, 'update'])->name('template.update');
+
+Route::get('/test', [TemplateController::class, 'edit'])->name('test.edit');
+
+Route::post('/test', [TemplateController::class, 'store'], function () {
+    return view('app.home');
 });
