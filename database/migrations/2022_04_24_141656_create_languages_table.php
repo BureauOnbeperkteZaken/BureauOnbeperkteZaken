@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('content', function (Blueprint $table) {
-            $table->id();
-            $table->string('content');
-            $table->unsignedBigInteger('template_id');
-            $table->foreign('template_id')->references('id')->on('templates');
-            $table->string('language_code');
+        Schema::create('languages', function (Blueprint $table) {
+            $table->string('code')->primary();
+            $table->string('name');
         });
     }
 
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('content');
+        Schema::dropIfExists('languages');
     }
 };

@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('templates', function (Blueprint $table) {
             $table->id();
+            $table->string('content');
+            $table->string('language_code');
+            $table->foreign('language_code')->references('code')->on('languages');
         });
     }
 
