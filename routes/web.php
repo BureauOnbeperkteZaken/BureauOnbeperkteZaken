@@ -20,8 +20,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('app.home');
+    return redirect()->route('home');
 });
+
+Route::get('home', function (){
+    return view('app.home');
+})->name('home');;
 
 // Contact Routes
 Route::get('/contact', [App\Http\Controllers\ContactController::class, 'contact_index']);
@@ -33,7 +37,11 @@ Route::get('/onbeperkt-anders', [VideoController::class, 'get']);
 Route::get('/content_upload', [ProjectController::class, 'fileUpload']);
 Route::post('/content_upload', [ProjectController::class, 'storeFile']);
 
-Route::get('/metadata', [App\Http\Controllers\MetaDataController::class, 'createForm']);
+Route::get('/metadata/{page}', function($slug){
+    return view('meta-data-edit', [
+        'url' => $slug
+    ]);
+});
 Route::post('/metadata', [App\Http\Controllers\MetaDataController::class, 'MetaDataForm'])->name('metadata.store');
 
 Route::get('/dashboard', function () {

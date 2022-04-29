@@ -8,7 +8,8 @@
     <h2>Onderhoudspaneel</h2>
     <br/>
     <nav>
-        <a href="metadata">Metadata aanpassen</a>
+{{--      {{ route('metadata.link', ['url' => url()->current()])}}  --}}
+        <a href="/metadata/{{request()->segment(count(request()->segments()))}}">Metadata aanpassen</a>
         <a href="#">Test</a>
         <a href="#">Test</a>
         {{-- <?php $get = DB::table('')-get()>--}}

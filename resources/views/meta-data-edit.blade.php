@@ -33,11 +33,10 @@
                 </div>
                 <form action="{{route('metadata.store')}}" method="POST">
                     @csrf
+                    @if(!empty($url))
                     <div class="mb-3">
-                        <fieldset>
-                            <label for="inputUrl" class="form-label">Aan te passen pagina</label>
-                            <input name='url' type="text" id="urlInput" class="form-control" placeholder="/voorbeeld/pagina">
-                        </fieldset>
+                        <label for="inputUrl" class="form-label">Aan te passen pagina</label>
+                        <input name='url' type="text" id="urlInput" class="form-control" value="{{$url}}" readonly>
                         <label for="inputTitle" class="form-label">Titel</label>
                         <input name="title" class="form-control" id="inputTitle" aria-describedby="titleHelp">
                         <label for="inputDescription" class="form-label">Beschrijving</label>
@@ -46,6 +45,7 @@
                     <div class="col-12 text-center">
                         <button class="btn btn-success" type="submit">Opslaan</button>
                     </div>
+                    @endif
                 </form>
             </div>
         </div>
