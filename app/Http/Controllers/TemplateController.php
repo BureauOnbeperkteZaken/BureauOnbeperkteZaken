@@ -15,6 +15,7 @@ class TemplateController extends Controller
         return view('app.panel.templates.project_' . $id, compact('blocks'));
     }
 
+    // Legacy code don't delete yet
     public function edit($id = 0)
     {
         $template = Template::find($id);
@@ -23,6 +24,7 @@ class TemplateController extends Controller
         return view('app.panel.editor', compact('template', 'languages'));
     }
 
+    // Legacy code don't delete yet
     public function update(Request $request, Template $template)
     {
         $template->content = $request->content;
@@ -43,9 +45,20 @@ class TemplateController extends Controller
         $template->save();
     }
 
-    public function editBlock(Request $request, Block $block, Template $template)
+    public function editBlock(Request $request, Block $block)
     {
-        
-        return view('app.panel.templates.project_' . $template->id);
+        $template = Template::find($block->template_id);
+        $languages = Language::all();
+
+        return view('app.panel.editor', compact('block', 'template', 'languages'));
+    }
+
+    public function updateBlock(Request $request, Block $block)
+    {
+        // Only supports paragraphs for now
+        $block->content = '<div class="paragraph">' . $request->content . '</div>';
+        $block->save();
+
+        return redirect()->route('template.read', $block->template_id);
     }
 }

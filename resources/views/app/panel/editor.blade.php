@@ -48,9 +48,11 @@
   });
 </script>
 
-@if ($template)
+@if ($block)
 <script>
-  console.log('{!! $template->content !!}');
-  quill.root.innerHTML = '{!! $template->content !!}';
+  var text = '{!! $block->content!!}';
+  text = text.replace(/<\/?div(\s([a-z-]*)="[a-z]*")*?>/g, '');
+  console.log(text);
+  quill.root.innerHTML = text;
 </script>
 @endif

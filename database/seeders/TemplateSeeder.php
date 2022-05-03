@@ -16,7 +16,7 @@ class TemplateSeeder extends Seeder
     public function run()
     {
         DB::table('templates')->insert([
-            'content' => '<h1>Seks seks seks noah heeft elke dag seks😂😂😂😂😂😂</h1><p>crab rave!!🦀</p><h1>🥺👉👈</h1><p><br></p><p><br></p><p><br></p><p>DABABY1</p><p>!!!!!! </p><h2>👉😂👈</h2>',
+            'content' => '<h1>Noah heeft elke dag haram</h1><p>crab rave!!🦀</p><h1>🥺👉👈</h1><p><br></p><p><br></p><p><br></p><p>DABABY1</p><p>!!!!!! </p><h2>👉😂👈</h2>',
             'language_code' => 'cn',
         ]);
     }
