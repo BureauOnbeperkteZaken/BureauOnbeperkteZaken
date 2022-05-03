@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         ]);
         $this->call([LanguageSeeder::class]);
         $this->call([TemplateSeeder::class]);
+        $this->call([BlockSeeder::class]);
     }
 }
