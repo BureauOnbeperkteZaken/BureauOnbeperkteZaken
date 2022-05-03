@@ -19,5 +19,17 @@ class TemplateSeeder extends Seeder
             'content' => '<h1>Noah heeft elke dag haram</h1><p>crab rave!!🦀</p><h1>🥺👉👈</h1><p><br></p><p><br></p><p><br></p><p>DABABY1</p><p>!!!!!! </p><h2>👉😂👈</h2>',
             'language_code' => 'cn',
         ]);
+        DB::table('templates')->insert([
+            'content' => 'template 2',
+            'language_code' => 'nl',
+        ]);
+        DB::table('templates')->insert([
+            'content' => 'template 3',
+            'language_code' => 'nl',
+        ]);
+        DB::table('templates')->insert([
+            'content' => 'template 4',
+            'language_code' => 'nl',
+        ]);
     }
 }
