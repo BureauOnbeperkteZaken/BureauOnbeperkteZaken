@@ -9,8 +9,8 @@
             @foreach ($blocks as $block)
             {!! $block->content !!}
             <script>
-                let paragraph{{$block->order}} = document.querySelectorAll('.paragraph')[{{$block->order - 1}}];
-                paragraph{{$block->order}}.innerHTML += "<div class=\"editor-toolbar\"><button><a href=\"{{route('block.edit', $block->order)}}\">{{ __('edit') }}</a></button></div>"
+                let block{{$block->order}} = document.querySelectorAll('.paragraph')[{{$block->order - 1}}];
+                block{{$block->order}}.innerHTML += "<div class=\"editor-toolbar\"><button><a href=\"{{route('block.edit', $block->id)}}\">{{ __('edit') }}</a></button></div>"
             </script>
             @endforeach
         </div>
