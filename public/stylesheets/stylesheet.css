@@ -292,5 +292,4 @@ footer {
 .content {
     display: flex;
     flex-flow: column;
-    gap: 80px;
 }

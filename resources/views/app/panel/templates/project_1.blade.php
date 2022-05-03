@@ -1,3 +1,8 @@
+<style>
+    .content {
+        gap: 80px;
+    }
+</style>
 <x-page.fullwidth :cards="true">
     <div class="editor">
         <div class="content">
