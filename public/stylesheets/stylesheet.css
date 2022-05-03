@@ -235,14 +235,11 @@ footer {
 }
 
 .cards .paragraph {
+    position: relative;
     line-height: 1.62em;
     padding: 40px 60px;
     font-family: 'Open Sans', sans-serif;
     background-color: var(--color-white)
-}
-
-.cards .paragraph+.paragraph {
-    margin-top: 80px;
 }
 
 .cards .content-wrapper {
@@ -290,4 +287,10 @@ footer {
 
 .photo:hover > .details {
     transform: translateX(0);
+}
+
+.content {
+    display: flex;
+    flex-flow: column;
+    gap: 80px;
 }
