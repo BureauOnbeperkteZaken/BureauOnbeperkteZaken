@@ -23,9 +23,9 @@ Route::middleware('auth')->group(function () {
     })->name('home');
 
 
-    Route::get('/new_project', [ProjectController::class, 'create']);
+    Route::get('/new_project', [ProjectController::class, 'create'])->name('create_project');
 
-    Route::post('/new_project', [ProjectController::class, 'store']);
+    Route::post('/new_project', [ProjectController::class, 'store'])->name('store_project');
 
     Route::get('/add_user', [RegisteredUserController::class, 'create'])->name('create_user');
     Route::post('/add_user', [RegisteredUserController::class, 'store'])->name('add_user');
