@@ -40,12 +40,13 @@ Route::get('/dashboard', function () {
 
 require __DIR__ . '/auth.php';
 
-Route::get('/template/{id}', function (int $id = 0) {
-    return view('app.panel.templates.project_' . $id);
-});
+Route::get('/template/{id}', [TemplateController::class, 'read'])->name('template.read');
 
 Route::get('/template/{template}/edit', [TemplateController::class, 'edit'])->name('template.edit');
 Route::put('/template/{template}/edit', [TemplateController::class, 'update'])->name('template.update');
+
+Route::get('block/{block}/edit', [TemplateController::class, 'editBlock'])->name('block.edit');
+Route::put('block/{block}/edit', [TemplateController::class, 'updateBlock'])->name('block.update');
 
 Route::get('/test', [TemplateController::class, 'edit'])->name('test.edit');
 
