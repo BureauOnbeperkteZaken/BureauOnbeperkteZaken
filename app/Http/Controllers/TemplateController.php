@@ -46,13 +46,13 @@ class TemplateController extends Controller
         $template->save();
     }
 
-    public function createBlock($id)
+    public function createBlock($id, $type)
     {
         $template = Template::find($id);
         $languages = Language::all();
         $method = 'POST';
 
-        return view('app.panel.editor', compact('template', 'languages', 'method'));
+        return view('app.panel.editor', compact('template', 'languages', 'type', 'method'));
     }
 
     public function storeBlock(Request $request)
@@ -73,6 +73,8 @@ class TemplateController extends Controller
         $template = Template::find($block->template_id);
         $languages = Language::all();
         $method = 'PUT';
+        // Removes container class of the content
+        $block->content = preg_replace('/<\/?div(\s([a-z-]*)="[a-z-\s]*")*?>/', '', $block->content);
 
         return view('app.panel.editor', compact('block', 'template', 'languages', 'method'));
     }

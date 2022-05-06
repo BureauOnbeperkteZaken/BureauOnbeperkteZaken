@@ -15,9 +15,10 @@
             @endforeach
         </div>
         <div class="flex">
-            <button><a href="{{route('block.create', $template->id)}}">Paragraph</a></button>
-            <button><a href="{{route('block.create', $template->id)}}">Image-paragraph</a></button>
-            <button><a href="{{route('block.create', $template->id)}}">Paragraph-image</a></button>
+            <button><a href="{{route('block.create', ['template' => $template->id, 'type' => 'paragraph'])}}">Paragraph</a></button>
+            <button><a href="{{route('block.create', ['template' => $template->id, 'type' => 'image-paragraph'])}}">Image-paragraph</a></button>
+            <button><a href="{{route('block.create', ['template' => $template->id, 'type' => 'paragraph-image'])}}">Paragraph-image</a></button>
+            <button><a href="{{route('block.create', ['template' => $template->id, 'type' => 'gallery'])}}">Gallery</a></button>
         </div>
     </div>
     <!-- <hr data-title="{{ __('gallery') }}" /> -->

@@ -51,9 +51,6 @@
 @if (isset($block) && $block)
 <script>
   var text = '{!! $block->content!!}';
-  // removes div from content
-  // TODO: replace to controller
-  text = text.replace(/<\/?div(\s([a-z-]*)="[a-z-\s]*")*?>/g, '');
   console.log(text);
   quill.root.innerHTML = text;
 </script>
