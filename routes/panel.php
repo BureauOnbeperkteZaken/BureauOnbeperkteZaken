@@ -30,9 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/add_user', [RegisteredUserController::class, 'create'])->name('create_user');
     Route::post('/add_user', [RegisteredUserController::class, 'store'])->name('add_user');
 
-    // Route::get('/template/{id}', function (int $id = 0) {
-    //     return view('app.panel.templates.project_' . $id);
-    // });
+    Route::get('/content_upload', [ProjectController::class, 'fileUpload']);
+    Route::post('/content_upload', [ProjectController::class, 'storeFile']);
 
 });
-
