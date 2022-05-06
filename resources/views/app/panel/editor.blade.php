@@ -26,7 +26,9 @@
   @if(isset($image))
   <input type="hidden" id="filename" name="filename" value="{{$image->name}}">
   @endif
+  @if($block->type != 'paragraph')
   <input id="upload" type="file" name="upload" accept="image/png, image/jpeg, image/jpg, image/webp, image/gif " />
+  @endif
 </form>
 @if(isset($image))
   <img id="preview" style="width:100%" src="http://127.0.0.1:8000/storage/uploads/{{$image->name}}">
