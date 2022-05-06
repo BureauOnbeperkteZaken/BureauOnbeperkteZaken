@@ -62,6 +62,14 @@
     var contentElement = document.getElementById('content');
     contentElement.value = content;
   });
+  var imageUploader = document.getElementById('image-uploader');
+  var preview = document.getElementById('preview');
+  imageUploader.onchange = evt => {
+    const [file] = imageUploader.files
+    if (file) {
+      preview.src = URL.createObjectURL(file)
+    }
+  }
 </script>
 
 @if (isset($block) && $block)
