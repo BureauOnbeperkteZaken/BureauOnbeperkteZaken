@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('template_id');
             $table->foreign('template_id')->references('id')->on('templates');
             $table->integer('order');
+            $table->string('type');
         });
     }
 
