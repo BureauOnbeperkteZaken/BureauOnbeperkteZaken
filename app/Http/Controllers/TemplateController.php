@@ -75,6 +75,8 @@ class TemplateController extends Controller
         $method = 'PUT';
         // Removes container class of the content
         $block->content = preg_replace('/<\/?div(\s([a-z-]*)="([a-z-\s])*")*?>(?=(<p>|$))/', '', $block->content);
+        // ! Temp code to receive to remove the photo from the content
+        $block->content = preg_replace('/(?<=(<div class="photo">))[\s\S]*(?=(<\/div>))/', '', $block->content);
 
         return view('app.panel.editor', compact('block', 'template', 'languages', 'method'));
     }
