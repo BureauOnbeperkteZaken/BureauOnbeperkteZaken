@@ -26,11 +26,10 @@
 @if(isset($image))
   <input type="hidden" id="filename" name="filename" value="{{$image->name}}">
 @endif
-  <input type="file" name="upload" accept="application/pdf, application/vnd.ms-excel, image/png, image/jpeg, image/jpg, image/webp, application/svg, image/gif " /><br>
-  <input type="submit" value="Upload">
+  <input id="upload" type="file" name="upload" accept="image/png, image/jpeg, image/jpg, image/webp, image/gif " />
 </form>
 @if(isset($image))
-  <img style="width:100%" src="http://127.0.0.1:8000/storage/uploads/{{$image->name}}">
+  <img id="preview" style="width:100%" src="http://127.0.0.1:8000/storage/uploads/{{$image->name}}">
 @endif
 
 <!-- Include the Quill library -->
@@ -58,7 +57,7 @@
     var contentElement = document.getElementById('content');
     contentElement.value = content;
   });
-  var imageUploader = document.getElementById('image-uploader');
+  var imageUploader = document.getElementById('upload');
   var preview = document.getElementById('preview');
   imageUploader.onchange = evt => {
     const [file] = imageUploader.files
