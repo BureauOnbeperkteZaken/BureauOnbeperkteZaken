@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Block;
+use App\Models\Image;
 use App\Models\Language;
 use App\Models\Template;
 use Illuminate\Http\Request;
@@ -61,7 +62,7 @@ class TemplateController extends Controller
         $block->template_id = $request->id;
         $block->type = 'paragraph';
         $block->order = Block::where('template_id', $request->id)->max('order') + 1;
-        $block->content = $this->converter($block->type, $request->content);
+        $block->content = $this->converter($block->type, $request->content, $request->filename);
 
         $block->save();
 
@@ -73,33 +74,55 @@ class TemplateController extends Controller
         $template = Template::find($block->template_id);
         $languages = Language::all();
         $method = 'PUT';
+        $image = null;
+
+        if ($block->type == 'paragraph') {
+            $block->content = preg_replace('/<\/?div(\s([a-z-]*)="([a-z-\s])*")*?>/', '', $block->content);
+        } else if ($block->type == 'paragraph-image' || $block->type == 'image-paragraph') {
+            $block->content = preg_replace('/<\/?div(\s([a-z-]*)="([a-z-\s])*")*?>/', '', $block->content);
+            $image = new Image();
+            preg_match('/(?<=(src=")).*(?=">)/', $block->content, $source);
+            $image->name = preg_replace('/http:\/\/127.0.0.1:8000\/storage\/uploads\//', '', $source[0]);
+            $block->content = preg_replace('/<img(\s([a-z-]*)="([0-9A-z-".:\/s])*")*?>/', '', $block->content);
+        }
+        // $hallo = str_replace("world", "ßeter", "Hello world!");
+
+        /*
         // Removes container class of the content
         $block->content = preg_replace('/<\/?div(\s([a-z-]*)="([a-z-\s])*")*?>(?=(<p>|$))/', '', $block->content);
+        // preg_match('/(?<=(<div class="photo">))[\s\S]*(?=(<\/div>))/', $block->content, $imageHtml);
+        $image = new Image();
+        preg_match('/(?<=(src=")).*(?=">)/', $block->content, $source);
+        $image->name = preg_replace('/http:\/\/127.0.0.1:8000\/storage\/uploads\//', '', $source[0]);
+
         // ! Temp code to receive to remove the photo from the content
         $block->content = preg_replace('/(?<=(<div class="photo">))[\s\S]*(?=(<\/div>))/', '', $block->content);
-
-        return view('app.panel.editor', compact('block', 'template', 'languages', 'method'));
+        dd($block->content);
+        */
+        return view('app.panel.editor', compact('block', 'template', 'languages', 'image', 'method'));
     }
 
     public function updateBlock(Request $request, Block $block)
     {
-        $block->content = $this->converter($block->type, $request->content);
+        $block->content = $this->converter($block->type, $request->content, $request->filename);
         $block->save();
 
         return redirect()->route('template.read', $block->template_id);
     }
 
-    private function converter($type, $content)
+    private function converter($type, $content, $filename)
     {
         switch ($type) {
             case 'paragraph':
                 return '<div class="paragraph">' . $content . '</div>';
                 break;
             case 'paragraph-image':
-                return '<div class="paragraph-image">' . $content . '</div>';
+                return '<div class="paragraph paragraph-image paragraph-image-container"><div>' .
+                    $content .
+                    '</div><div class="photo"><img src="http://127.0.0.1:8000/storage/uploads/' . $filename . '"></div></div>';
                 break;
             case 'image-paragraph':
-                return '<div class="image-paragraph">' . $content . '</div>';
+                return '<div class="paragraph image-paragraph paragraph-image-container">' . $content . '</div>';
                 break;
             default:
                 return '';
