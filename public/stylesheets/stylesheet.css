@@ -293,3 +293,14 @@ footer {
     display: flex;
     flex-flow: column;
 }
+.paragraph-image-container {
+    display: flex;
+}
+
+.paragraph-image {
+    flex-flow: row;
+}
+
+.paragraph-image-reverse {
+    flex-flow: row-reverse;
+}
