@@ -112,7 +112,7 @@ class TemplateController extends Controller
         if($request->file('upload') != null) {
             $file = $request->file('upload');
             $fileType = $file->getClientOriginalExtension();
-            $fileName = $request->get('name') . '.' . $fileType;
+            $fileName = $file->getClientOriginalName();
             $path = base_path() . '/storage/app/public/uploads/';
             $file->move($path, $fileName);
 
