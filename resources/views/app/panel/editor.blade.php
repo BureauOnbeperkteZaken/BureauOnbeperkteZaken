@@ -1,6 +1,6 @@
 <form action="" method="POST" enctype="multipart/form-data">
   @csrf
-  @method('put')
+  @method($method)
   <!-- Include stylesheet -->
   <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
@@ -17,7 +17,7 @@
   </select>
   <div id="editor">
   </div>
-  <input type="hidden" id="id" name="id" value="{{}}">
+  <input type="hidden" id="id" name="id" value="{{$template->id}}">
   <input type="hidden" id="content" name="content" value="">
 </form>
 
@@ -48,9 +48,11 @@
   });
 </script>
 
-@if ($block)
+@if (isset($block) && $block)
 <script>
   var text = '{!! $block->content!!}';
+  // removes div from content
+  // TODO: replace to controller
   text = text.replace(/<\/?div(\s([a-z-]*)="[a-z-\s]*")*?>/g, '');
   console.log(text);
   quill.root.innerHTML = text;
