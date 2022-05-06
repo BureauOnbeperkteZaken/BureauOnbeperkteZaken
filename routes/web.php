@@ -31,9 +31,6 @@ Route::post('/contact', [App\Http\Controllers\ContactController::class, 'contact
 
 Route::get('/onbeperkt-anders', [VideoController::class, 'get']);
 
-Route::get('/content_upload', [ProjectController::class, 'fileUpload']);
-Route::post('/content_upload', [ProjectController::class, 'storeFile']);
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
