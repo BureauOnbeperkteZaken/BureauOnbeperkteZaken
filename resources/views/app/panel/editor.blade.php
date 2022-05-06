@@ -51,7 +51,7 @@
 @if ($block)
 <script>
   var text = '{!! $block->content!!}';
-  text = text.replace(/<\/?div(\s([a-z-]*)="[a-z]*")*?>/g, '');
+  text = text.replace(/<\/?div(\s([a-z-]*)="[a-z-\s]*")*?>/g, '');
   console.log(text);
   quill.root.innerHTML = text;
 </script>
