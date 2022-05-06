@@ -26,16 +26,12 @@
 @if(isset($image))
   <input type="hidden" id="filename" name="filename" value="{{$image->name}}">
 @endif
+  <input type="file" name="upload" accept="application/pdf, application/vnd.ms-excel, image/png, image/jpeg, image/jpg, image/webp, application/svg, image/gif " /><br>
+  <input type="submit" value="Upload">
 </form>
 @if(isset($image))
   <img style="width:100%" src="http://127.0.0.1:8000/storage/uploads/{{$image->name}}">
 @endif
-<form action="" method="POST" enctype="multipart/form-data">
-  @csrf
-  @method('put')
-  <input type="file" name="upload" accept="application/pdf, application/vnd.ms-excel, image/png, image/jpeg, image/jpg, image/webp, application/svg, image/gif " /><br>
-  <input type="submit" value="Upload">
-</form>
 
 <!-- Include the Quill library -->
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>

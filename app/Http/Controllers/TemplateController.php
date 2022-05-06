@@ -7,6 +7,7 @@ use App\Models\Image;
 use App\Models\Language;
 use App\Models\Template;
 use Illuminate\Http\Request;
+use App\Http\Controllers\ProjectController;
 
 class TemplateController extends Controller
 {
@@ -104,9 +105,20 @@ class TemplateController extends Controller
 
     public function updateBlock(Request $request, Block $block)
     {
+        // dd($request->filename);
         $block->content = $this->converter($block->type, $request->content, $request->filename);
         $block->save();
 
+        if($request->file('upload') != null) {
+            $file = $request->file('upload');
+            $fileType = $file->getClientOriginalExtension();
+            $fileName = $request->get('name') . '.' . $fileType;
+            $path = base_path() . '/storage/app/public/uploads/';
+            $file->move($path, $fileName);
+
+            $block->content = $this->converter($block->type, $request->content, $fileName);
+            $block->save();
+        }
         return redirect()->route('template.read', $block->template_id);
     }
 
