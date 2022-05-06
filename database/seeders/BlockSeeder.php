@@ -30,8 +30,8 @@ class BlockSeeder extends Seeder
         DB::table('blocks')->insert([
             'template_id' => 1,
             'order' => 3,
-            'content' => '<div class="paragraph paragraph-image-container paragraph-image"><p>Tempor aliquip sint consequat Lorem proident sint nostrud aute ex adipisicing eu. Consequat exercitation et sint aliqua ullamco adipisicing ipsum ex. Occaecat eu do ipsum sunt velit culpa. Laborum aliqua exercitation consequat aute eiusmod ipsum sint irure sint reprehenderit ullamco.</p><div class="photo"><img src="https://sleutelstad.nl/wp-content/uploads/2020/05/022020-Summer-en-Erwin-2-1800x900.jpg"></div></div>',
-            'type' => 'image-paragraph',
+            'content' => '<div class="paragraph paragraph-image-container paragraph-image"><p>Tempor aliquip sint consequat Lorem proident sint nostrud aute ex adipisicing eu. Consequat exercitation et sint aliqua ullamco adipisicing ipsum ex. Occaecat eu do ipsum sunt velit culpa. Laborum aliqua exercitation consequat aute eiusmod ipsum sint irure sint reprehenderit ullamco.</p><div class="photo"><img src="http://127.0.0.1:8000/storage/uploads/koen.jpg"></div></div>',
+            'type' => 'paragraph-image',
         ]);
         DB::table('blocks')->insert([
             'template_id' => 2,

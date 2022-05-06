@@ -1,3 +1,7 @@
+@if($method == 'POST')
+  <h1>Create {{$type}}</h1>
+@endif
+
 <form action="" method="POST" enctype="multipart/form-data">
   @csrf
   @method($method)
@@ -18,7 +22,14 @@
   </div>
   <input type="hidden" id="id" name="id" value="{{$template->id}}">
   <input type="hidden" id="content" name="content" value="">
+  <input type="hidden" id="type" name="type" value="{{isset($type) || ''}}">
+@if(isset($image))
+  <input type="hidden" id="filename" name="filename" value="{{$image->name}}">
+@endif
 </form>
+@if(isset($image))
+  <img style="width:100%" src="http://127.0.0.1:8000/storage/uploads/{{$image->name}}">
+@endif
 <form action="" method="POST" enctype="multipart/form-data">
   @csrf
   @method('put')
