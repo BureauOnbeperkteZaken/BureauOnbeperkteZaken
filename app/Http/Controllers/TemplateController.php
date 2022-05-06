@@ -11,8 +11,9 @@ class TemplateController extends Controller
 {
     public function read($id)
     {
+        $template = Template::find($id);
         $blocks = Block::where('template_id', $id)->orderBy('order', 'asc')->get();
-        return view('app.panel.templates.project_' . $id, compact('blocks'));
+        return view('app.panel.templates.project_' . $id, compact('template', 'blocks'));
     }
 
     // Legacy code don't delete yet
@@ -45,27 +46,63 @@ class TemplateController extends Controller
         $template->save();
     }
 
+    public function createBlock($id, $type)
+    {
+        $template = Template::find($id);
+        $languages = Language::all();
+        $method = 'POST';
+
+        return view('app.panel.editor', compact('template', 'languages', 'type', 'method'));
+    }
+
+    public function storeBlock(Request $request)
+    {
+        $block = new Block();
+        $block->template_id = $request->id;
+        $block->type = 'paragraph';
+        $block->order = Block::where('template_id', $request->id)->max('order') + 1;
+        $block->content = $this->converter($block->type, $request->content);
+
+        $block->save();
+
+        return redirect()->route('template.read', $block->template_id);
+    }
+
     public function editBlock(Request $request, Block $block)
     {
         $template = Template::find($block->template_id);
         $languages = Language::all();
+        $method = 'PUT';
+        // Removes container class of the content
+        $block->content = preg_replace('/<\/?div(\s([a-z-]*)="([a-z-\s])*")*?>(?=(<p>|$))/', '', $block->content);
+        // ! Temp code to receive to remove the photo from the content
+        $block->content = preg_replace('/(?<=(<div class="photo">))[\s\S]*(?=(<\/div>))/', '', $block->content);
 
-        return view('app.panel.editor', compact('block', 'template', 'languages'));
+        return view('app.panel.editor', compact('block', 'template', 'languages', 'method'));
     }
 
     public function updateBlock(Request $request, Block $block)
     {
-        // Only supports paragraphs for now
-        if ($block->type == 'paragraph') {
-            $block->content = '<div class="paragraph">' . $request->content . '</div>';
-            $block->save();
-        } else if ($block->type == 'image-paragraph') {
-            $block->content = '<div class="paragraph image-paragraph">' . $request->content . '</div>';
-            $block->save();
-        } else if ($block->type == 'paragraph-image') {
-            $block->content = '<div class="paragraph paragraph-image">' . $request->content . '</div>';
-            $block->save();
-        }
+        $block->content = $this->converter($block->type, $request->content);
+        $block->save();
+
         return redirect()->route('template.read', $block->template_id);
+    }
+
+    private function converter($type, $content)
+    {
+        switch ($type) {
+            case 'paragraph':
+                return '<div class="paragraph">' . $content . '</div>';
+                break;
+            case 'paragraph-image':
+                return '<div class="paragraph-image">' . $content . '</div>';
+                break;
+            case 'image-paragraph':
+                return '<div class="image-paragraph">' . $content . '</div>';
+                break;
+            default:
+                return '';
+        }
     }
 }

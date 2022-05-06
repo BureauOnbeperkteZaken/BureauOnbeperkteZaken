@@ -12,6 +12,8 @@ class Block extends Model
     public $timestamps = false;
 
     public $fillable = [
-        'content'
+        'content',
+        'language_code',
+        'order',
     ];
 }
