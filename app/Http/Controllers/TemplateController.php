@@ -56,9 +56,16 @@ class TemplateController extends Controller
     public function updateBlock(Request $request, Block $block)
     {
         // Only supports paragraphs for now
-        $block->content = '<div class="paragraph">' . $request->content . '</div>';
-        $block->save();
-
+        if ($block->type == 'paragraph') {
+            $block->content = '<div class="paragraph">' . $request->content . '</div>';
+            $block->save();
+        } else if ($block->type == 'image-paragraph') {
+            $block->content = '<div class="paragraph image-paragraph">' . $request->content . '</div>';
+            $block->save();
+        } else if ($block->type == 'paragraph-image') {
+            $block->content = '<div class="paragraph paragraph-image">' . $request->content . '</div>';
+            $block->save();
+        }
         return redirect()->route('template.read', $block->template_id);
     }
 }

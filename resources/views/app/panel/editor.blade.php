@@ -8,10 +8,9 @@
   <button id="submit" type="submit">Upload</button>
   <select id="language_code" name="language_code" required>
     @foreach($languages as $language)
-      <option value="{{ $language->code }}"
-        @if($language->code == $template->language_code)
-          selected
-        @endif
+    <option value="{{ $language->code }}" @if($language->code == $template->language_code)
+      selected
+      @endif
       >{{ $language->name }}</option>
     @endforeach
   </select>
@@ -19,6 +18,12 @@
   </div>
   <input type="hidden" id="id" name="id" value="{{}}">
   <input type="hidden" id="content" name="content" value="">
+</form>
+<form action="" method="POST" enctype="multipart/form-data">
+  @csrf
+  @method('put')
+  <input type="file" name="upload" accept="application/pdf, application/vnd.ms-excel, image/png, image/jpeg, image/jpg, image/webp, application/svg, image/gif " /><br>
+  <input type="submit" value="Upload">
 </form>
 
 <!-- Include the Quill library -->
@@ -48,10 +53,11 @@
   });
 </script>
 
-@if ($block)
+@if (isset($block) && $block)
 <script>
   var text = '{!! $block->content!!}';
-  text = text.replace(/<\/?div(\s([a-z-]*)="[a-z]*")*?>/g, '');
+  text = text.replace(/<\/?div(\s([a-z-]*)="[a-z-\s]*")*?>/g, '');
+  text = text.replace(/<\/?img(\s([a-z-]*)="[0-9A-z-\s\/:.]*")*?>/g, '');
   console.log(text);
   quill.root.innerHTML = text;
 </script>
