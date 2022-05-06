@@ -74,7 +74,7 @@ class TemplateController extends Controller
         $languages = Language::all();
         $method = 'PUT';
         // Removes container class of the content
-        $block->content = preg_replace('/<\/?div(\s([a-z-]*)="[a-z-\s]*")*?>/', '', $block->content);
+        $block->content = preg_replace('/<\/?div(\s([a-z-]*)="([a-z-\s])*")*?>(?=(<p>|$))/', '', $block->content);
 
         return view('app.panel.editor', compact('block', 'template', 'languages', 'method'));
     }
