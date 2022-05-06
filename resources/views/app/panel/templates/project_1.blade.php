@@ -14,9 +14,14 @@
             </script>
             @endforeach
         </div>
+        <div class="flex">
+            <button><a href="{{route('block.create', $template->id)}}">Paragraph</a></button>
+            <button><a href="{{route('block.create', $template->id)}}">Image-paragraph</a></button>
+            <button><a href="{{route('block.create', $template->id)}}">Paragraph-image</a></button>
+        </div>
     </div>
-    <hr data-title="{{ __('gallery') }}" />
-    <div class="gallery">
+    <!-- <hr data-title="{{ __('gallery') }}" /> -->
+    <!-- <div class="gallery">
         <div class="photo">
             <img src="https://www.kidsproof.nl/images/Image350_235/browniesendownies_browniesendownies_3_350_235.jpg" />
             <div class="details">
@@ -45,5 +50,5 @@
                 <span property="date">Datum</span>
             </div>
         </div>
-    </div>
-    </x-page.sidebar>
+    </div> -->
+</x-page.sidebar>
