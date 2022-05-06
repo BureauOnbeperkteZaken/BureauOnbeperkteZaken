@@ -84,7 +84,7 @@ class TemplateController extends Controller
             $image = new Image();
             preg_match('/(?<=(src=")).*(?=">)/', $block->content, $source);
             $image->name = preg_replace('/http:\/\/127.0.0.1:8000\/storage\/uploads\//', '', $source[0]);
-            $block->content = preg_replace('/<img(\s([a-z-]*)="([0-9A-z-".:\/s])*")*?>/', '', $block->content);
+            $block->content = preg_replace('/<img(\s([a-z-]*)="([0-9A-z-".:\/\s\(\)])*")*?>/', '', $block->content);
         }
         // $hallo = str_replace("world", "ßeter", "Hello world!");
 

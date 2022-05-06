@@ -23,9 +23,9 @@
   <input type="hidden" id="id" name="id" value="{{$template->id}}">
   <input type="hidden" id="content" name="content" value="">
   <input type="hidden" id="type" name="type" value="{{isset($type) || ''}}">
-@if(isset($image))
+  @if(isset($image))
   <input type="hidden" id="filename" name="filename" value="{{$image->name}}">
-@endif
+  @endif
   <input id="upload" type="file" name="upload" accept="image/png, image/jpeg, image/jpg, image/webp, image/gif " />
 </form>
 @if(isset($image))
