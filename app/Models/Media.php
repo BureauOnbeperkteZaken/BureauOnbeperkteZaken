@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Media extends Model
 {
     use HasFactory;
+
+    public $timestamps = false;
+
+    public $fillable = [
+        'filename',
+        'type',
+        'block_id',
+    ];
 }
