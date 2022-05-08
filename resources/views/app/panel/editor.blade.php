@@ -22,16 +22,24 @@
   </div>
   <input type="hidden" id="id" name="id" value="{{$template->id}}">
   <input type="hidden" id="content" name="content" value="">
-  <input type="hidden" id="type" name="type" value="{{isset($type) || ''}}">
+  @if(isset($block))
+    <input type="hidden" id="type" name="type" value="{{$block->type}}">
+    @else
+    <input type="hidden" id="type" name="type" value="{{isset($type) ? $type : ''}}">
+  @endif
   @if(isset($image))
   <input type="hidden" id="filename" name="filename" value="{{$image->name}}">
+  @else
+  <input id="upload" type="file" name="upload" accept="image/png, image/jpeg, image/jpg, image/webp, image/gif " />
   @endif
-  @if($block->type != 'paragraph')
+  @if(isset($block) != null && $block->type != 'paragraph')
   <input id="upload" type="file" name="upload" accept="image/png, image/jpeg, image/jpg, image/webp, image/gif " />
   @endif
 </form>
 @if(isset($image))
   <img id="preview" style="width:100%" src="http://127.0.0.1:8000/storage/uploads/{{$image->name}}">
+@else
+  <img id="preview" style="width:100%">
 @endif
 
 <!-- Include the Quill library -->

@@ -59,12 +59,18 @@ class TemplateController extends Controller
 
     public function storeBlock(Request $request)
     {
+        $fileName = $request->filename;
+
         $block = new Block();
         $block->template_id = $request->id;
-        $block->type = 'paragraph';
         $block->order = Block::where('template_id', $request->id)->max('order') + 1;
-        $block->content = $this->converter($block->type, $request->content, $request->filename);
+        $block->type = $request->type;
+        
+        if($request->file('upload') != null) {
+            $fileName = $this->storeFile($request->file('upload'));
+        }
 
+        $block->content = $this->converter($block->type, $request->content, $fileName);
         $block->save();
 
         return redirect()->route('template.read', $block->template_id);
@@ -105,21 +111,23 @@ class TemplateController extends Controller
 
     public function updateBlock(Request $request, Block $block)
     {
-        // dd($request->filename);
-        $block->content = $this->converter($block->type, $request->content, $request->filename);
-        $block->save();
-
+        $fileName = $request->filename;
+        // dd($request->all());
         if($request->file('upload') != null) {
-            $file = $request->file('upload');
-            $fileType = $file->getClientOriginalExtension();
-            $fileName = $file->getClientOriginalName();
-            $path = base_path() . '/storage/app/public/uploads/';
-            $file->move($path, $fileName);
-
-            $block->content = $this->converter($block->type, $request->content, $fileName);
-            $block->save();
+            $fileName = $this->storeFile($request->file('upload'));
         }
+        $block->content = $this->converter($block->type, $request->content, $fileName);
+        $block->save();
         return redirect()->route('template.read', $block->template_id);
+    }
+
+    private function storeFile($file) {
+        // dd($file);
+        $fileType = $file->getClientOriginalExtension();
+        $fileName = $file->getClientOriginalName();
+        $path = base_path() . '/storage/app/public/uploads/';
+        $file->move($path, $fileName);
+        return $fileName;
     }
 
     private function converter($type, $content, $filename)
