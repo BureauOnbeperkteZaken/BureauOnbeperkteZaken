@@ -65,17 +65,17 @@ class TemplateController extends Controller
         $block->template_id = $request->id;
         $block->order = Block::where('template_id', $request->id)->max('order') + 1;
         $block->type = $request->type;
-        
-        if($request->file('upload') != null) {
+
+        if ($request->file('upload') != null) {
             $fileName = $this->storeFileLocal($request->file('upload'));
         }
-        
+
         $block->content = $this->converter($block->type, $request->content, $fileName);
         $block->save();
 
         // ! Function should be after block is saved to pass the block id
         $this->storeFileCloud($request->file('upload'), $block->id);
-        
+
         return redirect()->route('template.read', $block->template_id);
     }
 
@@ -116,7 +116,7 @@ class TemplateController extends Controller
     {
         $fileName = $request->filename;
         // dd($request->all());
-        if($request->file('upload') != null) {
+        if ($request->file('upload') != null) {
             $fileName = $this->storeFileLocal($request->file('upload'));
             $this->storeFileCloud($request->file('upload'), $block->id);
         }
@@ -125,21 +125,23 @@ class TemplateController extends Controller
         return redirect()->route('template.read', $block->template_id);
     }
 
-    private function storeFileLocal($file) {
+    private function storeFileLocal($file)
+    {
         $fileName = $file->getClientOriginalName();
         $path = base_path() . '/storage/app/public/uploads/';
         $file->move($path, $fileName);
         return $fileName;
     }
 
-    private function storeFileCloud($file, $blockId) {
+    private function storeFileCloud($file, $blockId)
+    {
         $fileType = $file->getClientOriginalExtension();
         $fileName = $file->getClientOriginalName();
 
         $media = new Media();
         $media->filename = $fileName;
         $media->type = $fileType;
-        $media -> $blockId;
+        $media->$blockId;
         $media->save();
 
         return $fileName;
@@ -154,10 +156,13 @@ class TemplateController extends Controller
             case 'paragraph-image':
                 return '<div class="paragraph paragraph-image paragraph-image-container"><div>' .
                     $content .
-                    '</div><div class="photo"><img src="http://127.0.0.1:8000/storage/uploads/' . $filename . '"></div></div>';
+                    '</div><div class="photo"><img src="http://127.0.0.1:8000/storage/uploads/' .
+                    $filename . '"></div></div>';
                 break;
             case 'image-paragraph':
-                return '<div class="paragraph image-paragraph paragraph-image-container">' . $content . '</div>';
+                return '<div class="paragraph image-paragraph paragraph-image-container"><div class="photo"><img src="http://127.0.0.1:8000/storage/uploads/' .
+                    $filename . '"></div><div>' .
+                    $content . '</div>';
                 break;
             default:
                 return '';
