@@ -31,7 +31,7 @@
                         </div>
                     @endisset
                 </div>
-                <form action="{{route('metadata.store')}}" method="POST">
+                <form action="" method="POST" enctype="multipart/form-data">
                     @csrf
                     @if(!empty($url))
                     <div class="mb-3">

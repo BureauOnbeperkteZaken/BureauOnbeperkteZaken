@@ -9,7 +9,7 @@
     <br/>
     <nav>
 {{--      {{ route('metadata.link', ['url' => url()->current()])}}  --}}
-        <a href="/metadata/{{request()->segment(count(request()->segments()))}}">Metadata aanpassen</a>
+        <a href="/panel/metadata/{{request()->segment(count(request()->segments()))}}">Metadata aanpassen</a>
         <a href="#">Test</a>
         <a href="#">Test</a>
         {{-- <?php $get = DB::table('')-get()>--}}
