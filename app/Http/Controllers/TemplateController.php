@@ -74,7 +74,9 @@ class TemplateController extends Controller
         $block->save();
 
         // ! Function should be after block is saved to pass the block id
-        $this->storeFileCloud($request->file('upload'), $block->id);
+        if ($request->file('upload') != null) {
+            $this->storeFileCloud($request->file('upload'), $block->id);
+        }
 
         return redirect()->route('template.read', $block->template_id);
     }
@@ -162,7 +164,7 @@ class TemplateController extends Controller
             case 'image-paragraph':
                 return '<div class="paragraph image-paragraph paragraph-image-container"><div class="photo"><img src="http://127.0.0.1:8000/storage/uploads/' .
                     $filename . '"></div><div>' .
-                    $content . '</div>';
+                    $content . '</div></div>';
                 break;
             default:
                 return '';
