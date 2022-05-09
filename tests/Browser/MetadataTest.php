@@ -1,8 +1,8 @@
 <?php
 
+
 namespace Tests\Browser;
 
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
@@ -16,8 +16,12 @@ class MetadataTest extends DuskTestCase
             //go to contact
             //change metadata
             //check if metadata is correct
-            $browser->visit('/metadata/contact')
-                //->visit('/login');
+            $browser
+                ->visit('/login')
+                ->type('email', "testuser@boz.com")
+                ->type('password', "Welkom123")
+                ->press('Log in')
+                ->visit('/panel/metadata/contact')
                 ->assertSee('Metadata aanpassen')
                 ->assertSee('contact')
                 ->type('title', "Lorem ipsum")
