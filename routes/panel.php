@@ -30,5 +30,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/add_user', [RegisteredUserController::class, 'create'])->name('create_user');
     Route::post('/add_user', [RegisteredUserController::class, 'store'])->name('add_user');
 
+    Route::get('/metadata/{page}', function($slug){
+        return view('meta-data-edit', [
+            'url' => $slug
+        ]);
+    });
+    Route::post('/metadata', [App\Http\Controllers\MetaDataController::class, 'MetaDataForm'])->name('metadata.store');
 });
 

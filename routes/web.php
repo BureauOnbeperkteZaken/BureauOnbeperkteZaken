@@ -37,13 +37,6 @@ Route::get('/onbeperkt-anders', [VideoController::class, 'get']);
 Route::get('/content_upload', [ProjectController::class, 'fileUpload']);
 Route::post('/content_upload', [ProjectController::class, 'storeFile']);
 
-Route::get('/metadata/{page}', function($slug){
-    return view('meta-data-edit', [
-        'url' => $slug
-    ]);
-});
-Route::post('/metadata', [App\Http\Controllers\MetaDataController::class, 'MetaDataForm'])->name('metadata.store');
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
