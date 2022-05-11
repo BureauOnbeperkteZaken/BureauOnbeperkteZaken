@@ -17,8 +17,10 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'email' => 'testuser@boz.com',
         ]);
+        $this->call([VideoSeeder::class]);
         $this->call([LanguageSeeder::class]);
-        $this->call([TemplateSeeder::class]);
+        $this->call([ProjectSeeder::class]);
+        $this->call([TemplateBlockSeeder::class]);
         $this->call([BlockSeeder::class]);
     }
 }

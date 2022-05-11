@@ -13,7 +13,6 @@ class Template extends Model
     
     public $fillable = [
         'name',
-        'language_code',
         'content'
     ];
 
