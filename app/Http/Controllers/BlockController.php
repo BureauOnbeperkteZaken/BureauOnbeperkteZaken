@@ -6,6 +6,7 @@ use App\Models\Block;
 use App\Models\Image;
 use App\Models\Language;
 use App\Models\Media;
+use App\Models\MediaInBlock;
 use App\Project;
 use Illuminate\Http\Request;
 
@@ -107,8 +108,12 @@ class BlockController extends Controller
         $media = new Media();
         $media->filename = $fileName;
         $media->type = $fileType;
-        $media->$blockId;
         $media->save();
+
+        $mediaBlock = new MediaInBlock();
+        $mediaBlock->block_id = $blockId;
+        $mediaBlock->media_id = $media->id;
+        $mediaBlock->save();
 
         return $fileName;
     }
