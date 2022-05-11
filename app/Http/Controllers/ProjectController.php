@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProjectCreateRequest;
+use App\Models\Block;
 use App\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -16,6 +17,12 @@ class ProjectController extends Controller
             ->first()
             ->video_link;
         return view('app/home')->with('videoLink', $videoLink);
+    }
+
+    public function read($id)
+    {
+        $blocks = Block::where('project_id', $id)->orderBy('order', 'asc')->get();
+        return view('app.panel.project-builder', compact('blocks'));
     }
 
     public function create()
