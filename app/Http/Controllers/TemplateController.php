@@ -149,6 +149,7 @@ class TemplateController extends Controller
         return $fileName;
     }
 
+    // TODO: this lol
     private function converter($type, $content, $filename)
     {
         switch ($type) {
@@ -165,6 +166,9 @@ class TemplateController extends Controller
                 return '<div class="paragraph image-paragraph paragraph-image-container"><div class="photo"><img src="http://127.0.0.1:8000/storage/uploads/' .
                     $filename . '"></div><div>' .
                     $content . '</div></div>';
+                break;
+            case 'gallery':
+                return '<hr data-title="gallery"><div class="gallery"></div>';
                 break;
             default:
                 return '';
