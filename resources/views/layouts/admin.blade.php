@@ -8,7 +8,6 @@
     <h2>Onderhoudspaneel</h2>
     <br/>
     <nav>
-{{--      {{ route('metadata.link', ['url' => url()->current()])}}  --}}
         <a href="/panel/metadata/{{request()->segment(count(request()->segments()))}}">Metadata aanpassen</a>
         <a href="#">Test</a>
         <a href="#">Test</a>
@@ -22,6 +21,4 @@
         <a href="#">Test</a>
         {{-- Insert admin pages here --}}
     </nav>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
 </aside>
