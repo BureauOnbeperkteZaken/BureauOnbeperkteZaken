@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProjectCreateRequest;
+use App\Models\Block;
 use App\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -18,7 +19,14 @@ class ProjectController extends Controller
         return view('app/home')->with('videoLink', $videoLink);
     }
 
-    public function create(){
+    public function read($id)
+    {
+        $blocks = Block::where('project_id', $id)->orderBy('order', 'asc')->get();
+        return view('app.panel.project-builder', compact('blocks'));
+    }
+
+    public function create()
+    {
         return view('app.panel.new_project');
     }
 
@@ -45,14 +53,16 @@ class ProjectController extends Controller
 
     public function storeFile(Request $request)
     {
-
         $validated = $request->validate([
             'upload' => 'required|file|mimes:pdf,xls,xlsx,png,jpeg,jpg,webp,svg,gif',
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255'
         ]);
         $file = $request->file('upload');
-        $fileName = $request->get('name');
-        Storage::disk('public')->put('uploads', $file);
-        return redirect('/content_upload');
+        $fileType = $file->getClientOriginalExtension();
+        $fileName = $request->get('name') . '.' . $fileType;
+        $path = base_path() . '/storage/app/public/uploads/';
+        $file->move($path, $fileName);
+
+        return redirect('/panel/content_upload');
     }
 }
