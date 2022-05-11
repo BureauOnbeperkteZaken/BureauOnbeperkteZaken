@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('templates', function (Blueprint $table) {
+        Schema::create('videos', function (Blueprint $table) {
             $table->id();
-            $table->string('content');
-            $table->string('language_code');
-            $table->foreign('language_code')->references('code')->on('languages');
+            $table->string('link');
         });
     }
 
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('templates');
+        Schema::dropIfExists('video');
     }
 };

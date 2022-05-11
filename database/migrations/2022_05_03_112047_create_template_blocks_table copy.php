@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('blocks', function (Blueprint $table) {
+        Schema::create('templateblocks', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('template_id');
             $table->longText('content');
-            $table->unsignedBigInteger('project_id');
-            $table->foreign('project_id')->references('id')->on('projects');
             $table->integer('order');
             $table->string('type');
         });

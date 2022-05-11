@@ -16,7 +16,10 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('video_link');
+            $table->unsignedBigInteger('video_id');
+            $table->foreign('video_id')->references('id')->on('videos');
+            $table->string('language_code');
+            $table->foreign('language_code')->references('code')->on('languages');
         });
     }
 
