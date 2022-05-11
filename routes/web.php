@@ -3,7 +3,6 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\VideoController;
-use App\Http\Controllers\TemplateController;
 use App\Mail\ContactMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;

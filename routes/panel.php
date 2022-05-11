@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TemplateController;
 use App\Services\VideoService;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\Console\Input\Input;
