@@ -17,7 +17,7 @@ class MetaDataController extends Controller
         $this->validate($request, [
             'url' => 'required',
             'title' => 'required',
-            'description' => 'required',
+            'description' => 'required|max:155',
         ]);
         //  Store data in database
         MetaData::create($request->all());

@@ -39,8 +39,11 @@
                         <input name='url' type="text" id="urlInput" class="form-control" value="{{$url}}" readonly>
                         <label for="inputTitle" class="form-label">Titel</label>
                         <input name="title" class="form-control" id="inputTitle" aria-describedby="titleHelp">
+                        <div class="form-text">Titel die in de tab van de browser komt te staan</div>
                         <label for="inputDescription" class="form-label">Beschrijving</label>
                         <textarea name="description" type="text" class="form-control" id="inputDescription" aria-describedby="messageHelp"></textarea>
+                        <div class="form-text">Beknopte beschrijving van pagina die bij de zoekresultaten komt te staan</div>
+                        <div class="form-text">Max 155 karakters.</div>
                     </div>
                     <div class="col-12 text-center">
                         <button class="btn btn-success" type="submit">Opslaan</button>

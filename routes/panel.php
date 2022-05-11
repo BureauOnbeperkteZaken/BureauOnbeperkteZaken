@@ -35,6 +35,6 @@ Route::middleware('auth')->group(function () {
             'url' => $slug
         ]);
     });
-    Route::post('/metadata', [App\Http\Controllers\MetaDataController::class, 'MetaDataForm'])->name('metadata.store');
+    Route::post('/metadata/{page}', [App\Http\Controllers\MetaDataController::class, 'MetaDataForm'])->name('metadata.store');
 });
 
