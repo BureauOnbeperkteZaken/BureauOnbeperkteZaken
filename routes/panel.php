@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\BlockController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TemplateController;
 use App\Services\VideoService;
@@ -39,9 +40,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/template/{template}/edit', [TemplateController::class, 'edit'])->name('template.edit');
     Route::put('/template/{template}/edit', [TemplateController::class, 'update'])->name('template.update');
 
-    Route::get('template/{template}/block/create/{type}', [TemplateController::class, 'createBlock'])->name('block.create');
-    Route::post('template/{template}/block/create/{type}', [TemplateController::class, 'storeBlock'])->name('block.store');
+    Route::get('template/{template}/block/create/{type}', [BlockController::class, 'create'])->name('block.create');
+    Route::post('template/{template}/block/create/{type}', [BlockController::class, 'store'])->name('block.store');
 
-    Route::get('block/{block}/edit', [TemplateController::class, 'editBlock'])->name('block.edit');
-    Route::put('block/{block}/edit', [TemplateController::class, 'updateBlock'])->name('block.update');
+    Route::get('block/{block}/edit', [BlockController::class, 'edit'])->name('block.edit');
+    Route::put('block/{block}/edit', [BlockController::class, 'update'])->name('block.update');
 });

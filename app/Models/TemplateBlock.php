@@ -5,19 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Template extends Model
+class TemplateBlock extends Model
 {
     use HasFactory;
 
+    protected $table = 'Templateblocks';
+
     public $timestamps = false;
-    
+
     public $fillable = [
-        'name',
-        'content'
+        'content',
+        'order',
+        'type',
     ];
-
-    public function language() {
-        return $this->belongsTo(Language::class, 'code', 'language_code');
-    }
-
 }
