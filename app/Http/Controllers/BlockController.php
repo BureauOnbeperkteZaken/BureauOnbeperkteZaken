@@ -13,11 +13,11 @@ class BlockController extends Controller
 {
     public function create($id, $type)
     {
-        $template = Project::find($id);
+        $project = Project::find($id);
         $languages = Language::all();
         $method = 'POST';
 
-        return view('app.panel.editor', compact('template', 'languages', 'type', 'method'));
+        return view('app.panel.editor', compact('project', 'languages', 'type', 'method'));
     }
 
     public function store(Request $request)
@@ -25,8 +25,8 @@ class BlockController extends Controller
         $fileName = $request->filename;
 
         $block = new Block();
-        $block->template_id = $request->id;
-        $block->order = Block::where('template_id', $request->id)->max('order') + 1;
+        $block->project_id = $request->id;
+        $block->order = Block::where('project_id', $request->id)->max('order') + 1;
         $block->type = $request->type;
 
         if ($request->file('upload') != null) {
@@ -41,12 +41,12 @@ class BlockController extends Controller
             $this->storeFileCloud($request->file('upload'), $block->id);
         }
 
-        return redirect()->route('template.read', $block->template_id);
+        return redirect()->route('panelproject.read', $block->project_id);
     }
 
     public function edit(Request $request, Block $block)
     {
-        $template = Project::find($block->template_id);
+        $project = Project::find($block->project_id);
         $languages = Language::all();
         $method = 'PUT';
         $image = null;
@@ -74,7 +74,7 @@ class BlockController extends Controller
         $block->content = preg_replace('/(?<=(<div class="photo">))[\s\S]*(?=(<\/div>))/', '', $block->content);
         dd($block->content);
         */
-        return view('app.panel.editor', compact('block', 'template', 'languages', 'image', 'method'));
+        return view('app.panel.editor', compact('block', 'project', 'languages', 'image', 'method'));
     }
 
     public function update(Request $request, Block $block)
@@ -87,7 +87,7 @@ class BlockController extends Controller
         }
         $block->content = $this->converter($block->type, $request->content, $fileName);
         $block->save();
-        return redirect()->route('template.read', $block->template_id);
+        return redirect()->route('panelproject.read', $block->project_id);
     }
 
     

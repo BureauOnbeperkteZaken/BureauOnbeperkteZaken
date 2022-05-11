@@ -12,7 +12,7 @@
   <button id="submit" type="submit">Upload</button>
   <select id="language_code" name="language_code" required>
     @foreach($languages as $language)
-    <option value="{{ $language->code }}" @if($language->code == $template->language_code)
+    <option value="{{ $language->code }}" @if($language->code == $project->language_code)
       selected
       @endif
       >{{ $language->name }}</option>
@@ -20,7 +20,7 @@
   </select>
   <div id="editor">
   </div>
-  <input type="hidden" id="id" name="id" value="{{$template->id}}">
+  <input type="hidden" id="id" name="id" value="{{$project->id}}">
   <input type="hidden" id="content" name="content" value="">
   @if(isset($block))
     <input type="hidden" id="type" name="type" value="{{$block->type}}">
