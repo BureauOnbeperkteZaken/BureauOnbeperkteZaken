@@ -33,4 +33,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/content_upload', [ProjectController::class, 'fileUpload'])->name('fileUpload');
     Route::post('/content_upload', [ProjectController::class, 'storeFile'])->name('storeFile');
 
+    Route::get('/template/{id}', [TemplateController::class, 'read'])->name('template.read');
+
+    Route::get('/template/{template}/edit', [TemplateController::class, 'edit'])->name('template.edit');
+    Route::put('/template/{template}/edit', [TemplateController::class, 'update'])->name('template.update');
+
+    Route::get('template/{template}/block/create/{type}', [TemplateController::class, 'createBlock'])->name('block.create');
+    Route::post('template/{template}/block/create/{type}', [TemplateController::class, 'storeBlock'])->name('block.store');
+
+    Route::get('block/{block}/edit', [TemplateController::class, 'editBlock'])->name('block.edit');
+    Route::put('block/{block}/edit', [TemplateController::class, 'updateBlock'])->name('block.update');
 });
