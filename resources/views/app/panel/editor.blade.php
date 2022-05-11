@@ -54,7 +54,7 @@
           header: [1, 2, false]
         }],
         ['bold', 'italic', 'underline'],
-        ['image', 'code-block']
+        ['code-block']
       ]
     },
     placeholder: 'Compose an epic...',
