@@ -36,12 +36,14 @@ Route::middleware('auth')->group(function () {
     Route::post('/content_upload', [ProjectController::class, 'storeFile'])->name('storeFile');
 
     Route::get('/template/{id}', [TemplateController::class, 'read'])->name('template.read');
+    
+    Route::get('/project/{id}', [ProjectController::class, 'read'])->name('project.read');
 
-    Route::get('/template/{template}/edit', [TemplateController::class, 'edit'])->name('template.edit');
-    Route::put('/template/{template}/edit', [TemplateController::class, 'update'])->name('template.update');
+    Route::get('/project/{project}/edit', [ProjectController::class, 'edit'])->name('template.edit');
+    Route::put('/project/{project}/edit', [ProjectController::class, 'update'])->name('template.update');
 
-    Route::get('template/{template}/block/create/{type}', [BlockController::class, 'create'])->name('block.create');
-    Route::post('template/{template}/block/create/{type}', [BlockController::class, 'store'])->name('block.store');
+    Route::get('project/{project}/block/create/{type}', [BlockController::class, 'create'])->name('block.create');
+    Route::post('project/{project}/block/create/{type}', [BlockController::class, 'store'])->name('block.store');
 
     Route::get('block/{block}/edit', [BlockController::class, 'edit'])->name('block.edit');
     Route::put('block/{block}/edit', [BlockController::class, 'update'])->name('block.update');
