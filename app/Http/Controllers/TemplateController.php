@@ -10,7 +10,6 @@ class TemplateController extends Controller
     public function read($id)
     {
         $blocks = TemplateBlock::where('template_id', $id)->orderBy('order', 'asc')->get();
-        // check if blocks is bigger than 5
         if ($blocks->count() < 1) {
             return abort(404);
         }

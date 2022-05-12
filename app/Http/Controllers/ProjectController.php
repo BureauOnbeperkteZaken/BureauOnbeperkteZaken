@@ -25,6 +25,13 @@ class ProjectController extends Controller
         return view('app.panel.project-builder', compact('blocks'));
     }
 
+    // TODO: refactor
+    public function readView($id)
+    {
+        $blocks = Block::where('project_id', $id)->orderBy('order', 'asc')->get();
+        return view('app.project-viewer', compact('blocks'));
+    }
+
     public function create()
     {
         return view('app.panel.new_project');

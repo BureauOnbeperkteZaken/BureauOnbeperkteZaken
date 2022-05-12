@@ -30,6 +30,8 @@ Route::post('/contact', [App\Http\Controllers\ContactController::class, 'contact
 
 Route::get('/onbeperkt-anders', [VideoController::class, 'get']);
 
+Route::get('/project/{id}', [ProjectController::class, 'readView'])->name('project.view');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
