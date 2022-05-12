@@ -45,6 +45,10 @@ Route::middleware('auth')->group(function () {
     Route::get('project/{project}/block/create/{type}', [BlockController::class, 'create'])->name('block.create');
     Route::post('project/{project}/block/create/{type}', [BlockController::class, 'store'])->name('block.store');
 
+    Route::get('project/remove/{id}', [ProjectController::class, 'destroy'])->name('project.remove');
+    Route::get('project/{id}/edit/video', [ProjectController::class, 'editVideo'])->name('project.edit.video');
+    Route::post('project/{id}/edit/video', [ProjectController::class, 'updateVideo'])->name('project.update.video');
+
     Route::get('block/{block}/edit', [BlockController::class, 'edit'])->name('block.edit');
     Route::put('block/{block}/edit', [BlockController::class, 'update'])->name('block.update');
 

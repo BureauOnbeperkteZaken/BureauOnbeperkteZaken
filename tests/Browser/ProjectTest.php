@@ -33,7 +33,7 @@ class ProjectTest extends DuskTestCase
         });
     }
 
-    public function testProjectCreateSuccess()
+    /*public function testProjectCreateSuccess()
     {
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1))
@@ -50,6 +50,20 @@ class ProjectTest extends DuskTestCase
                 ->click('@submit')
                 ->assertPathBeginsWith('/panel/project/')
                 ->logout();
+        });
+    }*/
+
+    public function testProjectDeleteNoAuth(){
+        $this->browse(function (Browser $browser) {
+            $browser->visitRoute('panelproject.remove', ['id' => 2])
+                ->assertRouteIs('login');
+        });
+    }
+
+    public function testProjectDeleteAuth() {
+        $this->browse(function (Browser $browser) {
+            $browser->loginAs(User::find(1))
+                ->visitRoute('panelproject.remove', ['id' => 2]);
         });
     }
 

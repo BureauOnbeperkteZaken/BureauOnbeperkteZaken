@@ -3,6 +3,7 @@
     'titlebase' => config("app.name"),
     'background' => '',
     'type' => '',
+    'project_id' => '',
 ])
 
 <!DOCTYPE html>
@@ -20,6 +21,7 @@
     @auth
         @include('layouts.admin', [
             'type' => $type,
+            'project_id' => $project_id
         ])
     @endauth
     <div @class(['wrapper', 'no-background' => empty($background) ])>

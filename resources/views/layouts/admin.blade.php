@@ -1,5 +1,6 @@
 @props([
 'type' => '',
+'project_id' => '',
 ])
 
 <aside id="panel">
@@ -15,6 +16,10 @@
                 @break;
             @case('contact')
                 <a href="#">Ingestuurde berichten</a>
+                @break;
+            @case('project_details')
+                <a href="{{ route('panelproject.edit.video', $project_id) }}">Verander hoofdvideo</a>
+                <a href="#" id="remove_project">Verwijder project</a>
                 @break;
         @endswitch
         {{-- Insert admin pages here --}}

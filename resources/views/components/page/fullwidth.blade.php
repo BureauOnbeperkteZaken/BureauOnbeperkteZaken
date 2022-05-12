@@ -5,9 +5,10 @@
     'background' => '',
     'cards' => false,
     'type' => '',
+    'project_id' => '',
 ])
 
-<x-page.base title="{{ $title }}" titlebase="{{ $titlebase }}" background="{{ $background }}" type="{{$type}}">
+<x-page.base title="{{ $title }}" titlebase="{{ $titlebase }}" background="{{ $background }}" type="{{$type}}" project_id="{{$project_id}}">
     <main @class(['cards' => $cards])>
         <div class="content-wrapper">
             {!! $slot !!}
