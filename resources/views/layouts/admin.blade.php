@@ -9,9 +9,8 @@
     <br/>
     <nav>
         <a href="/panel/metadata/{{request()->segment(count(request()->segments()))}}">Metadata aanpassen</a>
-        <a href="#">Test</a>
-        <a href="#">Test</a>
-        {{-- <?php $get = DB::table('')-get()>--}}
+        <a href="{{ url('/panel/new_project') }}">Nieuw project</a>
+        <a href="{{ url('/panel/add_user') }}">Nieuwe Gebruiker</a>
         {{-- Insert admin pages here --}}
     </nav>
     <br/>
