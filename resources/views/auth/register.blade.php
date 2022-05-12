@@ -6,7 +6,7 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="post" action="{{route('paneladd_user')}}">
+        <form style="display: flex;flex-direction: column;" method="post" action="{{route('paneladd_user')}}">
 
             @csrf
             <label for="name"><h4>Naam</h4></label>

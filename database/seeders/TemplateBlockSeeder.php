@@ -36,7 +36,7 @@ class TemplateBlockSeeder extends Seeder
         DB::table('templateblocks')->insert([
             'template_id' => 1,
             'order' => 4,
-            'content' => '<div class="paragraph paragraph-image paragraph-image-container"><div><h2>Dit is JoJo met Thijmen en Marleen</h2><p>Marleen wilt graag trouwen en samenwonen.</p><p><strong>Hoe overtuigt zij haar ouders?</strong></p></div><div class="photo"><img src="http://127.0.0.1:8000/storage/uploads/IMG_8539-scaled[1].jpg"></div></div>',
+            'content' => '<div class="paragraph paragraph-image paragraph-image-container"><div><h2>Dit is JoJo met Thijmen en Marleen</h2><p>Marleen wilt graag trouwen en samenwonen.</p><p><strong>Hoe overtuigt zij haar ouders?</strong></p></div><div class="photo"><img src="/storage/uploads/boz.jpg" alt="alt text"></div></div>',
             'type' => 'paragraph-image',
         ]);
         DB::table('templateblocks')->insert([
@@ -48,7 +48,7 @@ class TemplateBlockSeeder extends Seeder
         DB::table('templateblocks')->insert([
             'template_id' => 2,
             'order' => 2,
-            'content' => '<div class="paragraph paragraph-image paragraph-image-container"><div><h2>Dit is JoJo met Thijmen en Marleen</h2><p>Marleen wilt graag trouwen en samenwonen.</p><p><strong>Hoe overtuigt zij haar ouders?</strong></p></div><div class="photo"><img src="http://127.0.0.1:8000/storage/uploads/IMG_8539-scaled[1].jpg"></div></div>',
+            'content' => '<div class="paragraph paragraph-image paragraph-image-container"><div><h2>Dit is JoJo met Thijmen en Marleen</h2><p>Marleen wilt graag trouwen en samenwonen.</p><p><strong>Hoe overtuigt zij haar ouders?</strong></p></div><div class="photo"><img src="/storage/uploads/boz.jpg" alt="alt text"></div></div>',
             'type' => 'paragraph-image',
         ]);
         DB::table('templateblocks')->insert([

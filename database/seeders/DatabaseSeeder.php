@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call([ProjectSeeder::class]);
         $this->call([TemplateBlockSeeder::class]);
         $this->call([BlockSeeder::class]);
+        $this->call([MediaSeeder::class]);
         
         MetaData::create([
             'url' => 'contact',
