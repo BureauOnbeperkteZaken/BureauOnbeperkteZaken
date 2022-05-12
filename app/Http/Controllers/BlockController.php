@@ -63,6 +63,8 @@ class BlockController extends Controller
             $url = Config::get('app.url');
             $pattern = preg_replace('/\/\//', '\/\/', $url);
             $image->name = preg_replace('/' . $pattern . '\/storage\/uploads\//', '', $source[0]);
+            $image->name = preg_replace('/\/storage\/uploads\//', '', $image->name);
+            // dd($image->name);
             $image->alt = Media::where('fileName', $image->name)->first()->alt;
             $block->content = preg_replace('/<img(\s([a-z-]*)="([0-9A-z-".:\/\s\(\)])*")*?>/', '', $block->content);
             // dd($block->content);
@@ -88,10 +90,12 @@ class BlockController extends Controller
     public function update(Request $request, Block $block)
     {
         $fileName = $request->filename;
-        $image = Media::where('fileName', $fileName)->first();
-        if ($image->alt != $request->alt) {
-            $image->alt = $request->alt;
-            $image->save();
+        if ($block->type != 'paragraph') {
+            $image = Media::where('fileName', $fileName)->first();
+            if ($image->alt != $request->alt) {
+                $image->alt = $request->alt || 'een alt text lol';
+                $image->save();
+            }
         }
         if ($request->file('upload') != null) {
             $fileName = MediaController::storeLocal($request->file('upload'));

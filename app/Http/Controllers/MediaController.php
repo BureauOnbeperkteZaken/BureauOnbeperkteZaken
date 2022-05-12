@@ -24,7 +24,7 @@ class MediaController extends Controller
         $media = new Media();
         $media->filename = $fileName;
         $media->type = $fileType;
-        $media->alt = $alt;
+        $media->alt = $alt || 'een alt text lol';
         $media->save();
 
         // $mediaBlock = new MediaInBlock();
