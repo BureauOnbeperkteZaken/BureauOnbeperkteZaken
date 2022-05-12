@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::create('templateblocks', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->unsignedBigInteger('video_id');
-            $table->foreign('video_id')->references('id')->on('videos');
-            $table->string('language_code');
-            $table->foreign('language_code')->references('code')->on('languages');
+            $table->unsignedBigInteger('template_id');
+            $table->longText('content');
+            $table->integer('order');
+            $table->string('type');
         });
     }
 
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('projects');
+        Schema::dropIfExists('block');
     }
 };
