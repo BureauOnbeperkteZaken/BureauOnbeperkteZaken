@@ -15,15 +15,18 @@
             {!! $block->content !!}
             <script>
                 let block{{$block->order}} = document.querySelectorAll('.paragraph')[{{$block->order - 1}}];
-                block{{$block->order}}.innerHTML += "<div class=\"editor-toolbar\"><button><a href=\"{{route('panelblock.edit', $block->id)}}\">{{ __('edit') }}</a></button></div>"
+                block{{$block->order}}.innerHTML += "<div class=\"editor-toolbar\"><button><a href=\"{{route('panelblock.edit', $block->id)}}\">Wijzig</a></button></div>";
             </script>
             @endforeach
         </div>
+        <hr>
         <div class="flex">
-            <button><a href="{{route('panelblock.create', ['project' => $block->project_id, 'type' => 'paragraph'])}}">Paragraph</a></button>
-            <button><a href="{{route('panelblock.create', ['project' => $block->project_id, 'type' => 'image-paragraph'])}}">Image-paragraph</a></button>
-            <button><a href="{{route('panelblock.create', ['project' => $block->project_id, 'type' => 'paragraph-image'])}}">Paragraph-image</a></button>
-            <button><a href="{{route('panelblock.create', ['project' => $block->project_id, 'type' => 'gallery'])}}">Gallery</a></button>
+            <h5>Dit is niet zichtbaar op de website</h5>
+            <h2>Voeg een blok toe</h2>
+            <button><a href="{{route('panelblock.create', ['project' => $block->project_id, 'type' => 'paragraph'])}}">Paragraaf</a></button>
+            <button><a href="{{route('panelblock.create', ['project' => $block->project_id, 'type' => 'image-paragraph'])}}">Foto link en tekst rechts</a></button>
+            <button><a href="{{route('panelblock.create', ['project' => $block->project_id, 'type' => 'paragraph-image'])}}">Tekst link en foto rechts</a></button>
+            <!-- <button><a href="{{route('panelblock.create', ['project' => $block->project_id, 'type' => 'gallery'])}}">Gallery</a></button> -->
         </div>
     </div>
 </x-page.sidebar>
