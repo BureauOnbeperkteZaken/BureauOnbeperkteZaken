@@ -4,7 +4,8 @@
     font-family: 'Oswald', sans-serif;
   }
 
-  input, button {
+  button,
+  .epic {
     position: relative;
     text-decoration: none;
     color: black;
@@ -16,9 +17,13 @@
     border: none;
     cursor: pointer;
   }
+
+  #editor {
+    background-color: white;
+  }
 </style>
 @if($method == 'POST')
-<h1>Create {{$type}}</h1>
+<h1 style="text-align:center">Aanmaken van een blok</h1>
 @endif
 
 @if($method == 'PUT')
@@ -28,22 +33,35 @@
 <form action="" method="POST" enctype="multipart/form-data">
   @csrf
   @method($method)
-  <div style="display:flex; width:100%; flex-direction:row; justify-content: center">
-    <div>
+  <div style="display:flex; width:100%; flex-direction:row; justify-content: center; flex-grow: 0; gap: 100px">
+    <div style="display: flex; width: 80%;flex-direction: column;">
       @if(isset($image))
       <input type="hidden" id="filename" name="filename" value="{{$image->name}}">
       @endif
 
-      @if(isset($block) != null && $block->type != 'paragraph')
-      <input id="upload" type="file" name="upload" accept="image/png, image/jpeg, image/jpg, image/webp, image/gif " />
+      @if(!isset($block) || $block->type != 'paragraph')
+      <div class="epic">
+        <label for="file">Klik hier om je afbeelding te uploaden</label>
+        <input id="upload" type="file" name="upload" accept="image/png, image/jpeg, image/jpg, image/webp, image/gif " style="align-self: center; opacity: 0; position: absolute; top: 0;left: 0;height: 100%;width: 100%;cursor: pointer;" />
+      </div>
       @endif
       @if(isset($image))
-      <img id="preview" style="width:100%" src="http://127.0.0.1:8000/storage/uploads/{{$image->name}}">
+      <div>
+        <h2>Voorbeeld van de afbeelding:</h2>
+        <div style="width: 80%">
+          <img id="preview" style="width:100%; height: 100%" src="http://127.0.0.1:8000/storage/uploads/{{$image->name}}">
+        </div>
+      </div>
       @else
-      <img id="preview" style="width:100%">
+      <div>
+        <h2>Voorbeeld van de afbeelding</h2>
+        <div style="width: 80%">
+          <img id="preview" style="width:100%; height: 100%">
+        </div>
+      </div>
       @endif
     </div>
-    <div>
+    <div style="width:100%;">
       <!-- Include stylesheet -->
       <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 

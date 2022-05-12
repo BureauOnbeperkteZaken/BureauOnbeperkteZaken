@@ -15,7 +15,7 @@
             {!! $block->content !!}
             <script>
                 let block{{$block->order}} = document.querySelectorAll('.paragraph')[{{$block->order - 1}}];
-                block{{$block->order}}.innerHTML += "<div class=\"editor-toolbar\"><button><a href=\"{{route('panelblock.edit', $block->id)}}\">Wijzig</a></button></div>";
+                block{{$block->order}}.innerHTML += "<div class=\"editor-toolbar\"><button><a href=\"{{route('panelblock.edit', $block->id)}}\">Bewerken</a></button></div>";
             </script>
             @endforeach
         </div>

@@ -9,6 +9,8 @@ use App\Models\Media;
 use App\Models\MediaInBlock;
 use App\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Storage;
 
 class BlockController extends Controller
 {
@@ -101,12 +103,11 @@ class BlockController extends Controller
             case 'paragraph-image':
                 return '<div class="paragraph paragraph-image paragraph-image-container"><div>' .
                     $content .
-                    '</div><div class="photo"><img src="http://127.0.0.1:8000/storage/uploads/' .
-                    $filename . '"></div></div>';
+                    '</div><div class="photo"><img src="' .  Config::get('app.url') . '/storage/uploads/' . $filename . '"></div></div>';
                 break;
             case 'image-paragraph':
-                return '<div class="paragraph image-paragraph paragraph-image-container"><div class="photo"><img src="http://127.0.0.1:8000/storage/uploads/' .
-                    $filename . '"></div><div>' .
+                return '<div class="paragraph image-paragraph paragraph-image-container"><div class="photo"><img src="' .
+                    Config::get('app.url') . '/storage/uploads/' . $filename . '"></div><div>' .
                     $content . '</div></div>';
                 break;
             case 'gallery':
