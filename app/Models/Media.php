@@ -14,5 +14,6 @@ class Media extends Model
     public $fillable = [
         'filename',
         'type',
+        'alt',
     ];
 }

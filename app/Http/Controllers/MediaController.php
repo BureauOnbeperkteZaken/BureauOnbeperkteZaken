@@ -16,7 +16,7 @@ class MediaController extends Controller
         return $fileName;
     }
 
-    public static function storeCloud($file, $blockId)
+    public static function storeCloud($file, $blockId, $alt)
     {
         $fileType = $file->getClientOriginalExtension();
         $fileName = $file->getClientOriginalName();
@@ -24,12 +24,13 @@ class MediaController extends Controller
         $media = new Media();
         $media->filename = $fileName;
         $media->type = $fileType;
+        $media->alt = $alt;
         $media->save();
 
-        $mediaBlock = new MediaInBlock();
-        $mediaBlock->block_id = $blockId;
-        $mediaBlock->media_id = $media->id;
-        $mediaBlock->save();
+        // $mediaBlock = new MediaInBlock();
+        // $mediaBlock->block_id = $blockId;
+        // $mediaBlock->media_id = $media->id;
+        // $mediaBlock->save();
 
         return $fileName;
     }

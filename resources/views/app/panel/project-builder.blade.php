@@ -24,8 +24,8 @@
             <h5>Dit is niet zichtbaar op de website</h5>
             <h2>Voeg een blok toe</h2>
             <button><a href="{{route('panelblock.create', ['project' => $block->project_id, 'type' => 'paragraph'])}}">Paragraaf</a></button>
-            <button><a href="{{route('panelblock.create', ['project' => $block->project_id, 'type' => 'image-paragraph'])}}">Foto link en tekst rechts</a></button>
-            <button><a href="{{route('panelblock.create', ['project' => $block->project_id, 'type' => 'paragraph-image'])}}">Tekst link en foto rechts</a></button>
+            <button><a href="{{route('panelblock.create', ['project' => $block->project_id, 'type' => 'image-paragraph'])}}">Foto links en tekst rechts</a></button>
+            <button><a href="{{route('panelblock.create', ['project' => $block->project_id, 'type' => 'paragraph-image'])}}">Tekst links en foto rechts</a></button>
             <!-- <button><a href="{{route('panelblock.create', ['project' => $block->project_id, 'type' => 'gallery'])}}">Gallery</a></button> -->
         </div>
     </div>

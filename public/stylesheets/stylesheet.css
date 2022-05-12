@@ -403,3 +403,8 @@ button:active {
 .paragraph-image-reverse {
     flex-flow: row-reverse;
 }
+
+.paragraph-image-container > div:not(.editor-toolbar) {
+    height: 100%;
+    width: 100%;
+}

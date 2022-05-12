@@ -34,6 +34,7 @@
   @csrf
   @method($method)
   <div style="display:flex; width:100%; flex-direction:row; justify-content: center; flex-grow: 0; gap: 100px">
+    @if($type != 'paragraph')
     <div style="display: flex; width: 80%;flex-direction: column;">
       @if(isset($image))
       <input type="hidden" id="filename" name="filename" value="{{$image->name}}">
@@ -44,12 +45,17 @@
         <label for="file">Klik hier om je afbeelding te uploaden</label>
         <input id="upload" type="file" name="upload" accept="image/png, image/jpeg, image/jpg, image/webp, image/gif " style="align-self: center; opacity: 0; position: absolute; top: 0;left: 0;height: 100%;width: 100%;cursor: pointer;" />
       </div>
+      @if (isset($image))
+      <input type="text" id="alt" name="alt" placeholder="Type hier je vervangende tekst in voor als de afbeelding niet inlaad" value="{{$image->alt}}">
+      @else
+      <input type="text" id="alt" name="alt" placeholder="Type hier je vervangende tekst in voor als de afbeelding niet inlaad" value="">
+      @endif
       @endif
       @if(isset($image))
       <div>
         <h2>Voorbeeld van de afbeelding:</h2>
         <div style="width: 80%">
-          <img id="preview" style="width:100%; height: 100%" src="http://127.0.0.1:8000/storage/uploads/{{$image->name}}">
+          <img id="preview" style="width:100%; height: 100%" src="http://127.0.0.1:8000/storage/uploads/{{$image->name}}" alt="{{$image->alt}}">
         </div>
       </div>
       @else
@@ -61,6 +67,7 @@
       </div>
       @endif
     </div>
+    @endif
     <div style="width:100%;">
       <!-- Include stylesheet -->
       <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
