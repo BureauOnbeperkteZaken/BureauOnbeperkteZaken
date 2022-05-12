@@ -2,7 +2,6 @@
 
 namespace App;
 
-use App\Models\Video;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,6 +15,6 @@ class Project extends Model
 
     public function video()
     {
-        return $this->hasOne(Video::class);
+        return $this->belongsTo(Video::class);
     }
 }

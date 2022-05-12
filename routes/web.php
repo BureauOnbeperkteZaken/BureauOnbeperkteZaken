@@ -20,8 +20,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('app.home');
+    return redirect()->route('home');
 });
+
+Route::get('home', function (){
+    return view('app.home');
+})->name('home');;
 
 // Contact Routes
 Route::get('/contact', [App\Http\Controllers\ContactController::class, 'contact_index']);
@@ -29,6 +33,8 @@ Route::post('contact_index', [App\Http\Controllers\ContactController::class, 'co
 Route::post('/contact', [App\Http\Controllers\ContactController::class, 'contact_index'])->name('contact_index');
 
 Route::get('/onbeperkt-anders', [VideoController::class, 'get']);
+
+Route::get('/project/{id}', [ProjectController::class, 'readView'])->name('project.view');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

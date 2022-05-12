@@ -27,7 +27,20 @@ class ProjectController extends Controller
     public function read($id)
     {
         $blocks = Block::where('project_id', $id)->orderBy('order', 'asc')->get();
-        return view('app.panel.project-builder', compact('blocks'))->with('projectId', $id);
+        $videoLink = Project::where('id', $id)
+            ->first()
+            ->video->link;
+        return view('app.panel.project-builder', compact('blocks', 'videoLink'))->with('projectId', $id);
+    }
+
+    // TODO: refactor
+    public function readView($id)
+    {
+        $blocks = Block::where('project_id', $id)->orderBy('order', 'asc')->get();
+        $videoLink = Project::where('id', $id)
+            ->first()
+            ->video->link;
+        return view('app.project-viewer', compact('blocks', 'videoLink'));
     }
 
     public function create()

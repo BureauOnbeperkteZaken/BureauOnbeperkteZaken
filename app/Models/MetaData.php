@@ -5,13 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Video extends Model
+class MetaData extends Model
 {
     use HasFactory;
-
-    public $timestamps = false;
-
-    public $fillable = [
-        'link',
+    protected $fillable = [
+        'url', 'title', 'description'
     ];
 }

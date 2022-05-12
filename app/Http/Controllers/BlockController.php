@@ -31,7 +31,7 @@ class BlockController extends Controller
         $block->type = $request->type;
 
         if ($request->file('upload') != null) {
-            $fileName = $this->storeFileLocal($request->file('upload'));
+            $fileName = MediaController::storeLocal($request->file('upload'));
         }
 
         $block->content = $this->converter($block->type, $request->content, $fileName);
@@ -39,7 +39,7 @@ class BlockController extends Controller
 
         // ! Function should be after block is saved to pass the block id
         if ($request->file('upload') != null) {
-            $this->storeFileCloud($request->file('upload'), $block->id);
+            MediaController::storeCloud($request->file('upload'), $block->id);
         }
 
         return redirect()->route('panelproject.read', $block->project_id);
@@ -83,39 +83,12 @@ class BlockController extends Controller
         $fileName = $request->filename;
         // dd($request->all());
         if ($request->file('upload') != null) {
-            $fileName = $this->storeFileLocal($request->file('upload'));
-            $this->storeFileCloud($request->file('upload'), $block->id);
+            $fileName = MediaController::storeLocal($request->file('upload'));
+            MediaController::storeCloud($request->file('upload'), $block->id);
         }
         $block->content = $this->converter($block->type, $request->content, $fileName);
         $block->save();
         return redirect()->route('panelproject.read', $block->project_id);
-    }
-
-    
-    private function storeFileLocal($file)
-    {
-        $fileName = $file->getClientOriginalName();
-        $path = base_path() . '/storage/app/public/uploads/';
-        $file->move($path, $fileName);
-        return $fileName;
-    }
-
-    private function storeFileCloud($file, $blockId)
-    {
-        $fileType = $file->getClientOriginalExtension();
-        $fileName = $file->getClientOriginalName();
-
-        $media = new Media();
-        $media->filename = $fileName;
-        $media->type = $fileType;
-        $media->save();
-
-        $mediaBlock = new MediaInBlock();
-        $mediaBlock->block_id = $blockId;
-        $mediaBlock->media_id = $media->id;
-        $mediaBlock->save();
-
-        return $fileName;
     }
 
     // TODO: this lol
