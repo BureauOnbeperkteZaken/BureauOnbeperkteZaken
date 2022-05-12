@@ -9,7 +9,7 @@ class TemplateBlock extends Model
 {
     use HasFactory;
 
-    protected $table = 'Templateblocks';
+    protected $table = 'templateblocks';
 
     public $timestamps = false;
 

@@ -1,7 +1,8 @@
 @props([
-    'title' => '', 
+    'title' => '',
     'titlebase' => config("app.name"),
-    'background' => ''
+    'background' => '',
+    'type' => '',
 ])
 
 <!DOCTYPE html>
@@ -9,14 +10,17 @@
 
 <head>
     @include('layouts.meta', [
-        'title' => $title, 
+        'title' => $title,
         'titlebase' => $titlebase
     ])
+
 </head>
 
 <body>
     @auth
-        @include('layouts.admin')
+        @include('layouts.admin', [
+            'type' => $type,
+        ])
     @endauth
     <div @class(['wrapper', 'no-background' => empty($background) ])>
         <header>

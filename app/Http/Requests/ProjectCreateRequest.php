@@ -26,7 +26,8 @@ class ProjectCreateRequest extends FormRequest
     {
         return [
             'video_name' => 'required|max:255',
-            'video_file' => 'file|required|mimes:mp4,mov,wmv,avi,flv'
+            'video_file' => 'file|required|mimes:mp4,mov,wmv,avi,flv',
+            'template' => 'required'
         ];
     }
 }

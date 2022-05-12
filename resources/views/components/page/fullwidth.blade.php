@@ -3,10 +3,11 @@
     'titlebase' => config("app.name"),
     'sidebar' => '',
     'background' => '',
-    'cards' => false
+    'cards' => false,
+    'type' => '',
 ])
 
-<x-page.base title="{{ $title }}" titlebase="{{ $titlebase }}" background="{{ $background }}">
+<x-page.base title="{{ $title }}" titlebase="{{ $titlebase }}" background="{{ $background }}" type="{{$type}}">
     <main @class(['cards' => $cards])>
         <div class="content-wrapper">
             {!! $slot !!}

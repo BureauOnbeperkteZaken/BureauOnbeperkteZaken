@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProjectCreateRequest;
 use App\Models\Block;
+use App\Models\TemplateBlock;
+use App\Models\Video;
 use App\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -15,7 +17,8 @@ class ProjectController extends Controller
     {
         $videoLink = Project::where('id', $id)
             ->first()
-            ->video_link;
+            ->video
+            ->link;
         return view('app/home')->with('videoLink', $videoLink);
     }
 
@@ -35,15 +38,31 @@ class ProjectController extends Controller
         $request->validated();
         $file = $request->file('video_file');
         $name = $request->get('video_name');
+        $template = $request->get('template');
         $video = Vimeo::upload($file, ['name' => $name]);
         $videoReturn = Vimeo::request($video, ['per_page' => 1], 'GET');
         $embedUrl = $videoReturn['body']['player_embed_url'];
 
+        $video = new Video();
+        $video->link = $embedUrl;
+        $video->save();
+
         $project = new Project();
-        $project->video_link = $embedUrl;
+        $project->video_id = $video->id;
+        $project->language_code = 'nl';
         $project->save();
 
-        return redirect("projects/$project->id")->with('videoLink', $embedUrl);
+        $template_blocks = TemplateBlock::where('template_id', $template)->get();
+        foreach ($template_blocks as $block) {
+            $new_block = new Block();
+            $new_block->project_id = $project->id;
+            $new_block->content = $block->content;
+            $new_block->type = $block->type;
+            $new_block->order = $block->order;
+            $new_block->save();
+        }
+
+        return redirect("panel/project/$project->id")->with('videoLink', $embedUrl);
     }
 
     public static function fileUpload()
@@ -65,4 +84,5 @@ class ProjectController extends Controller
 
         return redirect('/panel/content_upload');
     }
+
 }
