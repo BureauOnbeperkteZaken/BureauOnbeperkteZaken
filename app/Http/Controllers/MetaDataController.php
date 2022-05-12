@@ -9,7 +9,7 @@ class MetaDataController extends Controller
 {
     // Get metadata
     public function getMetaData($url) {
-        return DB::table('meta_data')->where('url', $url)->last();
+        return MetaData::where('url', $url)->last();
     }
     // Store Contact Form data
     public function MetaDataForm(Request $request) {
