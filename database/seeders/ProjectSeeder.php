@@ -19,5 +19,9 @@ class ProjectSeeder extends Seeder
             'video_id' => 1,
             'language_code' => 'nl',
         ]);
+        DB::table('projects')->insert([
+            'video_id' => 1,
+            'language_code' => 'nl',
+        ]);
     }
 }
