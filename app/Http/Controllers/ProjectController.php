@@ -15,21 +15,27 @@ class ProjectController extends Controller
     {
         $videoLink = Project::where('id', $id)
             ->first()
-            ->video_link;
-        return view('app/home')->with('videoLink', $videoLink);
+            ->video->link;
+        return view('app/home')->with('videoLink');
     }
 
     public function read($id)
     {
         $blocks = Block::where('project_id', $id)->orderBy('order', 'asc')->get();
-        return view('app.panel.project-builder', compact('blocks'));
+        $videoLink = Project::where('id', $id)
+            ->first()
+            ->video->link;
+        return view('app.panel.project-builder', compact('blocks', 'videoLink'));
     }
 
     // TODO: refactor
     public function readView($id)
     {
         $blocks = Block::where('project_id', $id)->orderBy('order', 'asc')->get();
-        return view('app.project-viewer', compact('blocks'));
+        $videoLink = Project::where('id', $id)
+            ->first()
+            ->video->link;
+        return view('app.project-viewer', compact('blocks', 'videoLink'));
     }
 
     public function create()
