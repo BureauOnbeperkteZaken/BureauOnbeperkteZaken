@@ -20,8 +20,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('app.home');
+    return redirect()->route('home');
 });
+
+Route::get('home', function (){
+    return view('app.home');
+})->name('home');;
 
 // Contact Routes
 Route::get('/contact', [App\Http\Controllers\ContactController::class, 'contact_index']);
@@ -37,3 +41,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
+
+Route::get('/template/{id}', function (int $id = 0) {
+    return view('app.panel.templates.project_' . $id);
+});

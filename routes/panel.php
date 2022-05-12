@@ -36,7 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/content_upload', [ProjectController::class, 'storeFile'])->name('storeFile');
 
     Route::get('/template/{id}', [TemplateController::class, 'read'])->name('template.read');
-    
+
     Route::get('/project/{id}', [ProjectController::class, 'read'])->name('project.read');
 
     Route::get('/project/{project}/edit', [ProjectController::class, 'edit'])->name('template.edit');
@@ -47,4 +47,11 @@ Route::middleware('auth')->group(function () {
 
     Route::get('block/{block}/edit', [BlockController::class, 'edit'])->name('block.edit');
     Route::put('block/{block}/edit', [BlockController::class, 'update'])->name('block.update');
+
+    Route::get('/metadata/{page}', function ($slug) {
+        return view('meta-data-edit', [
+            'url' => $slug
+        ]);
+    });
+    Route::post('/metadata/{page}', [App\Http\Controllers\MetaDataController::class, 'MetaDataForm'])->name('metadata.store');
 });
