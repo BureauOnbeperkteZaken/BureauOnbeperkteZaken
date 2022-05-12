@@ -1,8 +1,8 @@
 <?php
 
+
 namespace Tests\Browser;
 
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
@@ -13,16 +13,17 @@ class ContactTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/contact')
-                    ->assertSee('Contact')
-                    ->type('email', 'john@doe.com')
-                    ->type('name', 'John Doe')
-                    ->type('message', 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live.')
-                    ->pause(1000)
-                    ->press('Versturen')
-                    ->pause(5000)
-                    ->assertSee('Bericht verzonden');
+                ->assertSee('Contact')
+                ->type('email', 'john@doe.com')
+                ->type('name', 'John Doe')
+                ->type('message', 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live.')
+                ->pause(1000)
+                ->press('Versturen')
+                ->pause(5000)
+                ->assertSee('Bericht verzonden');
         });
     }
+
     /** @test */
     public function dusk_fill_form_incorrect_email()
     {
@@ -35,9 +36,10 @@ class ContactTest extends DuskTestCase
                 ->pause(1000)
                 ->press('Versturen')
                 ->pause(5000)
-                ->assertSee('Email niet geldig');
+                ->assertSee('The email must be a valid email address.');
         });
     }
+
     /** @test */
     public function dusk_fill_form_message_too_long()
     {
@@ -51,7 +53,7 @@ class ContactTest extends DuskTestCase
                 ->pause(1000)
                 ->press('Versturen')
                 ->pause(5000)
-                ->assertSee('Bericht te lang');
+                ->assertSee('The message may not be greater than 500 characters.');
         });
     }
 }

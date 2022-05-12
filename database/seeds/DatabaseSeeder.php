@@ -15,5 +15,15 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'email' => 'testuser@boz.com',
         ]);
+        App\Models\MetaData::create([
+            'url' => 'contact',
+            'title' => 'Contact',
+            'description' => 'Neem contact met ons op'
+        ]);
+        App\Models\MetaData::create([
+            'url' => 'home',
+            'title' => 'Home',
+            'description' => 'Welkom bij Bureau Onbeperkte Zaken'
+        ]);
     }
 }
