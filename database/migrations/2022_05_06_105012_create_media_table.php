@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('filename');
             $table->string('type');
+            $table->string('alt');
             // $table->unsignedBigInteger('block_id')->nullable();
             // $table->foreign('block_id')->references('id')->on('blocks');
         });

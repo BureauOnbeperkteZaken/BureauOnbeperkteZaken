@@ -36,12 +36,12 @@ class BlockController extends Controller
             $fileName = MediaController::storeLocal($request->file('upload'));
         }
 
-        $block->content = $this->converter($block->type, $request->content, $fileName);
+        $block->content = $this->converter($block->type, $request->content, $fileName, $request->alt);
         $block->save();
 
         // ! Function should be after block is saved to pass the block id
         if ($request->file('upload') != null) {
-            MediaController::storeCloud($request->file('upload'), $block->id);
+            MediaController::storeCloud($request->file('upload'), $block->id, $request->alt);
         }
 
         return redirect()->route('panelproject.read', $block->project_id);
@@ -59,9 +59,13 @@ class BlockController extends Controller
         } else if ($block->type == 'paragraph-image' || $block->type == 'image-paragraph') {
             $block->content = preg_replace('/<\/?div(\s([a-z-]*)="([a-z-\s])*")*?>/', '', $block->content);
             $image = new Image();
-            preg_match('/(?<=(src=")).*(?=">)/', $block->content, $source);
-            $image->name = preg_replace('/http:\/\/127.0.0.1:8000\/storage\/uploads\//', '', $source[0]);
+            preg_match('/(?<=(src=")).*?(?=")/', $block->content, $source);
+            $url = Config::get('app.url');
+            $pattern = preg_replace('/\/\//', '\/\/', $url);
+            $image->name = preg_replace('/' . $pattern . '\/storage\/uploads\//', '', $source[0]);
+            $image->alt = Media::where('fileName', $image->name)->first()->alt;
             $block->content = preg_replace('/<img(\s([a-z-]*)="([0-9A-z-".:\/\s\(\)])*")*?>/', '', $block->content);
+            // dd($block->content);
         }
         // $hallo = str_replace("world", "ßeter", "Hello world!");
 
@@ -77,24 +81,29 @@ class BlockController extends Controller
         $block->content = preg_replace('/(?<=(<div class="photo">))[\s\S]*(?=(<\/div>))/', '', $block->content);
         dd($block->content);
         */
-        return view('app.panel.editor', compact('block', 'project', 'languages', 'image', 'method'));
+        $type = $block->type;
+        return view('app.panel.editor', compact('block', 'project', 'languages', 'image', 'type', 'method'));
     }
 
     public function update(Request $request, Block $block)
     {
         $fileName = $request->filename;
-        // dd($request->all());
+        $image = Media::where('fileName', $fileName)->first();
+        if ($image->alt != $request->alt) {
+            $image->alt = $request->alt;
+            $image->save();
+        }
         if ($request->file('upload') != null) {
             $fileName = MediaController::storeLocal($request->file('upload'));
-            MediaController::storeCloud($request->file('upload'), $block->id);
+            MediaController::storeCloud($request->file('upload'), $block->id, $request->alt);
         }
-        $block->content = $this->converter($block->type, $request->content, $fileName);
+        $block->content = $this->converter($block->type, $request->content, $fileName, $request->alt);
         $block->save();
         return redirect()->route('panelproject.read', $block->project_id);
     }
 
     // TODO: this lol
-    private function converter($type, $content, $filename)
+    private function converter($type, $content, $filename, $alt)
     {
         switch ($type) {
             case 'paragraph':
@@ -103,11 +112,11 @@ class BlockController extends Controller
             case 'paragraph-image':
                 return '<div class="paragraph paragraph-image paragraph-image-container"><div>' .
                     $content .
-                    '</div><div class="photo"><img src="' .  Config::get('app.url') . '/storage/uploads/' . $filename . '"></div></div>';
+                    '</div><div class="photo"><img src="' .  Config::get('app.url') . '/storage/uploads/' . $filename . '" alt="' . $alt . '"></div></div>';
                 break;
             case 'image-paragraph':
                 return '<div class="paragraph image-paragraph paragraph-image-container"><div class="photo"><img src="' .
-                    Config::get('app.url') . '/storage/uploads/' . $filename . '"></div><div>' .
+                    Config::get('app.url') . '/storage/uploads/' . $filename . '" alt="' . $alt . '"></div><div>' .
                     $content . '</div></div>';
                 break;
             case 'gallery':
