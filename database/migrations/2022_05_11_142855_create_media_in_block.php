@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('media_in_block', function (Blueprint $table) {
+        /*Schema::create('media_in_block', function (Blueprint $table) {
             $table->unsignedBigInteger('block_id');
             $table->foreign('block_id')->references('id')->on('blocks');
             $table->unsignedBigInteger('media_id');
             $table->foreign('media_id')->references('id')->on('media');
-        });
+        });*/
     }
 
     /**

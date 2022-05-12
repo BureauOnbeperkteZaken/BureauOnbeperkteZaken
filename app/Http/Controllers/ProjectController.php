@@ -40,7 +40,7 @@ class ProjectController extends Controller
         $videoLink = Project::where('id', $id)
             ->first()
             ->video->link;
-        return view('app.project-viewer', compact('blocks', 'videoLink'));
+        return view('app.project-viewer', compact('blocks', 'videoLink'))->with('projectId', $id);
     }
 
     public function create()

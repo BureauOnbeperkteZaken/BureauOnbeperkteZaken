@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Video;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 

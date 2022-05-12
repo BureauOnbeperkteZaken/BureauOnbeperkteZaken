@@ -3,7 +3,7 @@
         gap: 80px;
     }
 </style>
-<x-page.fullwidth type="project_details" :cards="true">
+<x-page.fullwidth type="project_details" project_id="{{$projectId}}" :cards="true">
 
     <x-slot:background>
         <iframe id="bigVideo" type="text/html" title="Vimeo player" src="{{ $videoLink }}" allowfullscreen></iframe>
