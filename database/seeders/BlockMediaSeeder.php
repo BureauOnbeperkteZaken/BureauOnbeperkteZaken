@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class MediaSeeder extends Seeder
+class BlockMediaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,9 +15,9 @@ class MediaSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('media')->insert([
-            'filename' => 'boz.jpg',
-            'type' => 'jpg',
+        DB::table('block_media')->insert([
+            'block_id' => 4,
+            'media_id' => 1,
         ]);
     }
 }
