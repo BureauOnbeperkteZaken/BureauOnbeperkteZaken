@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('description');
             $table->string('alt');
+            $table->unsignedBigInteger('media_id');
+            $table->foreign('media_id')->references('id')->on('media');
         });
     }
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\EditVideoRequest;
 use App\Http\Requests\ProjectCreateRequest;
 use App\Models\Block;
+use App\Models\BlockMedia;
 use App\Models\TemplateBlock;
 use App\Models\Video;
 use App\Project;
@@ -37,6 +38,13 @@ class ProjectController extends Controller
     public function readView($id)
     {
         $blocks = Block::where('project_id', $id)->orderBy('order', 'asc')->get();
+        $mb = BlockMedia::where('block_id', 4)->get();
+        foreach ($blocks as $block) {
+            // get media filename from block_media table
+            $media = BlockMedia::where('block_id', $block->id)->first();
+            $block->media = BlockMedia::where('block_id', $block->id)->get();
+        }
+        dd($blocks[3]);
         $videoLink = Project::where('id', $id)
             ->first()
             ->video->link;
@@ -131,13 +139,13 @@ class ProjectController extends Controller
             $embedUrl = $videoReturn['body']['player_embed_url'];
         } else if ($link) {
             $existing = Video::where('link', $link)->first();
-            if ($existing){
+            if ($existing) {
                 $project->video_id = $existing->id;
                 $embedUrl = $existing->link;
                 return redirect("panel/project/$project->id")->with('videoLink', $embedUrl);
             }
             $embedUrl = $link;
-        } else{
+        } else {
             return Redirect::back();
         }
 
