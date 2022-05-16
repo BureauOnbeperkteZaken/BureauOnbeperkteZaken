@@ -6,6 +6,7 @@ version: 2.1
 
 orbs: 
   discord: antonioned/discord@0.1.0
+  jira: circleci/jira@1.3.1
 
 jobs:
   build:
@@ -67,6 +68,7 @@ jobs:
     steps:
     - checkout
     - run: npm install
+    - run: git status
     - run:
         name: Deploy main branch on remote ftp server
         command: |
@@ -79,7 +81,7 @@ jobs:
         command: |
           sudo apt-get -qq install sshpass
           echo "Restarting artisan"
-          sshpass -p "${password_prod}" -v ssh -o StrictHostKeyChecking=no ${username_prod}@${ftp_server_prod} -p ${ssh_port_prod} "cd ${ftp_location_prod}; composer update -W; php artisan optimize:clear; exit"
+          sshpass -p "${password_prod}" -v ssh -o StrictHostKeyChecking=no ${username_prod}@${ftp_server_prod} -p ${ssh_port_prod} "cd ${ftp_location_prod}; composer update -W; npm install; php artisan optimize:clear; exit"
   deploy-staging:
     docker:
       - image: circleci/node:8-browsers
@@ -87,6 +89,7 @@ jobs:
     steps:
     - checkout
     - run: npm install
+    - run: git status
     - run:
         name: Deploy development branch on remote ftp server
         command: |
@@ -99,7 +102,7 @@ jobs:
         command: |
           sudo apt-get -qq install sshpass
           echo "Restarting artisan"
-          sshpass -p "${password_dev}" -v ssh -o StrictHostKeyChecking=no ${username_dev}@${ftp_server_dev} -p ${ssh_port_prod} "cd ${ftp_location_dev}; composer update -W; php artisan optimize:clear; exit"
+          sshpass -p "${password_dev}" -v ssh -o StrictHostKeyChecking=no ${username_dev}@${ftp_server_dev} -p ${ssh_port_prod} "cd ${ftp_location_dev}; composer update -W; npm install; php artisan migrate:fresh --seed; php artisan optimize:clear; exit"
 
     # send discord webhook
     - discord/status:
@@ -110,18 +113,30 @@ jobs:
 
 workflows:
   version: 2
-  build-branch-deploy-if-main:
+  build-test-deploy:
     jobs:
-      - build
+      - build:
+          post-steps:
+            - jira/notify:
+                environment_type: development
+                job_type: build
       - deploy-main:
           filters:
             branches:
               only: main
           requires:
             - build
+          post-steps:
+            - jira/notify:
+                environment_type: staging
+                job_type: deployment
       - deploy-staging:
           filters:
             branches:
               only: development
           requires:
             - build
+          post-steps:
+            - jira/notify:
+                environment_type: production
+                job_type: deployment

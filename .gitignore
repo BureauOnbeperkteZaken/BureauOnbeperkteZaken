@@ -144,3 +144,13 @@ modules.xml
 
 # End of https://www.toptal.com/developers/gitignore/api/laravel,phpstorm+all,visualstudiocode
 .vscode/sftp.json
+
+
+mysql/
+nginx/
+php/
+
+Dockerfile
+docker-compose.yml
+
+**.code-workspace
