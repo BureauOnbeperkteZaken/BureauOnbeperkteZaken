@@ -16,11 +16,11 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
     </x-slot>
 
     <div>
-        <div data-elementor-type="wp-page" data-elementor-id="2337">
+        <div>
             <section>
                 <div>
-                    <h3><span
-                        ><strong>Inhoud:</strong></span>
+                    <h3>
+                        <span><strong>Inhoud:</strong></span>
                     </h3>
                     <p><strong>&nbsp;</strong></p>
                     <ul>
@@ -50,8 +50,8 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
             </section>
             <section>
                 <div>
-                    <h3><span
-                        ><strong>Voorwoord</strong></span>
+                    <h3>
+                        <span><strong>Voorwoord</strong></span>
                     </h3>
                     <p>&nbsp;</p>
                     <p>Fijn dat u belangstelling heeft voor ons meerjarenbeleidsplan 2021-2025. Hierin
@@ -88,8 +88,8 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
             </section>
             <section>
                 <div>
-                    <h3><span
-                        ><strong>Wie zijn wij</strong></span>
+                    <h3>
+                        <span><strong>Wie zijn wij</strong></span>
                     </h3>
                     <p>Er zijn in de geschiedenis altijd argumenten bedacht door mensen, waarom mensen
                         met een beperking/handicap echt anders zijn, zo niet minder waren. Het zijn
@@ -125,9 +125,9 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
                 </div>
             </section>
             <section>
-
                 <div>
-                    <h3><span><strong>Waar staan we nu</strong></span>
+                    <h3>
+                        <span><strong>Waar staan we nu</strong></span>
                     </h3>
                     <p>&nbsp;</p>
                     <p>Stichting Bureau Onbeperkte Zaken (opgericht in mei 2021) heeft de afgelopen twee
@@ -137,15 +137,13 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
                         vrijwilligers bestuur gevonden, website, fondsenwervingsplan en het
                         Meerjarenbeleidsplan 2021-2025 ontwikkeld.</p>
                     <p><strong>&nbsp;</strong></p>
-                    <p><span><strong>Vertrouwen als basis&nbsp;</strong></span>
-                    </p>
+                    <p><span><strong>Vertrouwen als basis&nbsp;</strong></span></p>
                     <p>&nbsp;</p>
                     <p>Wij zijn op zoek naar het juiste evenwicht tussen vertrouwen en samenwerken.
                         Mensen, instellingen en professionals, aandacht voor een veilige werkcultuur die
                         gericht is op leren en verbeteren.</p>
                     <p>&nbsp;</p>
-                    <p><span><strong>Agenderen en samenwerken</strong></span>
-                    </p>
+                    <p><span><strong>Agenderen en samenwerken</strong></span></p>
                     <p>&nbsp;</p>
                     <p>Steeds vaker krijgen we signalen van wat leeft bij mensen met een beperking. En
                         willen de samenwerking aangaan met organisaties zoals MEE, politieke partijen,
@@ -184,11 +182,11 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
                         voortbouwen. Vasthouden aan onze koers, prioriteiten stellen en de keuzes
                         toelichten</p>
                 </div>
-
             </section>
             <section>
                 <div>
-                    <h3><span><strong>VN-verdrag versus BOZ</strong></span>
+                    <h3>
+                        <span><strong>VN-verdrag versus BOZ</strong></span>
                     </h3>
                     <p>&nbsp;</p>
                     <p>Ruim 2 miljoen mensen in ons land hebben een beperking. Zij zijn bijvoorbeeld
@@ -204,8 +202,8 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
             </section>
             <section>
                 <div>
-                    <p><span
-                        ><strong>Meedenken over wetten en beleid</strong></span>
+                    <p>
+                        <span><strong>Meedenken over wetten en beleid</strong></span>
                     </p>
                     <p>&nbsp;</p>
                     <p>Het is belangrijk dat mensen met een beperking meer en eerder meedenken over
@@ -217,8 +215,8 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
                         alleen bij aan de kwaliteit en effectiviteit van beleid en wetgeving, maar zorgt
                         ook voor een toegankelijke samenleving waarin iedereen écht kan meedoen!”</p>
                     <p>&nbsp;</p>
-                    <p><span
-                        ><strong>Niet of veel te laat betrokken</strong></span>
+                    <p>
+                        <span><strong>Niet of veel te laat betrokken</strong></span>
                     </p>
                     <p>&nbsp;</p>
                     <p>Ondanks het feit dat de regering en gemeenten verplicht zijn om mensen met een
@@ -230,7 +228,9 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
                         Daarnaast worden we zelden bij het begin van het traject erbij betrokken.
                         Vrijwel altijd mogen we helemaal aan het einde nog even ons zegje doen.”</p>
                     <p>&nbsp;</p>
-                    <p><span><strong>Uitdagingen BOZ</strong></span></p>
+                    <p>
+                        <span><strong>Uitdagingen BOZ</strong></span>
+                    </p>
                     <p>&nbsp;</p>
                     <p>Bureau Onbeperkte Zaken, wilt breed kijken. Om dit allemaal te verwezenlijken
                         moet je het totale plaatje kunnen zien. De juiste context anders blijven we maar
@@ -248,9 +248,9 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
 
             </section>
             <section>
-
                 <div>
-                    <h3><span><strong>Voornemens Toekomst</strong></span>
+                    <h3>
+                        <span><strong>Voornemens Toekomst</strong></span>
                     </h3>
                     <p>&nbsp;</p>
                     <ul>
@@ -267,13 +267,11 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
                         </li>
                     </ul>
                 </div>
-
             </section>
             <section>
-
                 <div>
-                    <h3><span
-                        ><strong>Financië</strong><strong>n</strong></span>
+                    <h3>
+                        <span><strong>Financiën</strong></span>
                     </h3>
                     <p><strong>&nbsp;</strong></p>
                     <table>
