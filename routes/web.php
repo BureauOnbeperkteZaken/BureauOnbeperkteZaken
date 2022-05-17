@@ -42,6 +42,10 @@ Route::get('/dashboard', function () {
 
 require __DIR__ . '/auth.php';
 
+Route::get('/jarenplan', function () {
+    return view('jarenplan');
+});
+
 Route::get('/template/{id}', function (int $id = 0) {
     return view('app.panel.templates.project_' . $id);
 });
