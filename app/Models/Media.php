@@ -16,4 +16,8 @@ class Media extends Model
         'type',
         'alt',
     ];
+
+    public function blocks() {
+        return $this->hasMany(Block::class);
+    }
 }

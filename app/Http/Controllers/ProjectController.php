@@ -38,16 +38,11 @@ class ProjectController extends Controller
     public function readView($id)
     {
         $blocks = Block::where('project_id', $id)->orderBy('order', 'asc')->get();
-        $mb = BlockMedia::where('block_id', 4)->get();
-        foreach ($blocks as $block) {
-            // get media filename from block_media table
-            $media = BlockMedia::where('block_id', $block->id)->first();
-            $block->media = BlockMedia::where('block_id', $block->id)->get();
-        }
-        dd($blocks[3]);
         $videoLink = Project::where('id', $id)
-            ->first()
-            ->video->link;
+        ->first()
+        ->video->link;
+        dd($blocks[3]->media);
+        // $blocks[3]->get();
         return view('app.project-viewer', compact('blocks', 'videoLink'))->with('projectId', $id);
     }
 
