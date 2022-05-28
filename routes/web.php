@@ -40,6 +40,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/overons', function() {
+    return view('overons');
+});
 require __DIR__ . '/auth.php';
 
 Route::get('/template/{id}', function (int $id = 0) {
