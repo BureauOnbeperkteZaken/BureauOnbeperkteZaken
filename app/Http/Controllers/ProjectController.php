@@ -41,8 +41,17 @@ class ProjectController extends Controller
         $videoLink = Project::where('id', $id)
         ->first()
         ->video->link;
-        dd($blocks[3]->media);
-        // $blocks[3]->get();
+
+        for ($i = 0; $i < count($blocks); $i++) {
+            if ($blocks[$i]->type == 'paragraph-image' || $blocks[$i]->type == 'image-paragraph') {
+                $media = $blocks[$i]->media[0];
+                $image = $media->images[0];
+                // TODO: replacement text with assets?
+                // $blocks[$i]->media->path = asset('storage/' . $blocks[$i]->media->path);
+                $replaceText = '<img src="/storage/uploads/' . $media->filename . '" alt="' . $image->alt . '" description="'. $image->description .'">';
+                $blocks[$i]->content = preg_replace('/<img[^>]+>/i', $replaceText, $blocks[$i]->content);
+            }
+        }
         return view('app.project-viewer', compact('blocks', 'videoLink'))->with('projectId', $id);
     }
 
