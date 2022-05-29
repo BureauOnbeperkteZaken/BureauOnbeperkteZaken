@@ -151,4 +151,9 @@ class ProjectController extends Controller
 
         return redirect("panel/project/$project->id")->with('videoLink', $embedUrl);
     }
+
+    public function list() {
+        $projects = Project::all();
+        return view('projects')->with('projects', $projects);
+    }
 }
