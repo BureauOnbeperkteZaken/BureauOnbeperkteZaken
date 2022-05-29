@@ -19,5 +19,9 @@ class BlockMediaSeeder extends Seeder
             'block_id' => 4,
             'media_id' => 1,
         ]);
+        DB::table('block_media')->insert([
+            'block_id' => 6,
+            'media_id' => 1,
+        ]);
     }
 }
