@@ -69,6 +69,7 @@ hr[data-title]::after {
     padding: 16px;
     margin: -16px;
     position: relative;
+    background-color: var(--color-white-background);
 }
 
 .editor-toolbar {
