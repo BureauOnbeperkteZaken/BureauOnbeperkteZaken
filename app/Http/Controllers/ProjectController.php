@@ -85,13 +85,17 @@ class ProjectController extends Controller
         $project->save();
 
         $template_blocks = TemplateBlock::where('template_id', $template)->get();
-        foreach ($template_blocks as $block) {
+        for ($i = 0; $i < count($template_blocks); $i++) {
             $new_block = new Block();
+            $block = $template_blocks[$i];
             $new_block->project_id = $project->id;
             $new_block->content = $block->content;
             $new_block->type = $block->type;
             $new_block->order = $block->order;
             $new_block->save();
+            if ($block->type == 'paragraph-image' || $block->type == 'image-paragraph') {
+                $new_block->media()->attach($block->media[0]->id);
+            }
         }
 
         return redirect("panel/project/$project->id")->with('videoLink', $embedUrl);
