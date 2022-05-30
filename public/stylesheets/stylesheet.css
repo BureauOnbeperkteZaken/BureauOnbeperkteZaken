@@ -423,14 +423,14 @@ button:active {
     width: 100%;
 }
 
-.flex-test {
+.flex {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
 }
 
-.flex-test-two {
+.flex-two {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -438,7 +438,7 @@ button:active {
     padding-bottom: 50px;
 }
 
-.flex-test-inline {
+.flex-inline {
     height: 100%;
     width: 100%;
     display: flex;
@@ -449,45 +449,45 @@ button:active {
     border-radius: 10px;
 }
 
-.flex-test>div {
+.flex>div {
     width: 32.5%;
     height: 175px;
 }
 
-.flex-test-two>div {
+.flex-two>div {
     width: 49%;
     height: 250px;
     align-items: center;
 }
 
-.flex-test-inline>.photo-test {
+.flex-inline>.photo {
     width: 50%;
     align-items: center;
     text-align: justify;
 }
 
-.flex-test-inline>.photo-test img {
+.flex-inline>.photo img {
     width: 100%;
     height: 100%;
     padding: 5px;
     object-fit: scale-down;
 }
 
-.flex-test-inline>.photo-test-small {
+.flex-inline>.photo-small {
     width: 50%;
     height: 100%;
     align-items: center;
     text-align: justify;
 }
 
-.flex-test-inline>.photo-test-small img {
+.flex-inline>.photo-small img {
     width: 100%;
     height: 100%;
     padding: 5px;
     object-fit: scale-down;
 }
 
-.flex-test-inline>.text-test {
+.flex-inline>.text {
     display: flex;
     flex-direction: column;
     width: 50%;
