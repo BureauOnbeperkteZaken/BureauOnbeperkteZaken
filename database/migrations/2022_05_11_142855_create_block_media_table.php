@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('block_media', function (Blueprint $table) {
             $table->unsignedBigInteger('block_id');
-            $table->foreign('block_id')->references('id')->on('blocks');
+            $table->foreign('block_id')->references('id')->on('blocks')->onDelete('cascade');
             $table->unsignedBigInteger('media_id');
-            $table->foreign('media_id')->references('id')->on('media');
+            $table->foreign('media_id')->references('id')->on('media')->onDelete('cascade');
         });
     }
 
