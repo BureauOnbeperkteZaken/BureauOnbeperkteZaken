@@ -37,7 +37,9 @@
     @if($type != 'paragraph')
     <div style="display: flex; width: 80%;flex-direction: column;">
       @if(isset($image))
-      <input type="hidden" id="filename" name="filename" value="{{$image->name}}">
+      <input type="hidden" id="mediaId" name="mediaId" value="{{$media->id}}">
+      <input type="hidden" id="imageId" name="imageId" value="{{$image->id}}">
+      <input type="hidden" id="filename" name="filename" value="{{$media->filename}}">
       @endif
 
       @if(!isset($block) || $block->type != 'paragraph')
@@ -48,14 +50,14 @@
       @if (isset($image))
       <input type="text" id="alt" name="alt" placeholder="Type hier je vervangende tekst in voor als de afbeelding niet inlaad" value="{{$image->alt}}">
       @else
-      <input type="text" id="alt" name="alt" placeholder="Type hier je vervangende tekst in voor als de afbeelding niet inlaad" value="">
+      <input type="text" id="alt" name="alt" placeholder="Type hier je vervangende tekst in voor als de afbeelding niet inlaad">
       @endif
       @endif
       @if(isset($image))
       <div>
         <h2>Voorbeeld van de afbeelding:</h2>
         <div style="width: 80%">
-          <img id="preview" style="width:100%; height: 100%" src="http://127.0.0.1:8000/storage/uploads/{{$image->name}}" alt="{{$image->alt}}">
+          <img id="preview" style="width:100%; height: 100%" src="http://127.0.0.1:8000/storage/uploads/{{$media->filename}}" alt="{{$image->alt}}">
         </div>
       </div>
       @else
