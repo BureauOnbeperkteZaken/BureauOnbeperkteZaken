@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\SamenwerkingenController;
 use App\Http\Controllers\VideoController;
 use App\Mail\ContactMail;
 use Illuminate\Support\Facades\Auth;
@@ -23,13 +24,11 @@ Route::get('/', function () {
     return redirect()->route('home');
 });
 
-Route::get('home', function (){
+Route::get('home', function () {
     return view('app.home');
 })->name('home');;
 
-Route::get('/samenwerkingen', function () {
-    return view('bureauonbeperktezaken.samenwerkingen');
-})->name('samenwerkingen');;
+Route::get('/samenwerkingen', [SamenwerkingenController::class, 'index']);
 
 // Contact Routes
 Route::get('/contact', [App\Http\Controllers\ContactController::class, 'contact_index']);

@@ -171,7 +171,7 @@
         </div>
         <div class="flex-test-inline">
             <div class="photo-test">
-                <img src="{{ asset('storage/uploads/AVE.jpeg') }}" alt="Logo Albert van der Linde">
+                <img src="{{ asset('storage/uploads/AVE.jpeg') }}" alt="Logo Albert Verlinde">
             </div>
             <div class="text-test">
                 <h2>Albert Verlinde</h2>
