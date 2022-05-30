@@ -24,4 +24,9 @@ class Media extends Model
     public function images() {
         return $this->hasMany(Image::class);
     }
+
+    public function templateBlocks()
+    {
+        return $this->hasMany(TemplateBlock::class);
+    }
 }
