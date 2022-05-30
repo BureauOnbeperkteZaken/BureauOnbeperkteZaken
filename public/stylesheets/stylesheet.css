@@ -441,6 +441,7 @@ button:active {
 .flex-inline {
     height: 100%;
     width: 100%;
+    min-width: 250px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
