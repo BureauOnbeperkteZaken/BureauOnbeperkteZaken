@@ -22,7 +22,7 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
                 <div class="descriptionContainer">
                     <h1 class="card-title">{{ $project->name }}</h1>
                     <p class="card-text">{{ $project->description }}</p>
-                    <a href="{{ route('project.view', $project->id) }}" class="btn btn-primary">Bekijk project</a>
+                    <a href="{{ route('project.view', $project->id) }}" class="btn btn-primary" dusk="project_view-{{$project->id}}">Bekijk project</a>
                 </div>
             </div>
         @endforeach

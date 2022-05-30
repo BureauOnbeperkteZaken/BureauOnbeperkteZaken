@@ -33,7 +33,14 @@ class ProjectTest extends DuskTestCase
                 ->logout();
         });
     }
-
+    public function testGoToProject()
+    {
+        $this->browse(function (Browser $browser) {
+            $browser->visitRoute('projects')
+                ->click('@project_view-1')
+                ->assertRouteIs('project.view', ['id' => 1]);
+        });
+    }
     /*public function testProjectCreateSuccess()
     {
         $this->browse(function (Browser $browser) {
@@ -70,12 +77,12 @@ class ProjectTest extends DuskTestCase
         });
     }
 
-    public function testProjectDeleteAuth() {
+    /*public function testProjectDeleteAuth() {
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1))
                 ->visitRoute('panelproject.remove', ['id' => 2]);
         });
-    }
+    }*/
 
     public function setUp(): void
     {
