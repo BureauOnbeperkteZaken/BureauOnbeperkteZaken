@@ -25,34 +25,34 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
                 <h1>Waar staan we nu</h1>
                 <div class="plan-card-layout">
                     <div class="plan-card-box">
-                        <div class="plan-card">
+                        <article class="plan-card">
                             <h4>Vertrouwen als basis</h4>
                             <p>Wij zijn op zoek naar het juiste evenwicht tussen vertrouwen en samenwerken.
                                 Mensen, instellingen en professionals, aandacht voor een
                                 veilige werkcultuur die gericht is op leren en verbeteren.</p>
-                        </div>
+                        </article>
                     </div>
                     <div class="plan-card-box">
-                        <div class="plan-card">
+                        <article class="plan-card">
                             <h4 class="card-title">Agenderen en samenwerken</h4>
                             <p>We kijken graag door de ogen van de mensen met een beperking. Daarbij gebruiken
                                 we
                                 hun informatie.
                                 De komende jaren blijven we dat doen.</p>
-                        </div>
+                        </article>
                     </div>
                     <div class="plan-card-box">
-                        <div class="plan-card">
+                        <article class="plan-card">
                             <h4 class="card-title">Anticiperen en acteren</h4>
                             <p>BOZ wil de komende jaren het gesprek
                                 aangaan en adviseren en werken aan spraakmakende producties, om zaken
                                 inzichtelijk
                                 te krijgen en daardoor
                                 bewustwording te creëren bij de bevolking.</p>
-                        </div>
+                        </article>
                     </div>
                     <div class="plan-card-box">
-                        <div class="plan-card">
+                        <article class="plan-card">
                             <h4 class="card-title">Professionaliseren</h4>
                             <p>In onze projecten stellen we nu de wensen van mensen met een beperking centraal
                                 die aansluiten
@@ -61,7 +61,7 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
                                 kansen te creëren en talenten te laten groeien voor mensen met een beperking en
                                 onze
                                 vrijwilligers.</p>
-                        </div>
+                        </article>
                     </div>
                 </div>
             </section>
@@ -179,35 +179,35 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
                         </thead>
                         <tbody>
                         <tr>
-                            <td><h5>Projectkosten</h5></td>
+                            <th><h5>Projectkosten</h5></th>
                             <td>€ 92.375,-</td>
                             <td>85.500,-</td>
                             <td>85.000,-</td>
                             <td>85.000,-</td>
                         </tr>
                         <tr>
-                            <td><h5>Onderzoek netwerk</h5></td>
+                            <th><h5>Onderzoek netwerk</h5></th>
                             <td>€ 2.000,-</td>
                             <td>1000,-</td>
                             <td>1000,-</td>
                             <td>1000,-</td>
                         </tr>
                         <tr>
-                            <td><h5>ICT</h5></td>
+                            <th><h5>ICT</h5></th>
                             <td>€ 9.500,-</td>
                             <td>6000,-</td>
                             <td>6000,-</td>
                             <td>6000,-</td>
                         </tr>
                         <tr>
-                            <td><h5>Huisvesting/locatie</h5></td>
+                            <th><h5>Huisvesting/locatie</h5></th>
                             <td>€ 1.750,-</td>
                             <td>1000,-</td>
                             <td>1000,-</td>
                             <td>1000,-</td>
                         </tr>
                         <tr>
-                            <td><h5>Divers</h5></td>
+                            <th><h5>Divers</h5></th>
                             <td>€ 3.000,-</td>
                             <td>3000,-</td>
                             <td>3000,-</td>
