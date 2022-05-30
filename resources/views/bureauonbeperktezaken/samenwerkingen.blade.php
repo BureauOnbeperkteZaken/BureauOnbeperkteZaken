@@ -11,7 +11,7 @@
                 </a>
             </button>
             </div>
-            <div class="photo">
+            <div class="two-photos">
                 <img src="{{ asset('storage/uploads/Gemeente-Vught.png') }}" alt="logo_bureau_onbeperkt">
             </div>
         </div>
@@ -24,7 +24,7 @@
                 </a>
             </button>
             </div>
-            <div class="photo">
+            <div class="two-photos">
                 <img src="{{ asset('storage/uploads/Moved-Media.jpg') }}" alt="logo_bureau_onbeperkt">
             </div>
         </div>
@@ -43,7 +43,7 @@
                 </a>
             </button>
             </div>
-            <div class="photo">
+            <div class="three-photos">
                 <img src="{{ asset('storage/uploads/ZomaarZichtbaar.jpg') }}" alt="logo_bureau_onbeperkt">
             </div>
         </div>
@@ -56,7 +56,7 @@
                 </a>
             </button>
             </div>
-            <div class="photo">
+            <div class="three-photos">
                 <img src="{{ asset('storage/uploads/Scarable.png') }}" alt="logo_bureau_onbeperkt">
             </div>
         </div>
@@ -69,7 +69,7 @@
                 </a>
             </button>
             </div>
-            <div class="photo">
+            <div class="three-photos">
                 <img src="{{ asset('storage/uploads/NoortjeVanLith.jpg') }}" alt="logo_bureau_onbeperkt">
             </div>
         </div>
@@ -87,7 +87,7 @@
                 </a>
             </button>
             </div>
-            <div class="photo">
+            <div class="three-photos">
                 <img src="{{ asset('storage/uploads/van-kruisdijk.jpg') }}" alt="logo_bureau_onbeperkt">
             </div>
         </div>
@@ -100,7 +100,7 @@
                 </a>
             </button>
             </div>
-            <div class="photo">
+            <div class="three-photos">
                 <img src="{{ asset('storage/uploads/Kunstloc-brabant.png') }}" alt="logo_bureau_onbeperkt">
             </div>
         </div>
@@ -113,7 +113,7 @@
                 </a>
             </button>
             </div>
-            <div class="photo">
+            <div class="three-photos">
                 <img src="{{ asset('storage/uploads/AVE.jpeg') }}" alt="logo_bureau_onbeperkt">
             </div>
         </div>
@@ -131,7 +131,7 @@
                 </a>
             </button>
             </div>
-            <div class="photo">
+            <div class="three-photos">
                 <img src="{{ asset('storage/uploads/Nieuwerwets.png') }}" alt="logo_bureau_onbeperkt">
             </div>
         </div>
@@ -144,7 +144,7 @@
                 </a>
             </button>
             </div>
-            <div class="photo">
+            <div class="three-photos">
                 <img src="{{ asset('storage/uploads/Moved-Media.jpg') }}" alt="logo_bureau_onbeperkt">
             </div>
         </div>
@@ -157,7 +157,7 @@
                 </a>
             </button>
             </div>
-            <div class="photo">
+            <div class="three-photos">
                 <img src="{{ asset('storage/uploads/Gemeente-Vught.png') }}" alt="logo_bureau_onbeperkt">
             </div>
         </div>
@@ -175,7 +175,7 @@
                 </a>
             </button>
             </div>
-            <div class="photo">
+            <div class="three-photos">
                 <img src="{{ asset('storage/uploads/Hans-Kroon.jpg') }}" alt="logo_bureau_onbeperkt">
             </div>
         </div>
