@@ -39,9 +39,6 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/project/{id}', [ProjectController::class, 'read'])->name('project.read');
 
-    Route::get('/project/{project}/edit', [ProjectController::class, 'edit'])->name('template.edit');
-    Route::put('/project/{project}/edit', [ProjectController::class, 'update'])->name('template.update');
-
     Route::get('project/{project}/block/create/{type}', [BlockController::class, 'create'])->name('block.create');
     Route::post('project/{project}/block/create/{type}', [BlockController::class, 'store'])->name('block.store');
 
