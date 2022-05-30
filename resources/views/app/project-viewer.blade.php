@@ -12,7 +12,7 @@
     <div class="editor">
         <div class="content">
             @foreach ($blocks as $block)
-            {!! $block->content !!}
+            {!! $block->getContent() !!}
             @endforeach
         </div>
     </div>
