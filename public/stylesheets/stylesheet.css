@@ -471,10 +471,6 @@ button:active {
     height: 50%;
 }
 
-.flex-test-inline>.text-test button {
-    justify-self: flex-end;
-}
-
 .button {
     position: relative;
     text-decoration: none;
