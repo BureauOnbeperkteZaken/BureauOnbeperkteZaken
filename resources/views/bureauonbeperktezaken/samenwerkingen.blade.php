@@ -58,6 +58,7 @@
             </div>
             <div class="photo">
                 <img src="{{ asset('storage/uploads/Scarable.png') }}" alt="logo_bureau_onbeperkt">
+            </div>
         </div>
         <div class="paragraph paragraph-image paragraph-image-container">
             <div>
@@ -101,6 +102,7 @@
             </div>
             <div class="photo">
                 <img src="{{ asset('storage/uploads/Kunstloc-brabant.png') }}" alt="logo_bureau_onbeperkt">
+            </div>
         </div>
         <div class="paragraph paragraph-image paragraph-image-container">
             <div>
@@ -144,6 +146,7 @@
             </div>
             <div class="photo">
                 <img src="{{ asset('storage/uploads/Moved-Media.jpg') }}" alt="logo_bureau_onbeperkt">
+            </div>
         </div>
         <div class="paragraph paragraph-image paragraph-image-container">
             <div>
