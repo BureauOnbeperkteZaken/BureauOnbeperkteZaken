@@ -20,6 +20,8 @@
                 @break;
             @case('project_details')
                 <a href="{{ route('panelproject.edit.video', $project_id) }}">Verander hoofdvideo</a>
+                <a href="{{ route('panelproject.edit.image', $project_id) }}">Verander project foto</a>
+                <a href="{{ route('panelproject.edit.namedesc', $project_id) }}">Verander naam of beschrijving</a>
                 <a href="#" id="remove_project">Verwijder project</a>
                 @break;
         @endswitch
