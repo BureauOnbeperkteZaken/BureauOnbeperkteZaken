@@ -3,6 +3,7 @@
 namespace Tests\Browser;
 
 use App\Models\User;
+use App\Project;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Dusk\Browser;
@@ -52,6 +53,15 @@ class ProjectTest extends DuskTestCase
                 ->logout();
         });
     }*/
+
+    public function testAllProjectsShown() {
+        $this->browse(function (Browser $browser) {
+            $amountOfProjects = Project::all()->count();
+            $browser->visitRoute('projects');
+            $cards = $browser->elements('.project-card');
+            self::assertCount($amountOfProjects, $cards);
+        });
+    }
 
     public function testProjectDeleteNoAuth(){
         $this->browse(function (Browser $browser) {
