@@ -17,14 +17,4 @@ class BlockMedia extends Model
         'block_id',
         'media_id',
     ];
-
-    public function blocks()
-    {
-        return $this->morphedByMany(Block::class, 'blockable');
-    }
-
-    public function media()
-    {
-        return $this->morphedByMany(Media::class, 'mediable');
-    }
 }
