@@ -48,9 +48,9 @@
         <input id="upload" type="file" name="upload" accept="image/png, image/jpeg, image/jpg, image/webp, image/gif " style="align-self: center; opacity: 0; position: absolute; top: 0;left: 0;height: 100%;width: 100%;cursor: pointer;" />
       </div>
       @if (isset($image))
-      <input type="text" id="alt" name="alt" placeholder="Type hier je vervangende tekst in voor als de afbeelding niet inlaad" value="{{$image->alt}}">
+      <input type="text" id="alt" name="alt" placeholder="Type hier je vervangende tekst in voor als de afbeelding niet inlaad" value="{{$image->alt}}" required>
       @else
-      <input type="text" id="alt" name="alt" placeholder="Type hier je vervangende tekst in voor als de afbeelding niet inlaad">
+      <input type="text" id="alt" name="alt" placeholder="Type hier je vervangende tekst in voor als de afbeelding niet inlaad" required>
       @endif
       @endif
       @if(isset($image))
