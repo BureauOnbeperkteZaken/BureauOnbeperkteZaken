@@ -425,17 +425,17 @@ button:active {
 
 .flex-test {
     display: flex;
-    justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .flex-test-two {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding-bottom: 50px;
     width: 100%;
+    padding-bottom: 50px;
 }
 
 .flex-test-inline {
@@ -452,7 +452,6 @@ button:active {
 .flex-test>div {
     width: 32%;
     height: 175px;
-    align-items: right;
 }
 
 .flex-test-two>div {
@@ -475,7 +474,8 @@ button:active {
 }
 
 .flex-test-inline>.photo-test-small {
-    width: 25%;
+    width: 50%;
+    height: 100%;
     align-items: center;
     text-align: justify;
 }
@@ -491,7 +491,6 @@ button:active {
     display: flex;
     flex-direction: column;
     width: 50%;
-    height: 50%;
 }
 
 .button {
