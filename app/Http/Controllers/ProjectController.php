@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EditImageRequest;
+use App\Http\Requests\EditNameDescRequest;
 use App\Http\Requests\EditVideoRequest;
 use App\Http\Requests\ProjectCreateRequest;
 use App\Models\Block;
@@ -53,7 +55,11 @@ class ProjectController extends Controller
         $request->validated();
         $file = $request->file('video_file');
         $name = $request->get('video_name');
+        $image = $request->file('project_image');
         $link = $request->get('video_link');
+        $imageLink = $request->get('image_link');
+        $projectName = $request->get('project_name');
+        $projectDescription = $request->get('project_description');
         $template = $request->get('template');
         if ($file) {
             $video = Vimeo::upload($file, ['name' => $name]);
@@ -68,8 +74,15 @@ class ProjectController extends Controller
         $video->save();
 
         $project = new Project();
+        $project->name = $projectName;
+        $project->description = $projectDescription;
         $project->video_id = $video->id;
         $project->language_code = 'nl';
+        if ($image) {
+            $project->image_path = $this->uploadToLocalStorage($image, "$projectName - $projectDescription." . $image->getClientOriginalExtension());
+        }else if ($imageLink) {
+            $project->image_path = $imageLink;
+        }
         $project->save();
 
         $template_blocks = TemplateBlock::where('template_id', $template)->get();
@@ -104,6 +117,8 @@ class ProjectController extends Controller
 
         return redirect('/panel/content_upload');
     }
+
+
 
     public function destroy($id)
     {
@@ -149,5 +164,54 @@ class ProjectController extends Controller
         $project->save();
 
         return redirect("panel/project/$project->id")->with('videoLink', $embedUrl);
+    }
+
+    public function list() {
+        $projects = Project::all();
+        return view('projects')->with('projects', $projects);
+    }
+
+    public function editImage($id) {
+        $project = Project::where('id', $id)->first();
+        return view('app.panel.edit_image')->with('project', $project);
+    }
+
+    public function updateImage($id, EditImageRequest $request) {
+        $request->validated();
+        $file = $request->file('image_file');
+        $imageLink = $request->get('image_link');
+        $project = Project::where('id', $id)->first();
+        if ($file) {
+            $project->image_path = $this->uploadToLocalStorage($file, $project->name . ' - ' . $project->description . '.' . $file->getClientOriginalExtension());
+        }else if ($imageLink) {
+            $project->image_path = $imageLink;
+        }
+        $project->save();
+        return redirect("panel/project/$project->id");
+    }
+
+    public function editNameDesc($id) {
+        $project = Project::where('id', $id)->first();
+        return view('app.panel.edit_name_desc')->with('project', $project);
+    }
+
+    public function updateNameDesc($id, EditNameDescRequest $request) {
+        $request->validated();
+        $project = Project::where('id', $id)->first();
+        if ($request->get('name')) {
+            $project->name = $request->get('name');
+        }
+        if ($request->get('desc')) {
+            $project->description = $request->get('desc');
+        }
+        $project->save();
+        return redirect("panel/project/$project->id");
+    }
+
+    private function uploadToLocalStorage($file, $fileName) {
+        $path = base_path() . '/storage/app/public/uploads/';
+        $file->move($path, $fileName);
+        return $fileName;
+
     }
 }
