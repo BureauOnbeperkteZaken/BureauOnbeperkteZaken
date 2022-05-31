@@ -1,7 +1,7 @@
 <x-page.fullwidth title="Home">
-    <x-slot name="header">
-
-    </x-slot>
+    <x-slot:background>
+        <iframe id="bigVideo" type="text/html" title="Trailer bureau onbeperkte zaken" src="{{ config('boz.homepage_video_url') }}" allowfullscreen></iframe>
+    </x-slot:background>
     <div class="home-wrapper">
         <div class="home-project-gallery">
             @foreach ($projects as $project)
