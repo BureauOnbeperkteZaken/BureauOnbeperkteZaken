@@ -53,6 +53,7 @@ hr {
   margin: 32px auto;
   position: relative;
 }
+
 hr[data-title]::after {
   content: attr(data-title);
   position: absolute;
@@ -138,21 +139,23 @@ header {
   z-index: 10;
   pointer-events: all;
 }
-header > nav > a {
-  position: relative;
-  text-decoration: none;
-  color: var(--color-secondary);
-  padding: 14px 18px;
-  background-color: var(--color-primary);
-  font-family: "Oswald", sans-serif;
-  font-weight: bold;
-  box-sizing: content-box;
+
+header>nav>a {
+    position: relative;
+    text-decoration: none;
+    color: var(--color-secondary);
+    padding: 14px 18px;
+    background-color: var(--color-primary);
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    box-sizing: content-box;
 }
 
-header > nav > a.current {
-  color: var(--color-white);
-  background-color: var(--color-secondary);
-  border: 10px solid var(--color-primary-darker);
+header>nav>a.current {
+    color: var(--color-white);
+    background-color: var(--color-secondary);
+    border: 10px solid var(--color-primary-darker);
+
 }
 
 button {
@@ -197,13 +200,14 @@ ul > li + li {
   pointer-events: all;
 }
 
-#background > * {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  border: none;
+#background>* {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: none;
+
 }
 
 .wrapper {
@@ -222,26 +226,26 @@ ul > li + li {
   margin-top: 66.25vw;
 }
 
-.wrapper > main {
-  flex: 3;
-  margin-top: 80vh;
-  background-color: var(--color-white-background);
-  padding: 80px 120px;
-  pointer-events: all;
-  z-index: 5;
+.wrapper>main {
+    flex: 3;
+    margin-top: 80vh;
+    background-color: var(--color-white-background);
+    padding: 80px 120px;
+    pointer-events: all;
+    z-index: 5;
 }
 
-.no-background > main {
-  margin-top: unset;
+.no-background>main {
+    margin-top: unset;
 }
 
-.wrapper > aside {
-  flex: 1;
-  margin-top: 60vh;
-  background-color: var(--color-primary);
-  padding: 40px 60px;
-  pointer-events: all;
-  z-index: 5;
+.wrapper>aside {
+    flex: 1;
+    margin-top: 60vh;
+    background-color: var(--color-primary);
+    padding: 40px 60px;
+    pointer-events: all;
+    z-index: 5;
 }
 
 footer {
@@ -294,11 +298,11 @@ button {
 }
 
 button:hover {
-  box-shadow: 2px 2px 3px;
+    box-shadow: 2px 2px 3px;
 }
 
 button:active {
-  box-shadow: 1px 1px 3px;
+    box-shadow: 1px 1px 3px;
 }
 
 .select-image-list {
@@ -376,45 +380,58 @@ button:active {
   justify-content: center;
 }
 
-.gallery > .photo {
-  width: 270px;
-  height: 270px;
-  background-color: lightgray;
-  position: relative;
-  overflow: hidden;
+.gallery>.photo {
+    width: 270px;
+    height: 270px;
+    background-color: lightgray;
+    position: relative;
+    overflow: hidden;
 }
 
-.photo > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.photo>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.photo > .details {
-  width: 40%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  flex-flow: column nowrap;
-  background-color: #00000070;
-  color: var(--color-white);
-  text-align: right;
-  justify-content: space-evenly;
-  padding: 8px;
-  transform: translateX(100%);
-  transition: transform 0.3s ease;
+.three-photos>img {
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
 }
 
-.photo:hover > .details {
-  transform: translateX(0);
+.two-photos>img {
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+}
+
+.photo>.details {
+    width: 40%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: #00000070;
+    color: var(--color-white);
+    text-align: right;
+    justify-content: space-evenly;
+    padding: 8px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.photo:hover>.details {
+    transform: translateX(0);
 }
 
 .content {
   display: flex;
   flex-flow: column;
 }
+
 .paragraph-image-container {
   display: flex;
 }
@@ -425,6 +442,102 @@ button:active {
 
 .paragraph-image-reverse {
   flex-flow: row-reverse;
+}
+
+.paragraph-image-container>div:not(.editor-toolbar) {
+    height: 100%;
+    width: 100%;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.flex-two {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+.flex-inline {
+    height: 100%;
+    width: 100%;
+    min-width: 250px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 5px;
+    background: #ecfdf8;
+    border-radius: 10px;
+}
+
+.flex>div {
+    width: 32.5%;
+    height: 175px;
+}
+
+.flex-two>div {
+    width: 49%;
+    height: 250px;
+    align-items: center;
+}
+
+.flex-inline>.photo {
+    width: 50%;
+    align-items: center;
+    text-align: justify;
+}
+
+.flex-inline>.photo img {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    object-fit: scale-down;
+}
+
+.flex-inline>.photo-small {
+    width: 50%;
+    height: 100%;
+    align-items: center;
+    text-align: justify;
+}
+
+.flex-inline>.photo-small img {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    object-fit: scale-down;
+}
+
+.flex-inline>.text {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.button {
+    position: relative;
+    text-decoration: none;
+    color: var(--color-secondary);
+    padding: 4px 4px;
+    background-color: var(--color-primary);
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    box-sizing: content-box;
+    border: none;
+    width: 80px;
+    padding: 5px;
+    margin: 0 3px;
+    background-color: var(--color-primary);
+    outline: none;
+    border: 1px solid var(--color-primary);
+    box-shadow: 2px 2px 2px #3f3f3f;
+    text-align: center;
 }
 
 .paragraph-image-container > div:not(.editor-toolbar) {
