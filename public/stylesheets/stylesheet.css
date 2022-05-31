@@ -425,12 +425,7 @@ button:active {
 }
 
 .item {
-    align-self: center;
-    justify-content: center;
-    align-content: center;
-    place-content: center;
-    align-items: center;
-    place-items: center;
+    text-align: center;
 }
 .picture-grid > .item {
     padding: 10%;

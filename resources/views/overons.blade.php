@@ -18,9 +18,9 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
     <section>
         <h2 class="text-left mt-5">Ideeënmakers</h2>
         <div class="item">
-            <label for="1" class="text-center" dusk="template" alt="2 blije vrouwen"><img src="{{asset('img/Jojo.jpg')}}"/></label>
+            <img src="{{asset('img/Jojo.jpg')}}" alt="TBD" />
+            <h5>Placeholder foto</h5>
         </div>
-        <h5>Placeholder foto</h5>
 
         <div class="paragraph" style="text-align: left;">
             Wij zijn Carine Hermens (programmamaker/regisseur/docent) en Jojo Heesbeen (regisseur/, klinisch psycholoog
@@ -53,7 +53,7 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
             <div class="picture-grid">
                 <div class="item">
                     <div class="image-container">
-                        <label for="1" class="text-center" dusk="template" alt="blonde mevrouw met bril"><img src="{{asset('img/Jojo.jpg')}}"/></label>
+                        <img src="{{asset('img/Jojo.jpg')}}" alt="oudere vrouw met bril"/>
                     </div>
                     <div class="overons-text">
                         <h5>Jojo</h5>
@@ -65,8 +65,8 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
                 </div>
                 <div class="item">
                     <div class="image-container">
-                        <!-- TODO update the alt text for the real pictures -->
-                        <label for="1" class="text-center" dusk="template" alt="TBD"><img src="{{asset('img/placeholder1.jpg')}}"/></label>
+                        <!-- TODO: verander alt tekst wanneer ware fotos binnen komen na de sprint review -->
+                        <img src="{{asset('img/placeholder1.jpg')}}" alt="TBD"/>
                     </div>
                     <div class="overons-text">
                         <h5>placeholder foto</h5>
@@ -78,7 +78,7 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
                 </div>
                 <div class="item">
                     <div class="image-container">
-                        <label for="1" class="text-center" dusk="template" alt="jonge man met bril"><img src="{{asset('img/Tijmen.jpg')}}"/></label>
+                        <img src="{{asset('img/Tijmen.jpg')}}" alt=" blije jonge man"/>
                     </div>
                     <div class="overons-text">
                         <h5>Tijmen</h5>
@@ -91,7 +91,7 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
 
             <div class="item">
                 <div class="image-container">
-                    <label for="1" class="text-center" dusk="template" alt="TBD"><img src="{{asset('img/placeholder2.jpg')}}"/></label>
+                    <img src="{{asset('img/placeholder2.jpg')}}" alt="TBD"/>
                 </div>
                 <div class="overons-text">
                     <h5>placeholder foto</h5>
@@ -103,7 +103,7 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
             </div>
             <div class="item">
                 <div class="image-container">
-                    <label for="1" class="text-center" dusk="template" alt="TBD"><img src="{{asset('img/placeholder3.jpg')}}"/></label>
+                    <img src="{{asset('img/placeholder3.jpg')}}" alt="TBD"/>
                 </div>
                 <div class="overons-text">
                     <h5>placeholder foto</h5>
