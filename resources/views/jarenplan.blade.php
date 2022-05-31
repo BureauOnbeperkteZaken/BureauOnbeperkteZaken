@@ -1,7 +1,3 @@
-<?PHP
-$docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".x";
-?>
-
 <x-page.fullwidth>
 
     <head>
