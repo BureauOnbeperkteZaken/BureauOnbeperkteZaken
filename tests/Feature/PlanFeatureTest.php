@@ -11,6 +11,9 @@ class PlanFeatureTest extends TestCase
     /** @test */
     public function download()
     {
-        $this->get('downloadables/1Meerjarenplan Bureau onbeperkte zaken.pdf');
+        $response = $this->get('downloadables/1Meerjarenplan Bureau onbeperkte zaken.pdf');
+        $response->assertStatus(200);
+        $file = $response->getFile();
+        self::assertFileExists($file);
     }
 }
