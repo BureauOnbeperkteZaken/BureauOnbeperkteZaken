@@ -16,4 +16,17 @@ class Media extends Model
         'type',
         'alt',
     ];
+
+    public function blocks() {
+        return $this->hasMany(Block::class);
+    }
+
+    public function images() {
+        return $this->hasMany(Image::class);
+    }
+
+    public function templateBlocks()
+    {
+        return $this->hasMany(TemplateBlock::class);
+    }
 }

@@ -7,6 +7,7 @@ use App\Http\Requests\EditNameDescRequest;
 use App\Http\Requests\EditVideoRequest;
 use App\Http\Requests\ProjectCreateRequest;
 use App\Models\Block;
+use App\Models\BlockMedia;
 use App\Models\TemplateBlock;
 use App\Models\Video;
 use App\Project;
@@ -40,8 +41,19 @@ class ProjectController extends Controller
     {
         $blocks = Block::where('project_id', $id)->orderBy('order', 'asc')->get();
         $videoLink = Project::where('id', $id)
-            ->first()
-            ->video->link;
+        ->first()
+        ->video->link;
+
+        for ($i = 0; $i < count($blocks); $i++) {
+            if ($blocks[$i]->type == 'paragraph-image' || $blocks[$i]->type == 'image-paragraph') {
+                $media = $blocks[$i]->media[0];
+                $image = $media->images[0];
+                // TODO: replacement text with assets?
+                // $blocks[$i]->media->path = asset('storage/' . $blocks[$i]->media->path);
+                $replaceText = '<img src="/storage/uploads/' . $media->filename . '" alt="' . $image->alt . '" description="'. $image->description .'">';
+                $blocks[$i]->content = preg_replace('/<img[^>]+>/i', $replaceText, $blocks[$i]->content);
+            }
+        }
         return view('app.project-viewer', compact('blocks', 'videoLink'))->with('projectId', $id);
     }
 
@@ -86,13 +98,17 @@ class ProjectController extends Controller
         $project->save();
 
         $template_blocks = TemplateBlock::where('template_id', $template)->get();
-        foreach ($template_blocks as $block) {
+        for ($i = 0; $i < count($template_blocks); $i++) {
             $new_block = new Block();
+            $block = $template_blocks[$i];
             $new_block->project_id = $project->id;
             $new_block->content = $block->content;
             $new_block->type = $block->type;
             $new_block->order = $block->order;
             $new_block->save();
+            if ($block->type == 'paragraph-image' || $block->type == 'image-paragraph') {
+                $new_block->media()->attach($block->media[0]->id);
+            }
         }
 
         return redirect("panel/project/$project->id")->with('videoLink', $embedUrl);
@@ -146,13 +162,13 @@ class ProjectController extends Controller
             $embedUrl = $videoReturn['body']['player_embed_url'];
         } else if ($link) {
             $existing = Video::where('link', $link)->first();
-            if ($existing){
+            if ($existing) {
                 $project->video_id = $existing->id;
                 $embedUrl = $existing->link;
                 return redirect("panel/project/$project->id")->with('videoLink', $embedUrl);
             }
             $embedUrl = $link;
-        } else{
+        } else {
             return Redirect::back();
         }
 

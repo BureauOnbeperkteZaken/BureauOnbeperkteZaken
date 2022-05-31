@@ -21,9 +21,11 @@ class DatabaseSeeder extends Seeder
         $this->call([VideoSeeder::class]);
         $this->call([LanguageSeeder::class]);
         $this->call([ProjectSeeder::class]);
-        $this->call([TemplateBlockSeeder::class]);
         $this->call([BlockSeeder::class]);
         $this->call([MediaSeeder::class]);
+        $this->call([ImageSeeder::class]);
+        $this->call([BlockMediaSeeder::class]);
+        $this->call([TemplateBlockSeeder::class]);
         
         MetaData::create([
             'url' => 'contact',
