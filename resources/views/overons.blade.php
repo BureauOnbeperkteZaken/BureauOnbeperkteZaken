@@ -17,7 +17,9 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
 
     <section>
         <h2 class="text-left mt-5">Ideeënmakers</h2>
-        <label for="1" class="text-center" dusk="template"><img src="{{asset('img/Jojo_placeholder.jpg')}}" /></label>
+        <div class="item">
+            <img src="{{asset('img/Jojo_placeholder.jpg')}}" />
+        </div>
         <h4>Jojo</h4>
 
         <div class="paragraph" style="text-align: left;">
@@ -48,85 +50,69 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
 
     <section>
         <h2>Het bestuur</h2>
-        <style>
-            img {
-                width: 300px;
-                height: 300px;
-                object-fit: cover;
-            }
-
-            .row {
-                display: flex;
-                flex-wrap: wrap;
-            }
-
-            .column {
-                flex: 50%;
-            }
-
-            .item {
-                padding: 5%;
-            }
-        </style>
-        <div class="container">
-
-            <div class="row">
-                <div class="column">
-                    <div class="item">
-                        <div class="frame">
-                            <img src="{{asset('img/Jojo_placeholder.jpg')}}" />
-                        </div>
-                        <!-- TODO change the class to something more fitting -->
-                        <div class="">
-                            <h5>Jojo</h5>
-                            <div class="paragraph" style="text-align: left;">
-                                Wil de maatschappij laten zien, dat talenten van mensen met een handicap omarmend moet
-                                worden en niet ontkend.
-                            </div>
-                        </div>
+            <div class="picture-grid">
+                <div class="item">
+                    <div class="image-container">
+                        <img src="{{asset('img/Jojo_placeholder.jpg')}}" />
                     </div>
-                    <div class="item">
-                        <div class="frame">
-                            <img src="{{asset('img/placeholder1.jpg')}}" />
-                        </div>
-                        <div class="">
-                            <h5>Lianne</h5>
-                            <div class="paragraph" style="text-align: left;">
-                                Voelt me uitgedaagd om een steentje bij te dragen aan een wereld waarin iedereen gehoord
-                                en gezien wordt, en serieus genomen in de mogelijkheden die er wél zijn.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="column">
-                    <div class="item">
-                        <div class="frame">
-                            <img src="{{asset('img/placeholder2.jpg')}}" />
-                        </div>
-                        <div class="">
-                            <h5>Hans</h5>
-                            <div class="paragraph" style="text-align: left;">
-                                Mijn grote wens is dat onze gehandicapte medemensen optimaal kunnen functioneren in onze
-                                samenleving op basis van gelijkwaardigheid en hun kwaliteiten.
-                            </div>
+                    <!-- TODO change the class to something more fitting -->
+                    <div class="">
+                        <h5>Jojo</h5>
+                        <div class="paragraph" style="text-align: left;">
+                            Wil de maatschappij laten zien, dat talenten van mensen met een handicap omarmend moet
+                            worden en niet ontkend.
                         </div>
                     </div>
                 </div>
                 <div class="item">
-                    <div class="frame">
-                        <img src="{{asset('img/placeholder3.jpg')}}" />
+                    <div class="image-container">
+                        <img src="{{asset('img/placeholder1.jpg')}}" />
                     </div>
                     <div class="">
-                        <h5>Carine</h5>
+                        <h5>Lianne</h5>
                         <div class="paragraph" style="text-align: left;">
-                            Wil graag de rest van de wereld laten zien hoe kwaliteiten van mensen met een beperking veel
-                            beter ingezet kunnen worden in de maatschappij.
+                            Voelt me uitgedaagd om een steentje bij te dragen aan een wereld waarin iedereen gehoord
+                            en gezien wordt, en serieus genomen in de mogelijkheden die er wél zijn.
                         </div>
                     </div>
                 </div>
+                <div class="item">
+                    <div class="image-container">
+                        <img src="{{asset('img/Tijmen_placeholder.jpg')}}" />
+                    </div>
+                    <div class="">
+                        <h5>Tijmen</h5>
+                        <div class="paragraph" style="text-align: left;">
+                            Wil dat mensen met een handicap worden gezien als wie we zijn, talentvolle mensen, dat
+                            zijn wij! Geen gehandicapten!
+                        </div>
+                    </div>
+                </div>
+
+            <div class="item">
+                <div class="image-container">
+                    <img src="{{asset('img/placeholder2.jpg')}}" />
+                </div>
+                <div class="">
+                    <h5>Hans</h5>
+                    <div class="paragraph" style="text-align: left;">
+                        Mijn grote wens is dat onze gehandicapte medemensen optimaal kunnen functioneren in onze
+                        samenleving op basis van gelijkwaardigheid en hun kwaliteiten.
+                    </div>
+                </div>
             </div>
-        </div>
-        </div>
+            <div class="item">
+                <div class="image-container">
+                    <img src="{{asset('img/placeholder3.jpg')}}" />
+                </div>
+                <div class="">
+                    <h5>Carine</h5>
+                    <div class="paragraph" style="text-align: left;">
+                        Wil graag de rest van de wereld laten zien hoe kwaliteiten van mensen met een beperking
+                        veel
+                        beter ingezet kunnen worden in de maatschappij.
+                    </div>
+                </div>
+            </div>
     </section>
 </x-page.fullwidth>

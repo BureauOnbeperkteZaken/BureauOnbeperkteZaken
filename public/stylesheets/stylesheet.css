@@ -408,3 +408,34 @@ button:active {
     height: 100%;
     width: 100%;
 }
+
+.image-container>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.picture-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-flow: dense;
+    align-items: center;
+    justify-items: center;
+    justify-self: center;
+}
+
+.picture-grid > .item {
+    padding: 10%;
+    overflow-wrap: break-word;
+    display: grid;
+    place-items: center;
+    max-block-size: 420px;
+}
+
+.picture-grid > .paragrah {
+    align-self: bottom;
+}
+
+.image-container {
+    align-items:  center;
+}
