@@ -25,10 +25,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $projectData = [];
-
-        $projects = Project::all()->take(3);
-
-        return view('app.home', ['projects' => $projects]);
+        return view('app.home', ['projects' => Project::orderBy('created_at', 'desc')->get()->take(3)]);
     }
 }
