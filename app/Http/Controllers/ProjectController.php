@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EditImageRequest;
+use App\Http\Requests\EditNameDescRequest;
 use App\Http\Requests\EditVideoRequest;
 use App\Http\Requests\ProjectCreateRequest;
 use App\Models\Block;
+use App\Models\BlockMedia;
 use App\Models\TemplateBlock;
 use App\Models\Video;
 use App\Project;
@@ -38,8 +41,19 @@ class ProjectController extends Controller
     {
         $blocks = Block::where('project_id', $id)->orderBy('order', 'asc')->get();
         $videoLink = Project::where('id', $id)
-            ->first()
-            ->video->link;
+        ->first()
+        ->video->link;
+
+        for ($i = 0; $i < count($blocks); $i++) {
+            if ($blocks[$i]->type == 'paragraph-image' || $blocks[$i]->type == 'image-paragraph') {
+                $media = $blocks[$i]->media[0];
+                $image = $media->images[0];
+                // TODO: replacement text with assets?
+                // $blocks[$i]->media->path = asset('storage/' . $blocks[$i]->media->path);
+                $replaceText = '<img src="/storage/uploads/' . $media->filename . '" alt="' . $image->alt . '" description="'. $image->description .'">';
+                $blocks[$i]->content = preg_replace('/<img[^>]+>/i', $replaceText, $blocks[$i]->content);
+            }
+        }
         return view('app.project-viewer', compact('blocks', 'videoLink'))->with('projectId', $id);
     }
 
@@ -53,7 +67,11 @@ class ProjectController extends Controller
         $request->validated();
         $file = $request->file('video_file');
         $name = $request->get('video_name');
+        $image = $request->file('project_image');
         $link = $request->get('video_link');
+        $imageLink = $request->get('image_link');
+        $projectName = $request->get('project_name');
+        $projectDescription = $request->get('project_description');
         $template = $request->get('template');
         if ($file) {
             $video = Vimeo::upload($file, ['name' => $name]);
@@ -68,18 +86,29 @@ class ProjectController extends Controller
         $video->save();
 
         $project = new Project();
+        $project->name = $projectName;
+        $project->description = $projectDescription;
         $project->video_id = $video->id;
         $project->language_code = 'nl';
+        if ($image) {
+            $project->image_path = $this->uploadToLocalStorage($image, "$projectName - $projectDescription." . $image->getClientOriginalExtension());
+        }else if ($imageLink) {
+            $project->image_path = $imageLink;
+        }
         $project->save();
 
         $template_blocks = TemplateBlock::where('template_id', $template)->get();
-        foreach ($template_blocks as $block) {
+        for ($i = 0; $i < count($template_blocks); $i++) {
             $new_block = new Block();
+            $block = $template_blocks[$i];
             $new_block->project_id = $project->id;
             $new_block->content = $block->content;
             $new_block->type = $block->type;
             $new_block->order = $block->order;
             $new_block->save();
+            if ($block->type == 'paragraph-image' || $block->type == 'image-paragraph') {
+                $new_block->media()->attach($block->media[0]->id);
+            }
         }
 
         return redirect("panel/project/$project->id")->with('videoLink', $embedUrl);
@@ -104,6 +133,8 @@ class ProjectController extends Controller
 
         return redirect('/panel/content_upload');
     }
+
+
 
     public function destroy($id)
     {
@@ -131,13 +162,13 @@ class ProjectController extends Controller
             $embedUrl = $videoReturn['body']['player_embed_url'];
         } else if ($link) {
             $existing = Video::where('link', $link)->first();
-            if ($existing){
+            if ($existing) {
                 $project->video_id = $existing->id;
                 $embedUrl = $existing->link;
                 return redirect("panel/project/$project->id")->with('videoLink', $embedUrl);
             }
             $embedUrl = $link;
-        } else{
+        } else {
             return Redirect::back();
         }
 
@@ -149,5 +180,54 @@ class ProjectController extends Controller
         $project->save();
 
         return redirect("panel/project/$project->id")->with('videoLink', $embedUrl);
+    }
+
+    public function list() {
+        $projects = Project::all();
+        return view('projects')->with('projects', $projects);
+    }
+
+    public function editImage($id) {
+        $project = Project::where('id', $id)->first();
+        return view('app.panel.edit_image')->with('project', $project);
+    }
+
+    public function updateImage($id, EditImageRequest $request) {
+        $request->validated();
+        $file = $request->file('image_file');
+        $imageLink = $request->get('image_link');
+        $project = Project::where('id', $id)->first();
+        if ($file) {
+            $project->image_path = $this->uploadToLocalStorage($file, $project->name . ' - ' . $project->description . '.' . $file->getClientOriginalExtension());
+        }else if ($imageLink) {
+            $project->image_path = $imageLink;
+        }
+        $project->save();
+        return redirect("panel/project/$project->id");
+    }
+
+    public function editNameDesc($id) {
+        $project = Project::where('id', $id)->first();
+        return view('app.panel.edit_name_desc')->with('project', $project);
+    }
+
+    public function updateNameDesc($id, EditNameDescRequest $request) {
+        $request->validated();
+        $project = Project::where('id', $id)->first();
+        if ($request->get('name')) {
+            $project->name = $request->get('name');
+        }
+        if ($request->get('desc')) {
+            $project->description = $request->get('desc');
+        }
+        $project->save();
+        return redirect("panel/project/$project->id");
+    }
+
+    private function uploadToLocalStorage($file, $fileName) {
+        $path = base_path() . '/storage/app/public/uploads/';
+        $file->move($path, $fileName);
+        return $fileName;
+
     }
 }
