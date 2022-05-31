@@ -68,7 +68,7 @@ class ProjectController extends Controller
         $request->validated();
         $file = $request->file('video_file');
         $name = $request->get('video_name');
-        $image = $request->file('project_image');
+        $image = $request->file('image_file');
         $link = $request->get('video_link');
         $imageLink = $request->get('image_link');
         $projectName = $request->get('project_name');
@@ -92,7 +92,8 @@ class ProjectController extends Controller
         $project->video_id = $video->id;
         $project->language_code = 'nl';
         if ($image) {
-            $project->image_path = $this->uploadToLocalStorage($image, "$projectName - $projectDescription." . $image->getClientOriginalExtension());
+            $image_path = Storage::url('uploads/'.$this->uploadToLocalStorage($image, "$projectName-$projectDescription." . $image->getClientOriginalExtension()));
+            $project->image_path = $image_path;
         }else if ($imageLink) {
             $project->image_path = $imageLink;
         }
