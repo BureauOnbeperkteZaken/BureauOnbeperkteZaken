@@ -37,7 +37,9 @@
     @if($type != 'paragraph')
     <div style="display: flex; width: 80%;flex-direction: column;">
       @if(isset($image))
-      <input type="hidden" id="filename" name="filename" value="{{$image->name}}">
+      <input type="hidden" id="mediaId" name="mediaId" value="{{$media->id}}">
+      <input type="hidden" id="imageId" name="imageId" value="{{$image->id}}">
+      <input type="hidden" id="filename" name="filename" value="{{$media->filename}}">
       @endif
 
       @if(!isset($block) || $block->type != 'paragraph')
@@ -46,16 +48,16 @@
         <input id="upload" type="file" name="upload" accept="image/png, image/jpeg, image/jpg, image/webp, image/gif " style="align-self: center; opacity: 0; position: absolute; top: 0;left: 0;height: 100%;width: 100%;cursor: pointer;" />
       </div>
       @if (isset($image))
-      <input type="text" id="alt" name="alt" placeholder="Type hier je vervangende tekst in voor als de afbeelding niet inlaad" value="{{$image->alt}}">
+      <input type="text" id="alt" name="alt" placeholder="Type hier je vervangende tekst in voor als de afbeelding niet inlaad" value="{{$image->alt}}" required>
       @else
-      <input type="text" id="alt" name="alt" placeholder="Type hier je vervangende tekst in voor als de afbeelding niet inlaad" value="">
+      <input type="text" id="alt" name="alt" placeholder="Type hier je vervangende tekst in voor als de afbeelding niet inlaad" required>
       @endif
       @endif
       @if(isset($image))
       <div>
         <h2>Voorbeeld van de afbeelding:</h2>
         <div style="width: 80%">
-          <img id="preview" style="width:100%; height: 100%" src="http://127.0.0.1:8000/storage/uploads/{{$image->name}}" alt="{{$image->alt}}">
+          <img id="preview" style="width:100%; height: 100%" src="http://127.0.0.1:8000/storage/uploads/{{$media->filename}}" alt="{{$image->alt}}">
         </div>
       </div>
       @else

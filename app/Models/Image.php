@@ -16,4 +16,10 @@ class Image extends Model
         'alt',
         'description',
     ];
+
+    public static function validType($type)
+    {
+        return $type == 'jpeg' || $type == 'png' || $type == 'gif' ||
+            $type == 'svg' || $type == 'webp' || $type == 'bmp' || $type == 'jpg';
+    }
 }
