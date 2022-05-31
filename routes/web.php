@@ -6,6 +6,7 @@ use App\Http\Controllers\VideoController;
 use App\Mail\ContactMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');;
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Contact Routes
 Route::get('/contact', [App\Http\Controllers\ContactController::class, 'contact_index']);

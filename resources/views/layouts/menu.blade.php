@@ -1,4 +1,6 @@
 <a href="#main" class="hidden-until-focus">{{ __('accessibility.skip_to_content') }}</a>
+<input type="checkbox" id="nav-enable" />
+<label for="nav-enable"></label>
 <nav>
     {{-- Comments are necessary in order to keep the elements together, html likes being quirky 🤪 --}}
     <a href="{{ url('/') }}" class="current">Home</a><!--
