@@ -19,13 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route('home');
-});
-
-Route::get('home', function (){
-    return view('app.home');
-})->name('home');;
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');;
 
 // Contact Routes
 Route::get('/contact', [App\Http\Controllers\ContactController::class, 'contact_index']);

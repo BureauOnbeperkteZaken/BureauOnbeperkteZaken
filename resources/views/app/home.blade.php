@@ -21,5 +21,9 @@
         <p>
             Officia ut cillum eu duis culpa qui nulla tempor duis aute voluptate laborum incididunt officia nulla. Magna laborum consectetur in nulla sit culpa consectetur laborum aliqua ipsum esse. Magna dolor ipsum labore eu incididunt laboris qui consectetur est et aliquip. Officia in minim est adipisicing aliqua nostrud cupidatat do. Deserunt ad proident amet in. Amet cupidatat incididunt pariatur enim ipsum. Officia ad fugiat aliquip do nulla proident est.
         </p>
+        <?php
+        echo json_encode($projects);
+        echo json_encode(htmlentities($blocks));
+        ?>
     </div>
     </x-page>

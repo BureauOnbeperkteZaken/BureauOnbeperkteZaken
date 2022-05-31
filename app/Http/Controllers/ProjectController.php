@@ -8,6 +8,7 @@ use App\Models\Block;
 use App\Models\TemplateBlock;
 use App\Models\Video;
 use App\Project;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
@@ -131,13 +132,13 @@ class ProjectController extends Controller
             $embedUrl = $videoReturn['body']['player_embed_url'];
         } else if ($link) {
             $existing = Video::where('link', $link)->first();
-            if ($existing){
+            if ($existing) {
                 $project->video_id = $existing->id;
                 $embedUrl = $existing->link;
                 return redirect("panel/project/$project->id")->with('videoLink', $embedUrl);
             }
             $embedUrl = $link;
-        } else{
+        } else {
             return Redirect::back();
         }
 
