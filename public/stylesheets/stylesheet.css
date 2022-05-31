@@ -428,6 +428,7 @@ button:active {
     margin-bottom: 10px;
     max-height: 500px;
     height: auto;
+    width: 90vw;
 }
 
 .project-card h1 {
@@ -448,7 +449,7 @@ button:active {
 }
 .project-card img {
     flex: 1;
-    height: 100%;
+    height: auto;
     overflow: hidden;
 }
 .project-card .descriptionContainer {
@@ -456,3 +457,4 @@ button:active {
     background-color: white;
     padding: 50px;
 }
+

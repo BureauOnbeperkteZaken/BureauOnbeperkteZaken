@@ -31,7 +31,7 @@ class ProjectCreateRequest extends FormRequest
             'video_link' => 'nullable|url',
             'project_name' => 'required|max:255',
             'project_description' => 'required|max:255',
-            'image' => 'file|mimes:jpeg,png,jpg,gif|max:2048',
+            'image_file' => 'file|mimes:jpeg,png,jpg,gif|max:2048',
             'image_link' => 'nullable|url',
         ];
     }
