@@ -42,6 +42,10 @@ Route::get('/jarenplan', function () {
     return view('jarenplan');
 });
 
+Route::get('/downloadables/Meerjarenplan_Bureau_onbeperkte_zaken.pdf', function () {
+    return Response()->download(public_path('/downloadables/Meerjarenplan_Bureau_onbeperkte_zaken.pdf'));
+})->name('jarenplandownload');
+
 Route::get('/projecten', [ProjectController::class, 'list'])->name('projects');
 
 require __DIR__ . '/auth.php';

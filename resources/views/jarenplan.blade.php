@@ -223,7 +223,7 @@
             <hr class="plan-hr">
             <div class="plan-download">
                 <a type="button" class="btn btn-lg btn-outline-primary"
-                   href="downloadables/1Meerjarenplan Bureau onbeperkte zaken.pdf" download="boz-meerjarenplan">Download
+                   href="downloadables/Meerjarenplan_Bureau_onbeperkte_zaken.pdf" download="boz-meerjarenplan">Download
                     volledig meerjarenplan</a>
             </div>
         </div>
