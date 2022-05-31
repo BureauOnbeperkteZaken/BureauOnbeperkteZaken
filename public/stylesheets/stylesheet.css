@@ -458,3 +458,13 @@ button:active {
     padding: 50px;
 }
 
+@media only screen and (max-width : 768px) {
+    .project-card {
+        flex-flow: column;
+        max-width: 90vw;
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        margin-left: -24vw;
+    }
+}
