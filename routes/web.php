@@ -7,6 +7,7 @@ use App\Http\Controllers\VideoController;
 use App\Mail\ContactMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,13 +21,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route('home');
-});
-
-Route::get('home', function () {
-    return view('app.home');
-})->name('home');;
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/samenwerkingen', [SamenwerkingenController::class, 'index']);
 
