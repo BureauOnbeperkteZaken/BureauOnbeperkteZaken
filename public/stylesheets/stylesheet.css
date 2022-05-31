@@ -740,6 +740,92 @@ label[for="nav-enable"] {
   }
 }
 
+.plan-section {
+    max-width: 80%;
+    margin: 50px auto;
+    flex-wrap: nowrap;
+}
+
+.plan-card-layout {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.plan-download {
+    text-align: center;
+}
+
+.plan-card {
+    width: 18rem;
+    border-radius: 10px;
+    border: thin solid #d6d6d6;
+    padding: 20px;
+    background: white;
+    height: 100%;
+}
+
+.plan-card p {
+    color: #494949;
+}
+
+.plan-card-box {
+    margin: 10px;
+}
+
+.styled-table {
+    margin: auto;
+    border-collapse: collapse;
+    border-radius: 5px 5px 0 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: thin solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.plan-smalltext {
+    color: #7e7e7e;
+    max-width: 400px;
+    margin: auto;
+}
+
+.plan-hr {
+    width:100%;
+    margin: 40px 0;
+}
+
+.plan-quote {
+    max-width: 40%;
+    margin-left: auto;
+}
+
+
+
 .project-container {
     display: flex;
     flex-flow: column;

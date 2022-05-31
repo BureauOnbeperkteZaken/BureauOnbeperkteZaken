@@ -38,9 +38,13 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/template/{id}', function (int $id = 0) {
-    return view('app.panel.templates.project_' . $id);
+Route::get('/jarenplan', function () {
+    return view('jarenplan');
 });
+
+Route::get('/downloadables/Meerjarenplan_Bureau_onbeperkte_zaken.pdf', function () {
+    return Response()->download(public_path('/downloadables/Meerjarenplan_Bureau_onbeperkte_zaken.pdf'));
+})->name('jarenplandownload');
 
 Route::get('/projecten', [ProjectController::class, 'list'])->name('projects');
 
