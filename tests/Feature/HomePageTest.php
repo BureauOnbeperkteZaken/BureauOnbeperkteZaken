@@ -21,11 +21,14 @@ class HomePageTest extends TestCase
     {
         $projects = Project::orderBy('created_at', 'desc')->get()->take(3);
         $match = '/project/';
-        $page = $this->get('/');
+        $result = $this->get('/');
+        $ids = [];
 
         foreach ($projects as $project) {
-            $this->assertTrue(str_contains($page, $match . $project->id));
+            $ids[] = $match . $project->id;
         }
+
+        $result->assertViewHasAll($ids);
     }
 
     public function setUp(): void
