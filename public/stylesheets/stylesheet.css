@@ -424,12 +424,20 @@ button:active {
     justify-self: center;
 }
 
+.item {
+    align-self: center;
+    justify-content: center;
+    align-content: center;
+    place-content: center;
+    align-items: center;
+    place-items: center;
+}
 .picture-grid > .item {
     padding: 10%;
     overflow-wrap: break-word;
     display: grid;
     place-items: center;
-    max-block-size: 420px;
+    max-block-size: 450px;
 }
 
 .picture-grid > .paragrah {
@@ -438,4 +446,10 @@ button:active {
 
 .image-container {
     align-items:  center;
+}
+
+.overons-text {
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
 }

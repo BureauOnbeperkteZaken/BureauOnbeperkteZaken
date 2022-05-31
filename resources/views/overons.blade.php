@@ -18,9 +18,9 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
     <section>
         <h2 class="text-left mt-5">Ideeënmakers</h2>
         <div class="item">
-            <img src="{{asset('img/Jojo_placeholder.jpg')}}" />
+            <label for="1" class="text-center" dusk="template" alt="2 blije vrouwen"><img src="{{asset('img/Jojo.jpg')}}"/></label>
         </div>
-        <h4>Jojo</h4>
+        <h5>Placeholder foto</h5>
 
         <div class="paragraph" style="text-align: left;">
             Wij zijn Carine Hermens (programmamaker/regisseur/docent) en Jojo Heesbeen (regisseur/, klinisch psycholoog
@@ -53,10 +53,9 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
             <div class="picture-grid">
                 <div class="item">
                     <div class="image-container">
-                        <img src="{{asset('img/Jojo_placeholder.jpg')}}" />
+                        <label for="1" class="text-center" dusk="template" alt="blonde mevrouw met bril"><img src="{{asset('img/Jojo.jpg')}}"/></label>
                     </div>
-                    <!-- TODO change the class to something more fitting -->
-                    <div class="">
+                    <div class="overons-text">
                         <h5>Jojo</h5>
                         <div class="paragraph" style="text-align: left;">
                             Wil de maatschappij laten zien, dat talenten van mensen met een handicap omarmend moet
@@ -66,10 +65,11 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
                 </div>
                 <div class="item">
                     <div class="image-container">
-                        <img src="{{asset('img/placeholder1.jpg')}}" />
+                        <!-- TODO update the alt text for the real pictures -->
+                        <label for="1" class="text-center" dusk="template" alt="TBD"><img src="{{asset('img/placeholder1.jpg')}}"/></label>
                     </div>
-                    <div class="">
-                        <h5>Lianne</h5>
+                    <div class="overons-text">
+                        <h5>placeholder foto</h5>
                         <div class="paragraph" style="text-align: left;">
                             Voelt me uitgedaagd om een steentje bij te dragen aan een wereld waarin iedereen gehoord
                             en gezien wordt, en serieus genomen in de mogelijkheden die er wél zijn.
@@ -78,9 +78,9 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
                 </div>
                 <div class="item">
                     <div class="image-container">
-                        <img src="{{asset('img/Tijmen_placeholder.jpg')}}" />
+                        <label for="1" class="text-center" dusk="template" alt="jonge man met bril"><img src="{{asset('img/Tijmen.jpg')}}"/></label>
                     </div>
-                    <div class="">
+                    <div class="overons-text">
                         <h5>Tijmen</h5>
                         <div class="paragraph" style="text-align: left;">
                             Wil dat mensen met een handicap worden gezien als wie we zijn, talentvolle mensen, dat
@@ -91,10 +91,10 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
 
             <div class="item">
                 <div class="image-container">
-                    <img src="{{asset('img/placeholder2.jpg')}}" />
+                    <label for="1" class="text-center" dusk="template" alt="TBD"><img src="{{asset('img/placeholder2.jpg')}}"/></label>
                 </div>
-                <div class="">
-                    <h5>Hans</h5>
+                <div class="overons-text">
+                    <h5>placeholder foto</h5>
                     <div class="paragraph" style="text-align: left;">
                         Mijn grote wens is dat onze gehandicapte medemensen optimaal kunnen functioneren in onze
                         samenleving op basis van gelijkwaardigheid en hun kwaliteiten.
@@ -103,10 +103,10 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
             </div>
             <div class="item">
                 <div class="image-container">
-                    <img src="{{asset('img/placeholder3.jpg')}}" />
+                    <label for="1" class="text-center" dusk="template" alt="TBD"><img src="{{asset('img/placeholder3.jpg')}}"/></label>
                 </div>
-                <div class="">
-                    <h5>Carine</h5>
+                <div class="overons-text">
+                    <h5>placeholder foto</h5>
                     <div class="paragraph" style="text-align: left;">
                         Wil graag de rest van de wereld laten zien hoe kwaliteiten van mensen met een beperking
                         veel
