@@ -25,8 +25,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $projects = [];
+        $projectData = [];
 
-        return view('app.home', ['projects' => $projects]);
+        $blocks = Block::all();
+        $projects = Project::all()->take(3);
+
+        foreach ($projects as $project)
+            $projectData[$project->id]['blocks'] = $blocks->where('project_id', '=', $project->id);
+
+        return view('app.home', ['projects' => $projectData]);
     }
 }
