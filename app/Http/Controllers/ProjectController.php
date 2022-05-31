@@ -11,6 +11,7 @@ use App\Models\BlockMedia;
 use App\Models\TemplateBlock;
 use App\Models\Video;
 use App\Project;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
