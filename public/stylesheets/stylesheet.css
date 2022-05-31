@@ -626,3 +626,50 @@ label[for="nav-enable"] {
     gap: 0;
   }
 }
+
+.project-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}
+
+.project {
+    flex: 1;
+}
+
+.project-card {
+    display: flex;
+    flex-flow: row;
+    margin-bottom: 10px;
+    max-height: 500px;
+    height: auto;
+}
+
+.project-card h1 {
+    color: var(--color-primary-darker);
+}
+
+.project-card p {
+    font-size: 120%;
+}
+
+.project-card a {
+    background-color: var(--color-primary-darker);
+    border-width: 0;
+}
+
+.project-card a:hover {
+    background-color: var(--color-primary);
+}
+.project-card img {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+}
+.project-card .descriptionContainer {
+    flex: 2;
+    background-color: white;
+    padding: 50px;
+}
