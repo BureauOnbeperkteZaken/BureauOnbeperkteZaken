@@ -392,6 +392,10 @@ button:active {
     display: flex;
     flex-flow: column;
 }
+.paragrah {
+    text-align: left;
+    overflow-wrap: break-word;
+}
 .paragraph-image-container {
     display: flex;
 }
@@ -419,9 +423,6 @@ button:active {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-auto-flow: dense;
-    align-items: center;
-    justify-items: center;
-    justify-self: center;
 }
 
 .item {
@@ -432,17 +433,12 @@ button:active {
     overflow-wrap: break-word;
     display: grid;
     place-items: center;
-    max-block-size: 450px;
+    text-align: center;
 }
 
 .picture-grid > .paragrah {
-    align-self: bottom;
+    display: inline-block;
 }
-
-.image-container {
-    align-items:  center;
-}
-
 .overons-text {
     text-align: center;
     padding-top: 2%;
