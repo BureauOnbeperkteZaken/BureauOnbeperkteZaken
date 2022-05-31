@@ -16,16 +16,6 @@ class MetaSeeder extends Seeder
      */
     public function run()
     {
-//        MetaData::create([
-//            'url' => 'contact',
-//            'title' => 'Contact',
-//            'description' => 'Neem contact met ons op'
-//        ]);
-//        MetaData::create([
-//            'url' => 'home',
-//            'title' => 'Home',
-//            'description' => 'Welkom bij Bureau Onbeperkte Zaken'
-//        ]);
         DB::table('meta_data')->insert([
             'url' => 'contact',
             'title' => 'Contact',
