@@ -18,4 +18,9 @@ class TemplateBlock extends Model
         'order',
         'type',
     ];
+
+    public function media()
+    {
+        return $this->belongsToMany(Media::class);
+    }
 }

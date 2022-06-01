@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('images', function (Blueprint $table) {
-            $table->id();
-            $table->string('description');
-            $table->string('alt');
+        Schema::create('media_template_block', function (Blueprint $table) {
+            $table->unsignedBigInteger('template_block_id');
+            $table->foreign('template_block_id')->references('id')->on('templateblocks')->onDelete('cascade');
             $table->unsignedBigInteger('media_id');
-            $table->foreign('media_id')->references('id')->on('media');
+            $table->foreign('media_id')->references('id')->on('media')->onDelete('cascade');
         });
     }
 
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('images');
+        Schema::dropIfExists('media_template_block');
     }
 };

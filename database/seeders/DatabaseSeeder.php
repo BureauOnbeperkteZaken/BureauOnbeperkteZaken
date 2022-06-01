@@ -21,19 +21,11 @@ class DatabaseSeeder extends Seeder
         $this->call([VideoSeeder::class]);
         $this->call([LanguageSeeder::class]);
         $this->call([ProjectSeeder::class]);
-        $this->call([TemplateBlockSeeder::class]);
         $this->call([BlockSeeder::class]);
         $this->call([MediaSeeder::class]);
-        
-        MetaData::create([
-            'url' => 'contact',
-            'title' => 'Contact',
-            'description' => 'Neem contact met ons op'
-        ]);
-        MetaData::create([
-            'url' => 'home',
-            'title' => 'Home',
-            'description' => 'Welkom bij Bureau Onbeperkte Zaken'
-        ]);
+        $this->call([MetaSeeder::class]);
+        $this->call([ImageSeeder::class]);
+        $this->call([BlockMediaSeeder::class]);
+        $this->call([TemplateBlockSeeder::class]);
     }
 }

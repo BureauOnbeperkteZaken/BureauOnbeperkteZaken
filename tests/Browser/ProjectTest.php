@@ -3,6 +3,7 @@
 namespace Tests\Browser;
 
 use App\Models\User;
+use App\Project;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Dusk\Browser;
@@ -32,7 +33,14 @@ class ProjectTest extends DuskTestCase
                 ->logout();
         });
     }
-
+    public function testGoToProject()
+    {
+        $this->browse(function (Browser $browser) {
+            $browser->visitRoute('projects')
+                ->click('@project_view-1')
+                ->assertRouteIs('project.view', ['id' => 1]);
+        });
+    }
     /*public function testProjectCreateSuccess()
     {
         $this->browse(function (Browser $browser) {
@@ -53,6 +61,15 @@ class ProjectTest extends DuskTestCase
         });
     }*/
 
+    public function testAllProjectsShown() {
+        $this->browse(function (Browser $browser) {
+            $amountOfProjects = Project::all()->count();
+            $browser->visitRoute('projects');
+            $cards = $browser->elements('.project-card');
+            self::assertCount($amountOfProjects, $cards);
+        });
+    }
+
     public function testProjectDeleteNoAuth(){
         $this->browse(function (Browser $browser) {
             $browser->visitRoute('panelproject.remove', ['id' => 2])
@@ -60,12 +77,12 @@ class ProjectTest extends DuskTestCase
         });
     }
 
-    public function testProjectDeleteAuth() {
+    /*public function testProjectDeleteAuth() {
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1))
                 ->visitRoute('panelproject.remove', ['id' => 2]);
         });
-    }
+    }*/
 
     public function setUp(): void
     {

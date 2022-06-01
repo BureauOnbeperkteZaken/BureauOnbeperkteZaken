@@ -14,8 +14,20 @@
 <x-page.fullwidth >
     <form action="/panel/new_project" method="post" enctype="multipart/form-data">
         @csrf
-        <label for="title">Naam van project:</label>
-        <input type="text" name="title" id="title" placeholder="Project X" dusk="title" required><br/>
+        <label for="project_name">Naam van project:</label>
+        <input type="text" name="project_name" id="project_name" placeholder="Project X" dusk="title" required><br/>
+        <label for="project_description">Beschrijving van project:</label>
+        <input type="text" name="project_description" id="project_description" placeholder="Project X is een ..." dusk="project" required><br/>
+        <div class="video-container">
+            <div class="video-inputs">
+                <label for="image_file">Project plaatje:</label>
+                <input type="file" id="image_file" name="image_file" dusk="image_file"/><br>
+            </div>
+            <div class="video-inputs">
+                <label for="image_link">Link voor project plaatje:</label>
+                <input type="text" id="image_link" name="image_link" dusk="image_link"/>
+            </div>
+        </div>
         <label>Template:</label>
         <p class="descriptionColor">Klik op 1 plaatje om dat template te selecteren.</p>
         <ul class="select-image-list">

@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\SamenwerkingenController;
 use App\Http\Controllers\VideoController;
 use App\Mail\ContactMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,13 +21,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route('home');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('home', function (){
-    return view('app.home');
-})->name('home');;
+Route::get('/samenwerkingen', [SamenwerkingenController::class, 'index']);
 
 // Contact Routes
 Route::get('/contact', [App\Http\Controllers\ContactController::class, 'contact_index']);
@@ -48,4 +46,14 @@ Route::get('/overons', function() {
 
 Route::get('/template/{id}', function (int $id = 0) {
     return view('app.panel.templates.project_' . $id);
+Route::get('/jarenplan', function () {
+    return view('jarenplan');
 });
+
+Route::get('/downloadables/Meerjarenplan_Bureau_onbeperkte_zaken.pdf', function () {
+    return Response()->download(public_path('/downloadables/Meerjarenplan_Bureau_onbeperkte_zaken.pdf'));
+})->name('jarenplandownload');
+
+Route::get('/projecten', [ProjectController::class, 'list'])->name('projects');
+
+require __DIR__ . '/auth.php';
