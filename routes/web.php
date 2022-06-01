@@ -46,6 +46,7 @@ Route::get('/overons', function() {
 
 Route::get('/template/{id}', function (int $id = 0) {
     return view('app.panel.templates.project_' . $id);
+});
 Route::get('/jarenplan', function () {
     return view('jarenplan');
 });
