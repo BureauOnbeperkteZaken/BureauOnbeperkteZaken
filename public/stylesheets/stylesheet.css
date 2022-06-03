@@ -841,7 +841,13 @@ label[for="nav-enable"] {
 
 .item {
     text-align: center;
-}
+    margin-bottom: auto;
+  }
+
+.overons-text {
+    text-align: center; 
+  }
+  
 .picture-grid > .item {
     padding: 10%;
     overflow-wrap: break-word;

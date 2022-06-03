@@ -58,7 +58,7 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
                     </div>
                     <div class="overons-text">
                         <h5>Jojo</h5>
-                        <div class="paragraph" style="text-align: left;">
+                        <div style="text-align: left;">
                             Wil de maatschappij laten zien, dat talenten van mensen met een handicap omarmend moet
                             worden en niet ontkend.
                         </div>
@@ -71,7 +71,7 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
                     </div>
                     <div class="overons-text">
                         <h5>placeholder foto</h5>
-                        <div class="paragraph" style="text-align: left;">
+                        <div style="text-align: left;">
                             Voelt me uitgedaagd om een steentje bij te dragen aan een wereld waarin iedereen gehoord
                             en gezien wordt, en serieus genomen in de mogelijkheden die er wél zijn.
                         </div>
@@ -83,7 +83,7 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
                     </div>
                     <div class="overons-text">
                         <h5>Tijmen</h5>
-                        <div class="paragraph" style="text-align: left;">
+                        <div style="text-align: left;">
                             Wil dat mensen met een handicap worden gezien als wie we zijn, talentvolle mensen, dat
                             zijn wij! Geen gehandicapten!
                         </div>
@@ -96,7 +96,7 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
                 </div>
                 <div class="overons-text">
                     <h5>placeholder foto</h5>
-                    <div class="paragraph" style="text-align: left;">
+                    <div style="text-align: left;">
                         Mijn grote wens is dat onze gehandicapte medemensen optimaal kunnen functioneren in onze
                         samenleving op basis van gelijkwaardigheid en hun kwaliteiten.
                     </div>
@@ -108,7 +108,7 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
                 </div>
                 <div class="overons-text">
                     <h5>placeholder foto</h5>
-                    <div class="paragraph" style="text-align: left;">
+                    <div style="text-align: left;">
                         Wil graag de rest van de wereld laten zien hoe kwaliteiten van mensen met een beperking
                         veel
                         beter ingezet kunnen worden in de maatschappij.
