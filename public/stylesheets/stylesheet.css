@@ -431,7 +431,7 @@ button:active {
   display: flex;
   flex-flow: column;
 }
-development
+
 .paragraph-image-container {
   display: flex;
 }
@@ -832,6 +832,7 @@ label[for="nav-enable"] {
     height: 100%;
     object-fit: cover;
     display: block;
+    aspect-ratio: 1/1;
 }
 .picture-grid {
     display: grid;
@@ -842,10 +843,6 @@ label[for="nav-enable"] {
 .item {
     text-align: center;
     margin-bottom: auto;
-  }
-
-.overons-text {
-    text-align: center; 
   }
   
 .picture-grid > .item {
@@ -863,6 +860,7 @@ label[for="nav-enable"] {
     text-align: center;
     padding-top: 2%;
     padding-bottom: 2%;
+    margin: auto;
 }
 
 .project-container {

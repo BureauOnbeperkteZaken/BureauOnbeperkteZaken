@@ -19,7 +19,8 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
     <section>
         <h2 class="text-left mt-5">Ideeënmakers</h2>
         <div class="item">
-            <img src="{{asset('img/Jojo.jpg')}}" alt="TBD" />
+            <!-- TODO foto toevoegen met Jojo en Carine -->
+            <img src="" alt="TBD" />
             <h5>Placeholder foto</h5>
         </div>
 
@@ -54,65 +55,65 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
             <div class="picture-grid">
                 <div class="item">
                     <div class="image-container">
-                        <img src="{{asset('img/Jojo.jpg')}}" alt="oudere vrouw met bril"/>
+                        <img src="{{asset('img/Portret_Jojo.jpg')}}" alt="oudere vrouw met bril voor een boekenkast"/>
                     </div>
                     <div class="overons-text">
                         <h5>Jojo</h5>
-                        <div style="text-align: left;">
+                        <p style="text-align: left;">
                             Wil de maatschappij laten zien, dat talenten van mensen met een handicap omarmend moet
                             worden en niet ontkend.
-                        </div>
+                        </p>
                     </div>
                 </div>
                 <div class="item">
                     <div class="image-container">
-                        <!-- TODO: verander alt tekst wanneer ware fotos binnen komen na de sprint review -->
-                        <img src="{{asset('img/placeholder1.jpg')}}" alt="TBD"/>
+                        <img src="{{asset('img/Portret_Lianne.jpg')}}" alt="glimlachende oudere vrouw"/>
                     </div>
                     <div class="overons-text">
-                        <h5>placeholder foto</h5>
-                        <div style="text-align: left;">
+                        <h5>Lianne</h5>
+                        <p style="text-align: left;">
                             Voelt me uitgedaagd om een steentje bij te dragen aan een wereld waarin iedereen gehoord
                             en gezien wordt, en serieus genomen in de mogelijkheden die er wél zijn.
-                        </div>
+                        </p>
                     </div>
                 </div>
                 <div class="item">
                     <div class="image-container">
-                        <img src="{{asset('img/Tijmen.jpg')}}" alt=" blije jonge man"/>
+                        <img src="{{asset('img/Portret_Tijmen.jpg')}}" alt=" blije jonge man voor een boekenkast"/>
                     </div>
                     <div class="overons-text">
                         <h5>Tijmen</h5>
-                        <div style="text-align: left;">
+                        <p style="text-align: left;">
                             Wil dat mensen met een handicap worden gezien als wie we zijn, talentvolle mensen, dat
                             zijn wij! Geen gehandicapten!
-                        </div>
+                        </p>
                     </div>
                 </div>
 
             <div class="item">
                 <div class="image-container">
-                    <img src="{{asset('img/placeholder2.jpg')}}" alt="TBD"/>
+                    <!-- TODO foto met Hans toevoegen -->
+                    <img src="" alt="TBD"/>
                 </div>
                 <div class="overons-text">
-                    <h5>placeholder foto</h5>
-                    <div style="text-align: left;">
+                    <h5>Hans</h5>
+                    <p style="text-align: left;">
                         Mijn grote wens is dat onze gehandicapte medemensen optimaal kunnen functioneren in onze
                         samenleving op basis van gelijkwaardigheid en hun kwaliteiten.
-                    </div>
+                    </p>
                 </div>
             </div>
             <div class="item">
                 <div class="image-container">
-                    <img src="{{asset('img/placeholder3.jpg')}}" alt="TBD"/>
+                    <img src="{{asset('img/Portret_Carine.jpg')}}" alt="Blonde vrouw voor een boekenkast"/>
                 </div>
                 <div class="overons-text">
-                    <h5>placeholder foto</h5>
-                    <div style="text-align: left;">
+                    <h5>Carine</h5>
+                    <p style="text-align: left;">
                         Wil graag de rest van de wereld laten zien hoe kwaliteiten van mensen met een beperking
                         veel
                         beter ingezet kunnen worden in de maatschappij.
-                    </div>
+                    </p>
                 </div>
             </div>
     </section>

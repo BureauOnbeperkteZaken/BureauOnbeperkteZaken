@@ -40,10 +40,6 @@ Route::get('/dashboard', function () {
 
 require __DIR__ . '/auth.php';
 
-Route::get('/overons', function() {
-    return view('overons');
-});
-
 Route::get('/template/{id}', function (int $id = 0) {
     return view('app.panel.templates.project_' . $id);
 });
