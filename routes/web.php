@@ -25,6 +25,8 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Route::get('/samenwerkingen', [SamenwerkingenController::class, 'index']);
 
+Route::get('/overons', [OveronsController::class, 'index']);
+
 // Contact Routes
 Route::get('/contact', [App\Http\Controllers\ContactController::class, 'contact_index']);
 Route::post('contact_index', [App\Http\Controllers\ContactController::class, 'contact_store'])->name('store');
