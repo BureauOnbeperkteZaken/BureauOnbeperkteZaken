@@ -23,9 +23,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/samenwerkingen', [SamenwerkingenController::class, 'index']);
+Route::get('/samenwerkingen', [SamenwerkingenController::class, 'index'])->name('samenwerkingen');
 
-Route::get('/overons', [OveronsController::class, 'index']);
+Route::get('/overons', [OveronsController::class, 'index'])->name('overons');
 
 // Contact Routes
 Route::get('/contact', [App\Http\Controllers\ContactController::class, 'contact_index']);
