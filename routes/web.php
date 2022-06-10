@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SamenwerkingenController;
 use App\Http\Controllers\VideoController;
+use App\Http\Controllers\OveronsController;
 use App\Mail\ContactMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -23,7 +24,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/samenwerkingen', [SamenwerkingenController::class, 'index']);
+Route::get('/samenwerkingen', [SamenwerkingenController::class, 'index'])->name('samenwerkingen');
+
+Route::get('/overons', [OveronsController::class, 'index'])->name('overons');
 
 // Contact Routes
 Route::get('/contact', [App\Http\Controllers\ContactController::class, 'contact_index']);
