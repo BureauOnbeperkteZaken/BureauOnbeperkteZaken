@@ -23,4 +23,17 @@ class MetaDataController extends Controller
         MetaData::create($request->all());
         return view('meta-data-edit')->with('success', 'Opgeslagen');
     }
+    // Get page
+    public function GetPage($slug, $number = null){
+        if (empty($number)) {
+            return view('meta-data-edit', [
+                'url' => $slug
+            ]);
+        }
+        else {
+            return view('meta-data-edit', [
+                'url' => $slug . '/' . $number
+            ]);
+        }
+    }
 }

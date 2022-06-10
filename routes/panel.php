@@ -53,10 +53,6 @@ Route::middleware('auth')->group(function () {
     Route::get('block/{block}/edit', [BlockController::class, 'edit'])->name('block.edit');
     Route::put('block/{block}/edit', [BlockController::class, 'update'])->name('block.update');
 
-    Route::get('/metadata/{page}', function ($slug) {
-        return view('meta-data-edit', [
-            'url' => $slug
-        ]);
-    });
-    Route::post('/metadata/{page}', [App\Http\Controllers\MetaDataController::class, 'MetaDataForm'])->name('metadata.store');
+    Route::get('/metadata/{page}/{number?}', [App\Http\Controllers\MetaDataController::class, 'GetPage'])->name('metadata.getpage');
+    Route::post('/metadata/{page}/{number?}', [App\Http\Controllers\MetaDataController::class, 'MetaDataForm'])->name('metadata.store');
 });

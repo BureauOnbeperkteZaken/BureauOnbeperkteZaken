@@ -6,7 +6,6 @@
     <a href="{{ url('/') }}" class="current">Home</a><!--
  --><a href="{{ url('/projecten') }}">Projecten</a><!--
  --><a href="{{ url('/overons') }}">Over Ons</a><!--
- --><a href="{{ url('/achtergronden') }}">Achtergronden</a><!--
  --><a href="{{ url('/jarenplan') }}">Meerjarenplan</a><!--
  --><a href="{{ url('/samenwerkingen') }}">Samenwerkingen</a><!--
  --><a href="{{ url('/contact') }}">Contact</a>
