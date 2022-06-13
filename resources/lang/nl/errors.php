@@ -14,5 +14,6 @@ return [
     */
 
     '404_message' => 'De pagina die je zoekt kon niet gevonden worden.',
+    '500_message' => 'Er is iets fout gegaan. Probeer de pagina te verversen.',
 
 ];
