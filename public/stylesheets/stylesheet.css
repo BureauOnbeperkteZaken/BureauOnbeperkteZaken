@@ -736,11 +736,15 @@ label[for="nav-enable"] {
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 550px) {
   .home-project-gallery {
     flex-flow: column nowrap;
     gap: 0;
   }
+
+    .wrapper {
+        display: unset;
+    }
 }
 
 .plan-section {
@@ -844,7 +848,7 @@ label[for="nav-enable"] {
     text-align: center;
     margin-bottom: auto;
   }
-  
+
 .picture-grid > .item {
     padding: 10%;
     overflow-wrap: break-word;
