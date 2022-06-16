@@ -14,7 +14,8 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
     </x-slot>
 
 <h2 class="text-center mt-5">Contact opnemen</h2>
-    <div class="card mx-auto my-5" style="width: 50%">
+<div class="contact-box">
+    <div class="card mx-auto my-5">
         <div class="card-body">
             <div class="form-group col-12 p-0">
                 @if($errors->any())
@@ -53,4 +54,5 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
             </form>
         </div>
     </div>
+</div>
 </x-page.fullwidth>

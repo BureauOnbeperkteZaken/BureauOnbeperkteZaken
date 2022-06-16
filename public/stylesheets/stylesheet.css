@@ -217,7 +217,6 @@ ul > li + li {
   z-index: 2;
   pointer-events: none;
   position: relative;
-  width: 100vw;
   overflow-y: hidden;
   padding-top: 25vh;
 }
@@ -457,14 +456,17 @@ button:active {
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+    justify-content: space-evenly;
 }
 
 .flex-two {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     width: 100%;
     padding-bottom: 50px;
+    justify-content: center;
+    margin: auto;
+    font-size: 0.8rem;
 }
 
 .flex-inline {
@@ -473,14 +475,14 @@ button:active {
     min-width: 250px;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     margin: 5px;
     background: #ecfdf8;
     border-radius: 10px;
+    flex-wrap: nowrap;
 }
 
 .flex>div {
-    width: 32.5%;
+    width: 30%;
     height: 175px;
 }
 
@@ -491,7 +493,7 @@ button:active {
 }
 
 .flex-inline>.photo {
-    width: 50%;
+    height: 90%;
     align-items: center;
     text-align: justify;
 }
@@ -520,7 +522,8 @@ button:active {
 .flex-inline>.text {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    max-width: 50%;
+    min-width: 50%;
 }
 
 .button {
@@ -734,18 +737,62 @@ label[for="nav-enable"] {
     flex: 3;
     margin-top: 56.25vw;
   }
+
+    .plan-section {
+        max-width: 95%;
+    }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (min-width: 700px) {
+    .styled-table th,
+    .styled-table td {
+        padding: 12px 15px;
+    }
+    .plan-section{
+        max-width: 80%;
+    }
+    .contact-box {
+        width: 50%;
+        margin: auto;
+    }
+
+}
+
+@media screen and (max-width: 550px) {
   .home-project-gallery {
     flex-flow: column nowrap;
     gap: 0;
   }
+
+    .wrapper {
+        display: unset;
+    }
+
+    .plan-section .styled-table td {
+        padding: 2px 2px;
+    }
+    html {
+        font-size: 0.8rem;
+    }
+    .contact-box {
+        width: 100%;
+        margin: initial;
+    }
+    .flex-two {
+        width: 100%;
+        flex-direction: column;
+    }
+    .flex-two>div {
+        width: 100%;
+    }
+    .flex>div {
+        width: 100%;
+        height: 175px;
+    }
 }
 
 .plan-section {
-    max-width: 80%;
-    margin: 50px auto;
+    margin: auto;
     flex-wrap: nowrap;
 }
 
@@ -783,7 +830,6 @@ label[for="nav-enable"] {
     border-radius: 5px 5px 0 0;
     font-size: 0.9em;
     font-family: sans-serif;
-    min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     overflow: hidden;
 }
@@ -792,11 +838,6 @@ label[for="nav-enable"] {
     background-color: #009879;
     color: #ffffff;
     text-align: left;
-}
-
-.styled-table th,
-.styled-table td {
-    padding: 12px 15px;
 }
 
 .styled-table tbody tr {
@@ -844,7 +885,7 @@ label[for="nav-enable"] {
     text-align: center;
     margin-bottom: auto;
   }
-  
+
 .picture-grid > .item {
     padding: 10%;
     overflow-wrap: break-word;
@@ -881,7 +922,7 @@ label[for="nav-enable"] {
     margin-bottom: 10px;
     max-height: 500px;
     height: auto;
-    width: 90vw;
+    width: 70vw;
 }
 
 .project-card h1 {
@@ -919,5 +960,8 @@ label[for="nav-enable"] {
         flex: 1;
         justify-content: center;
         margin-left: -24vw;
+    }
+    html {
+        font-size: 0.8rem;
     }
 }
