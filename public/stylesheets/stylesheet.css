@@ -217,7 +217,6 @@ ul > li + li {
   z-index: 2;
   pointer-events: none;
   position: relative;
-  width: 100vw;
   overflow-y: hidden;
   padding-top: 25vh;
 }
