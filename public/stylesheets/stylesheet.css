@@ -747,6 +747,13 @@ label[for="nav-enable"] {
     .plan-section{
         max-width: 80%;
     }
+    .contact-box {
+        width: 50%;
+        margin: auto;
+    }
+    html {
+        font-size: 0.8rem;
+    }
 }
 
 @media screen and (max-width: 550px) {
@@ -761,6 +768,13 @@ label[for="nav-enable"] {
 
     .plan-section .styled-table td {
         padding: 2px 2px;
+    }
+    html {
+        font-size: 0.8rem;
+    }
+    .contact-box {
+        width: 100%;
+        margin: initial;
     }
 }
 
