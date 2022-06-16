@@ -475,10 +475,10 @@ button:active {
     min-width: 250px;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     margin: 5px;
     background: #ecfdf8;
     border-radius: 10px;
+    flex-wrap: nowrap;
 }
 
 .flex>div {
@@ -493,7 +493,7 @@ button:active {
 }
 
 .flex-inline>.photo {
-    width: 50%;
+    height: 90%;
     align-items: center;
     text-align: justify;
 }
@@ -522,7 +522,8 @@ button:active {
 .flex-inline>.text {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    max-width: 50%;
+    min-width: 50%;
 }
 
 .button {
@@ -921,7 +922,7 @@ label[for="nav-enable"] {
     margin-bottom: 10px;
     max-height: 500px;
     height: auto;
-    width: 90vw;
+    width: 70vw;
 }
 
 .project-card h1 {
