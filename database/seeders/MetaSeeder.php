@@ -31,5 +31,20 @@ class MetaSeeder extends Seeder
             'title' => 'Meerjarenplan 2021-2025',
             'description' => 'Het meerjarenplan van Bureau Onbeperkte Zaken'
         ]);
+        DB::table('meta_data')->insert([
+            'url' => 'projecten',
+            'title' => 'Projecten',
+            'description' => 'Zie alle projecten van BOZ'
+        ]);
+        DB::table('meta_data')->insert([
+            'url' => 'overons',
+            'title' => 'Over BOZ',
+            'description' => 'Wie zijn wij en wat doen wij'
+        ]);
+        DB::table('meta_data')->insert([
+            'url' => 'samenwerkingen',
+            'title' => 'Samenwerkingen',
+            'description' => 'Onze sponsoren en partners'
+        ]);
     }
 }

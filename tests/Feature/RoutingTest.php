@@ -25,7 +25,9 @@ class RoutingTest extends TestCase
      */
     private array $appRoutes = [
         ['path' => '/', 'expectedResult' => 200],
-        ['path' => '/does-not-exist', 'expectedResult' => 404]
+        ['path' => '/overons', 'expectedResult' => 200],
+        ['path' => '/does-not-exist', 'expectedResult' => 404],
+        ['path' => '/logout', 'expectedResult' => 302]
     ];
 
     /**
