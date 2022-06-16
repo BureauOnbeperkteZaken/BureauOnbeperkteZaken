@@ -14,6 +14,7 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
     </x-slot>
 
     <h1 class="text-center mt-5">Projecten</h1>
+    <hr class="plan-hr">
     <div class="project-container">
         @foreach($projects as $project)
             <div class="project-card">

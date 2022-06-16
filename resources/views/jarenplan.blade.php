@@ -13,7 +13,7 @@
 
     <div>
         <div>
-            <h1 class="text-center">Meerjarenplan Bureau onbeperkte zaken 2021 – 2025</h1>
+            <h1 class="text-center mt-5">Meerjarenplan Bureau onbeperkte zaken 2021 – 2025</h1>
             <hr class="plan-hr">
         </div>
         <div>

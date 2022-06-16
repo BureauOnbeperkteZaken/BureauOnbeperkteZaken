@@ -13,7 +13,7 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
               </h2>
     </x-slot>
 
-<h2 class="text-center mt-5">Contact opnemen</h2>
+<h1 class="text-center mt-5">Contact opnemen</h1>
 <div class="contact-box">
     <div class="card mx-auto my-5">
         <div class="card-body">

@@ -682,10 +682,6 @@ label[for="nav-enable"] {
         flex-flow: column nowrap;
     }
 
-    .wrapper {
-        padding-top: 0;
-    }
-
     .home-project {
         min-width: 30%;
         height: 500px;
@@ -694,7 +690,6 @@ label[for="nav-enable"] {
     header {
         top: 0;
         line-height: 3em;
-        width: 100%;
         display: flex;
     }
 
