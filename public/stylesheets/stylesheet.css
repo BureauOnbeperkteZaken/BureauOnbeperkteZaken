@@ -221,7 +221,22 @@ ul > li + li {
     padding-top: 25vh;
 }
 
+.wrappernovid{
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 160px;
+    z-index: 2;
+    pointer-events: none;
+    position: relative;
+    overflow-y: hidden;
+    padding-top: 15vh;
+}
+
 #background:focus + .wrapper {
+    margin-top: 66.25vw;
+}
+
+#background:focus + .wrappernovid {
     margin-top: 66.25vw;
 }
 
@@ -234,11 +249,29 @@ ul > li + li {
     z-index: 5;
 }
 
+.wrappernovid > main {
+    flex: 3;
+    margin-top: 20vh;
+    background-color: var(--color-white-background);
+    padding: 80px 120px;
+    pointer-events: all;
+    z-index: 5;
+}
+
 .no-background > main {
     margin-top: unset;
 }
 
 .wrapper > aside {
+    flex: 1;
+    margin-top: 60vh;
+    background-color: var(--color-primary);
+    padding: 40px 60px;
+    pointer-events: all;
+    z-index: 5;
+}
+
+.wrappernovid > aside {
     flex: 1;
     margin-top: 60vh;
     background-color: var(--color-primary);
@@ -558,7 +591,6 @@ button:active {
     flex-flow: column;
     justify-content: space-between;
     align-content: center;
-    height: 100%;
     width: 100%;
 }
 
@@ -682,6 +714,11 @@ label[for="nav-enable"] {
         flex-flow: column nowrap;
     }
 
+    .wrappernovid > main {
+        padding: 0;
+        flex-flow: column nowrap;
+    }
+
     .home-project {
         min-width: 30%;
         height: 500px;
@@ -785,7 +822,7 @@ label[for="nav-enable"] {
     }
 
     .contact-box {
-        width: 50%;
+        max-width: 50%;
         margin: auto;
     }
 
@@ -826,6 +863,14 @@ label[for="nav-enable"] {
 
     .wrapper {
         display: unset;
+    }
+
+    .wrappernovid {
+        display: unset;
+    }
+
+    .wrappernovid > main {
+        padding: 40px 0;
     }
 
     .plan-section .styled-table td {
@@ -969,14 +1014,6 @@ label[for="nav-enable"] {
     padding-top: 2%;
     padding-bottom: 2%;
     margin: auto;
-}
-
-.project-container {
-    display: flex;
-    flex-flow: column;
-    justify-content: space-between;
-    height: 100%;
-    width: 100%;
 }
 
 .project {
