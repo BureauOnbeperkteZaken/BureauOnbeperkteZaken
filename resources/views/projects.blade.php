@@ -13,12 +13,12 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
         </h2>
     </x-slot>
 
-    <h1 class="mt-5">Projecten</h1>
+    <h1 class="text-center mt-5">Projecten</h1>
     <div class="project-container">
         @foreach($projects as $project)
             <div class="project-card">
                 <!-- show image from $project->image_path as header image           -->
-                <img src="{{ $project->image_path }}" alt="{{ $project->name }} Image" class="w-full">
+                <img src="{{ $project->image_path }}" alt="{{ $project->name }} Image">
                 <div class="descriptionContainer">
                     <h1 class="card-title">{{ $project->name }}</h1>
                     <p class="card-text">{{ $project->description }}</p>

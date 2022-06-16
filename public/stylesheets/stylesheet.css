@@ -569,11 +569,11 @@ button:active {
 .project-card {
     display: flex;
     flex-flow: row;
-    margin: auto;
-    margin-bottom: 10px;
-    max-height: 500px;
-    height: auto;
+    margin: auto auto 10px;
+    max-height: 250px;
     width: 70vw;
+    justify-content: left;
+    background-color: white;
 }
 
 .project-card h1 {
@@ -581,12 +581,13 @@ button:active {
 }
 
 .project-card p {
-    font-size: 120%;
+    font-size: 110%;
 }
 
 .project-card a {
     background-color: var(--color-primary-darker);
     border-width: 0;
+    max-width: 150px;
 }
 
 .project-card a:hover {
@@ -594,21 +595,19 @@ button:active {
 }
 
 .project-card img {
-    flex: 1;
     height: 100%;
     overflow: hidden;
-}
-
-.project-card img {
-    flex: 1;
-    height: auto;
-    overflow: hidden;
+    max-height: 250px;
 }
 
 .project-card .descriptionContainer {
-    flex: 2;
-    background-color: white;
-    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    justify-content: center;
+    align-content: center;
+    padding: 0 50px;
+    max-width: 70%;
 }
 
 .home-wrapper {
