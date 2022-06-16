@@ -751,9 +751,7 @@ label[for="nav-enable"] {
         width: 50%;
         margin: auto;
     }
-    html {
-        font-size: 0.8rem;
-    }
+
 }
 
 @media screen and (max-width: 550px) {
@@ -947,5 +945,8 @@ label[for="nav-enable"] {
         flex: 1;
         justify-content: center;
         margin-left: -24vw;
+    }
+    html {
+        font-size: 0.8rem;
     }
 }
