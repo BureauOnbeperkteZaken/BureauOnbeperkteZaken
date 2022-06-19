@@ -645,16 +645,16 @@ button:active {
 .home-wrapper {
     display: flex;
     flex-flow: column nowrap;
-    gap: 30px;
-    padding: 0 15px;
+    gap: 50px;
+    padding: 0 40px;
+    width: 70%;
+    margin: auto;
 }
 
 .home-project-gallery {
     display: flex;
     justify-content: space-evenly;
-    width: calc(100% + 30px);
     gap: 30px;
-    margin: -250px 0 -15px -15px;
 }
 
 .home-project {
@@ -686,6 +686,77 @@ button:active {
     object-fit: cover;
     width: calc(100% + (60px * 2));
     height: calc(50% + 40px);
+}
+
+.home-banner {
+    background-size: cover;
+    background-position: center;
+    top: 140px;
+    height: 500px;
+    width: 100vw;
+    position: fixed;
+    margin-left: -120px;
+    margin-right: -120px;
+    z-index: -1;
+}
+
+.home-banner h1 {
+    text-align: center;
+    margin-top: 300px;
+    color: white;
+}
+
+.home-banner:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #565656;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.home-setup {
+    margin: 400px -120px 0 -120px;
+    background-color: #cafced;
+}
+
+.home-trailer-container{
+    display: flex;
+    justify-content: center;
+}
+
+.home-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.home-text-banner {
+    background-color: #74f1ca;
+    padding: 20px 0;
+    margin-bottom: 100px;
+}
+
+.home-logo {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    justify-content: center;
+    align-content: center;
+}
+
+.home-wzw {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.home-wzw p {
+    padding-left: 20px;
+    margin: auto;
 }
 
 #nav-enable {
