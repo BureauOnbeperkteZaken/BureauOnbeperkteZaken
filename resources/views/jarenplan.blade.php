@@ -1,4 +1,4 @@
-<x-page.fullwidth>
+<x-page.fullwidth-novid>
 
     <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -13,7 +13,7 @@
 
     <div>
         <div>
-            <h1 class="text-center">Meerjarenplan Bureau onbeperkte zaken 2021 – 2025</h1>
+            <h1 class="text-center mt-5">Meerjarenplan Bureau onbeperkte zaken 2021 – 2025</h1>
             <hr class="plan-hr">
         </div>
         <div>
@@ -228,4 +228,4 @@
             </div>
         </div>
     </div>
-</x-page.fullwidth>
+</x-page.fullwidth-novid>

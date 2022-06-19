@@ -2,12 +2,12 @@
 $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".x";
 ?>
 
-<x-page.fullwidth>
+<x-page.fullwidth-novid>
 
     <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
             integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-            <h1 style="text-align: center;">Over Ons</h1>
+            <h1 class="text-center mt-5">Over Ons</h1>
     </head>
     <x-slot name="header">
         <h2>
@@ -20,8 +20,8 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
         <h2 class="text-left mt-5">Ideeënmakers</h2>
         <div class="item">
             <!-- TODO foto toevoegen met Jojo en Carine -->
-            <img src="" alt="TBD" />
-            <h5>Placeholder foto</h5>
+{{--            <img src="" alt="TBD" />--}}
+{{--            <h5>Placeholder foto</h5>--}}
         </div>
 
         <div class="paragraph" style="text-align: left;">
@@ -55,7 +55,7 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
             <div class="picture-grid">
                 <div class="item">
                     <div class="image-container">
-                        <img src="{{asset('img/Portret_Jojo.jpg')}}" alt="oudere vrouw met bril voor een boekenkast"/>
+                        <img src="{{asset('img/Portret_Jojo.jpg')}}" alt="Foto van Jojo"/>
                     </div>
                     <div class="overons-text">
                         <h5>Jojo</h5>
@@ -67,7 +67,7 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
                 </div>
                 <div class="item">
                     <div class="image-container">
-                        <img src="{{asset('img/Portret_Lianne.jpg')}}" alt="glimlachende oudere vrouw"/>
+                        <img src="{{asset('img/Portret_Lianne.jpg')}}" alt="Foto van Lianne"/>
                     </div>
                     <div class="overons-text">
                         <h5>Lianne</h5>
@@ -79,7 +79,7 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
                 </div>
                 <div class="item">
                     <div class="image-container">
-                        <img src="{{asset('img/Portret_Tijmen.jpg')}}" alt=" blije jonge man voor een boekenkast"/>
+                        <img src="{{asset('img/Portret_Tijmen.jpg')}}" alt="Foto van Tijmen"/>
                     </div>
                     <div class="overons-text">
                         <h5>Tijmen</h5>
@@ -92,7 +92,8 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
 
             <div class="item">
                 <div class="image-container">
-                    <img src="{{asset('img/Portret_Hans.jpg')}}" alt="glimlachende ouedere man"/>
+{{--                    TODO: Foto van Hans krijgen?--}}
+{{--                    <img src="{{asset('img/Portret_Hans.jpg')}}" alt="Foto van Hans"/>--}}
                 </div>
                 <div class="overons-text">
                     <h5>Hans</h5>
@@ -104,7 +105,7 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
             </div>
             <div class="item">
                 <div class="image-container">
-                    <img src="{{asset('img/Portret_Carine.jpg')}}" alt="Blonde vrouw voor een boekenkast"/>
+                    <img src="{{asset('img/Portret_Carine.jpg')}}" alt="Foto van Carine"/>
                 </div>
                 <div class="overons-text">
                     <h5>Carine</h5>
