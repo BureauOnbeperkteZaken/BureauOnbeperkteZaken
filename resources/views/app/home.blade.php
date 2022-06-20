@@ -1,8 +1,7 @@
 <x-page.fullwidth-novid>
+
     <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-              integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     </head>
     <div class="home-box">
         <div class="home-banner" style="background-image: url({{asset('img/BOZ_banner.JPG')}});"></div>
@@ -17,7 +16,7 @@
             <h1 class="text-center">Wie wij zijn</h1>
             <div class="home-item">
                 <div class="home-wzw">
-                    <img class="home-logo" src="{{asset('img/BOZ_logo.JPG')}}" alt="Logo Bureau Onbeperkte Zaken"/>
+                    <img class="home-logo" src="{{asset('img/BOZ_logo.JPG')}}" alt="Logo Bureau Onbeperkte Zaken" />
                     <p>5 jaar horen we verhalen, wensen en verlangens van mensen met een beperking.
                         Ons eerste project "Onbeperkt Anders", zal in een aantal korte heftige films
                         laten zien welke kwaliteiten mensen met een beperking/handicap hebben en hoe
@@ -40,11 +39,7 @@
                     <p class="text-center">Bekijk de trailer!</p>
 
                     <div class="home-trailer-container">
-                        <iframe
-                            src="https://player.vimeo.com/video/715744582?h=f481fd74c0&color=61e0b8&title=0&byline=0&portrait=0"
-                            width="640" height="360"
-                            allow="autoplay; fullscreen; picture-in-picture"
-                            allowfullscreen>
+                        <iframe src="https://player.vimeo.com/video/715744582?h=f481fd74c0&color=61e0b8&title=0&byline=0&portrait=0" width="640" height="360" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen>
                         </iframe>
                     </div>
                 </div>
@@ -85,41 +80,69 @@
                 <h1 class="text-center">Recente projecten</h1>
                 <div class="home-project-gallery">
                     @foreach ($projects as $project)
-                        <div class="home-project">
-                            <img src="{{ $project->image_path }}" alt=""/>
-                            <h3>{{ $project->name }}</h3>
-                            <p>{{ (strlen($project->description) > 80) ? substr($project->description, 0, 80) . '...' : $project->description; }}</p>
-                            <a href="/project/{{ $project->id }}">{{ __('more') }}</a>
-                        </div>
+                    <div class="home-project">
+                        <img src="{{ $project->image_path }}" alt="" />
+                        <h3>{{ $project->name }}</h3>
+                        <p>{{ (strlen($project->description) > 80) ? substr($project->description, 0, 80) . '...' : $project->description; }}</p>
+                        <a href="/project/{{ $project->id }}">{{ __('more') }}</a>
+                    </div>
                     @endforeach
                 </div>
             </div>
             <div>
                 <h3 class="text-center">Deze mensen steunen onze doelstelling</h3>
-                <div class="home-steun-box">
-                    <div class="photo-small">
-                        <img src="{{ asset('storage/uploads/ZomaarZichtbaar.jpg') }}" alt="Logo Zomaar Zichtbaar">
+                <div class="flex-home">
+                    <div class="flex-inline-home">
+                        <div class="photo">
+                            <img src="{{ asset('storage/uploads/Gemeente-Vught.png') }}" alt="Afbeelding gemeente Vught">
+                        </div>
                     </div>
-                    <div class="photo-small">
-                        <img src="{{ asset('storage/uploads/Scarable.png') }}" alt="Logo Scarable">
+                    <div class="flex-inline-home">
+                        <div class="photo">
+                            <img src="{{ asset('storage/uploads/Moved-Media.jpg') }}" alt="Logo Moved Media">
+                        </div>
                     </div>
-                    <div class="photo-small">
-                        <img src="{{ asset('storage/uploads/NoortjeVanLith.jpg') }}" alt="Foto Noortje van Lith">
+                    <div class="flex-inline-home">
+                        <div class="photo">
+                            <img src="{{ asset('storage/uploads/ZomaarZichtbaar.jpg') }}" alt="Logo Zomaar Zichtbaar">
+                        </div>
                     </div>
-                    <div class="photo-small">
-                        <img src="{{ asset('storage/uploads/van-kruisdijk.jpg') }}" alt="Logo van Kruisdijk">
+                    <div class="flex-inline-home">
+                        <div class="photo">
+                            <img src="{{ asset('storage/uploads/Scarable.png') }}" alt="Logo Scarable">
+                        </div>
                     </div>
-                    <div class="photo-small">
-                        <img src="{{ asset('storage/uploads/Kunstloc-brabant.png') }}" alt="Logo Kunstloc Brabant">
+                    <div class="flex-inline-home">
+                        <div class="photo">
+                            <img src="{{ asset('storage/uploads/NoortjeVanLith.jpg') }}" alt="Foto Noortje van Lith">
+                        </div>
                     </div>
-                    <div class="photo-small">
-                        <img src="{{ asset('storage/uploads/Nieuwerwets.png') }}" alt="Logo Nieuwerwets">
+                </div>
+                <div class="flex-home">
+                    <div class="flex-inline-home">
+                        <div class="photo">
+                            <img src="{{ asset('storage/uploads/van-kruisdijk.jpg') }}" alt="Logo van Kruisdijk">
+                        </div>
                     </div>
-                    <div class="photo-small">
-                        <img src="{{ asset('storage/uploads/AVE.jpeg') }}" alt="Logo Albert Verlinde">
+                    <div class="flex-inline-home">
+                        <div class="photo">
+                            <img src="{{ asset('storage/uploads/Kunstloc-brabant.png') }}" alt="Logo Kunstloc Brabant">
+                        </div>
                     </div>
-                    <div class="photo-small">
-                        <img src="{{ asset('storage/uploads/Hans-Kroon.jpg') }}" alt="Logo Hans Kroon">
+                    <div class="flex-inline-home">
+                        <div class="photo">
+                            <img src="{{ asset('storage/uploads/Nieuwerwets.png') }}" alt="Logo Nieuwerwets">
+                        </div>
+                    </div>
+                    <div class="flex-inline-home">
+                        <div class="photo">
+                            <img src="{{ asset('storage/uploads/AVE.jpeg') }}" alt="Logo Albert Verlinde">
+                        </div>
+                    </div>
+                    <div class="flex-inline-home">
+                        <div class="photo">
+                            <img src="{{ asset('storage/uploads/Hans-Kroon.jpg') }}" alt="Logo Hans Kroon">
+                        </div>
                     </div>
                 </div>
             </div>

@@ -504,6 +504,55 @@ button:active {
     font-size: 0.8rem;
 }
 
+.flex-home{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding-bottom: 50px;
+    justify-content: center;
+    margin: auto;
+    font-size: 0.8rem;
+}
+
+.flex-inline-home{
+    height: 100%;
+    width: 100%;
+    min-width: 250px;
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    background: #ecfdf8;
+    border-radius: 10px;
+    flex-wrap: nowrap;
+}
+
+.flex-inline-home > .photo {
+    height: 90%;
+    align-items: center;
+    text-align: justify;
+    margin: auto;
+}
+
+.flex-inline-home > .photo img {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    object-fit: scale-down;
+}
+
+.flex-inline-home > .photo-small {
+    width: 50%;
+    height: 100%;
+    align-items: center;
+    text-align: justify;
+}
+
+.flex-home > div {
+    width: 49%;
+    height: 250px;
+    align-items: center;
+}
+
 .flex-inline {
     height: 100%;
     width: 100%;
@@ -1058,7 +1107,7 @@ label[for="nav-enable"] {
         gap: 5px;
     }
 
-    .home-steun-box .photo-small {
+    .home-steun-box .photo-small img {
         min-width: 100px;
     }
 
