@@ -42,7 +42,7 @@
                     <div class="home-trailer-container">
                         <iframe
                             src="https://player.vimeo.com/video/715744582?h=f481fd74c0&color=61e0b8&title=0&byline=0&portrait=0"
-                            width="740" height="360"
+                            width="640" height="360"
                             allow="autoplay; fullscreen; picture-in-picture"
                             allowfullscreen>
                         </iframe>
@@ -75,6 +75,8 @@
                                     leven</p>
                             </div>
                         </div>
+                    </div>
+                    <div class="flex justify-end">
                         <a class="button" href="/jarenplan">Lees meer</a>
                     </div>
                 </div>
