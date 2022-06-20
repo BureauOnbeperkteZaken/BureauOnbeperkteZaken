@@ -117,8 +117,6 @@
                             <img src="{{ asset('storage/uploads/NoortjeVanLith.jpg') }}" alt="Foto Noortje van Lith">
                         </div>
                     </div>
-                </div>
-                <div class="flex-home">
                     <div class="flex-inline-home">
                         <div class="photo">
                             <img src="{{ asset('storage/uploads/van-kruisdijk.jpg') }}" alt="Logo van Kruisdijk">
