@@ -659,8 +659,8 @@ button:active {
 
 .home-project {
     min-width: 30%;
-    height: 250px;
     flex: 1;
+    height: 400px;
     overflow: hidden;
     border: 15px solid var(--color-white-background);
 }
