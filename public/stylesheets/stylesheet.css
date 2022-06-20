@@ -659,7 +659,7 @@ button:active {
 
 .home-project {
     min-width: 30%;
-    height: 400px;
+    height: 250px;
     flex: 1;
     overflow: hidden;
     border: 15px solid var(--color-white-background);
@@ -691,7 +691,7 @@ button:active {
 .home-banner {
     background-size: cover;
     background-position: center;
-    top: 140px;
+    top: 100px;
     height: 500px;
     width: 100vw;
     position: fixed;
@@ -720,7 +720,7 @@ button:active {
 }
 
 .home-setup {
-    margin: 400px -120px 0 -120px;
+    margin: 360px -120px 0 -120px;
     background-color: #cafced;
 }
 
@@ -757,6 +757,24 @@ button:active {
 .home-wzw p {
     padding-left: 20px;
     margin: auto;
+}
+
+.home-steun-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    margin: auto;
+    width: 80%;
+    background: #ecfdf8;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.home-item {
+    background-color: #d6fff3;
+    border-radius: 10px;
+    padding: 20px;
 }
 
 #nav-enable {
