@@ -114,6 +114,11 @@ hr[data-title]::after {
     width: calc(100% - 300px);
 }
 
+#panel + .wrappernovid {
+    margin-left: 300px;
+    width: calc(100% - 300px);
+}
+
 .hidden-until-focus {
     position: absolute;
     top: 20px;
