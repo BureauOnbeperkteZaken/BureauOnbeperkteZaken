@@ -68,7 +68,7 @@ jobs:
           command: |
             sudo apt-get update
             sudo apt-get -qq install git-ftp
-            git status > /tmp/git-status
+            git status > /tmp/artifacts/git-status
             echo "Deploying project to ftp server..."
             git ftp push --user "${ftp_username_prod}" --passwd "${ftp_password_prod}" ${ftp_server_prod}/${ftp_location_prod}
       - run:
@@ -77,6 +77,8 @@ jobs:
             sudo apt-get -qq install sshpass
             echo "Restarting artisan"
             sshpass -p "${ssh_password_prod}" -v ssh -o StrictHostKeyChecking=no ${ssh_username_prod}@${ssh_server_prod} -p ${ssh_port_prod} "cd ${ssh_location_prod}; composer update -W; npm install; php artisan optimize:clear; exit"
+      - store_artifacts:
+          path: /tmp/artifacts
   deploy-staging:
     docker:
       - image: circleci/node:8-browsers
@@ -90,7 +92,7 @@ jobs:
           command: |
             sudo apt-get update
             sudo apt-get -qq install git-ftp
-            git status > /tmp/git-status
+            git status > /tmp/artifacts/git-status
             echo "Deploying project to ftp server..."
             git ftp push --user "${ftp_username_dev}" --passwd "${ftp_password_dev}" ${ftp_server_dev}/${ftp_location_dev}
       - run:
@@ -99,6 +101,8 @@ jobs:
             sudo apt-get -qq install sshpass
             echo "Restarting artisan"
             sshpass -p "${ssh_password_dev}" -v ssh -o StrictHostKeyChecking=no ${ssh_username_dev}@${ssh_server_dev} -p ${ssh_port_dev} "cd ${ssh_location_dev}; composer update -W; npm install; php artisan migrate:fresh --seed; php artisan optimize:clear; exit"
+      - store_artifacts:
+          path: /tmp/artifacts
 
 workflows:
   version: 2
