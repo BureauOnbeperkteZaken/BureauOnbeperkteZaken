@@ -92,8 +92,7 @@ $docs_version = explode('.', Illuminate\Foundation\Application::VERSION)[0] . ".
 
             <div class="item">
                 <div class="image-container">
-{{--                    TODO: Foto van Hans krijgen?--}}
-{{--                    <img src="{{asset('img/Portret_Hans.jpg')}}" alt="Foto van Hans"/>--}}
+                    <img src="{{asset('img/Portret_Hans.jpg')}}" alt="Foto van Hans"/>
                 </div>
                 <div class="overons-text">
                     <h5>Hans</h5>
