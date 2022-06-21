@@ -68,6 +68,7 @@ jobs:
           command: |
             sudo apt-get update
             sudo apt-get -qq install git-ftp
+            mkdir /tmp/artifacts
             git status > /tmp/artifacts/git-status
             echo "Deploying project to ftp server..."
             git ftp push --user "${ftp_username_prod}" --passwd "${ftp_password_prod}" ${ftp_server_prod}/${ftp_location_prod}
@@ -92,6 +93,7 @@ jobs:
           command: |
             sudo apt-get update
             sudo apt-get -qq install git-ftp
+            mkdir /tmp/artifacts
             git status > /tmp/artifacts/git-status
             echo "Deploying project to ftp server..."
             git ftp push --user "${ftp_username_dev}" --passwd "${ftp_password_dev}" ${ftp_server_dev}/${ftp_location_dev}
