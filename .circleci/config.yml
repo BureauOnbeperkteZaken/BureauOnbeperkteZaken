@@ -63,7 +63,7 @@ jobs:
       - checkout
       - run: npm install
       - run: git status
-        run: git checkout package-lock.json
+      - run: git checkout package-lock.json
       - run:
           name: Deploy main branch on remote ftp server
           command: |
@@ -89,7 +89,7 @@ jobs:
       - checkout
       - run: npm install
       - run: git status
-        run: git checkout package-lock.json
+      - run: git checkout package-lock.json
       - run:
           name: Deploy development branch on remote ftp server
           command: |
