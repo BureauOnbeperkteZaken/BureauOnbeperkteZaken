@@ -55,12 +55,6 @@ jobs:
       - run:
           name: "Run Tests"
           command: ./vendor/bin/phpunit
-
-      # send discord webhook
-      - discord/status:
-          fail_only: true
-          failure_message: "${CIRCLE_USERNAME}'s build in ${CIRCLE_BRANCH}: ${CIRCLE_JOB} failed."
-          webhook: "${discord_webhook}"
   deploy-main:
     docker:
       - image: circleci/node:8-browsers
@@ -75,13 +69,13 @@ jobs:
           sudo apt-get update
           sudo apt-get -qq install git-ftp
           echo "Deploying project to ftp server..."
-          git ftp push --user "${username_prod}" --passwd "${password_prod}" ${ftp_server_prod}/${ftp_location_prod}
+          git ftp push --user "${ftp_username_prod}" --passwd "${ftp_password_prod}" ${ftp_server_prod}/${ftp_location_prod}
     - run:
         name: Restart Laravel project
         command: |
           sudo apt-get -qq install sshpass
           echo "Restarting artisan"
-          sshpass -p "${password_prod}" -v ssh -o StrictHostKeyChecking=no ${username_prod}@${ftp_server_prod} -p ${ssh_port_prod} "cd ${ftp_location_prod}; composer update -W; npm install; php artisan optimize:clear; exit"
+          sshpass -p "${ftp_password_prod}" -v ssh -o StrictHostKeyChecking=no ${ssh_username_prod}@${ssh_server_prod} -p ${ssh_port_prod} "cd ${ssh_location_prod}; composer update -W; npm install; php artisan optimize:clear; exit"
   deploy-staging:
     docker:
       - image: circleci/node:8-browsers
@@ -96,20 +90,13 @@ jobs:
           sudo apt-get update
           sudo apt-get -qq install git-ftp
           echo "Deploying project to ftp server..."
-          git ftp push --user "${username_dev}" --passwd "${password_dev}" ${ftp_server_dev}/${ftp_location_dev}
+          git ftp push --user "${ftp_username_dev}" --passwd "${ftp_password_dev}" ${ftp_server_dev}/${ftp_location_dev}
     - run:
         name: Restart Laravel project
         command: |
           sudo apt-get -qq install sshpass
           echo "Restarting artisan"
-          sshpass -p "${password_dev}" -v ssh -o StrictHostKeyChecking=no ${username_dev}@${ftp_server_dev} -p ${ssh_port_prod} "cd ${ftp_location_dev}; composer update -W; npm install; php artisan migrate:fresh --seed; php artisan optimize:clear; exit"
-
-    # send discord webhook
-    - discord/status:
-        fail_only: false
-        failure_message: "${CIRCLE_USERNAME}'s build: ${CIRCLE_JOB} failed."
-        webhook: "${discord_webhook}"
-        success_message: "${CIRCLE_USERNAME} deployed ${CIRCLE_BRANCH} to a live environment."
+         sshpass -p "${ssh_password_dev}" -v ssh -o StrictHostKeyChecking=no ${ssh_username_dev}@${ssh_server_dev} -p ${ssh_port_dev} "cd ${ssh_location_dev}; composer update -W; npm install; php artisan migrate:fresh --seed; php artisan optimize:clear; exit"
 
 workflows:
   version: 2
