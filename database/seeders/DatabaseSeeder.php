@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::factory()->create([
-            'email' => 'testuser@boz.com',
+            'email' => 'bureau.onbeperkte.zaken@gmail.com',
         ]);
         $this->call([VideoSeeder::class]);
         $this->call([LanguageSeeder::class]);
