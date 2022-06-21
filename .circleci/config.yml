@@ -4,7 +4,7 @@
 #
 version: 2.1
 
-orbs: 
+orbs:
   discord: antonioned/discord@0.1.0
   jira: circleci/jira@1.3.1
 
@@ -60,43 +60,43 @@ jobs:
       - image: circleci/node:8-browsers
     working_directory: ~/repo
     steps:
-    - checkout
-    - run: npm install
-    - run: git status
-    - run:
-        name: Deploy main branch on remote ftp server
-        command: |
-          sudo apt-get update
-          sudo apt-get -qq install git-ftp
-          echo "Deploying project to ftp server..."
-          git ftp push --user "${ftp_username_prod}" --passwd "${ftp_password_prod}" ${ftp_server_prod}/${ftp_location_prod}
-    - run:
-        name: Restart Laravel project
-        command: |
-          sudo apt-get -qq install sshpass
-          echo "Restarting artisan"
-          sshpass -p "${ftp_password_prod}" -v ssh -o StrictHostKeyChecking=no ${ssh_username_prod}@${ssh_server_prod} -p ${ssh_port_prod} "cd ${ssh_location_prod}; composer update -W; npm install; php artisan optimize:clear; exit"
+      - checkout
+      - run: npm install
+      - run: git status
+      - run:
+          name: Deploy main branch on remote ftp server
+          command: |
+            sudo apt-get update
+            sudo apt-get -qq install git-ftp
+            echo "Deploying project to ftp server..."
+            git ftp push --user "${ftp_username_prod}" --passwd "${ftp_password_prod}" ${ftp_server_prod}/${ftp_location_prod}
+      - run:
+          name: Restart Laravel project
+          command: |
+            sudo apt-get -qq install sshpass
+            echo "Restarting artisan"
+            sshpass -p "${ftp_password_prod}" -v ssh -o StrictHostKeyChecking=no ${ssh_username_prod}@${ssh_server_prod} -p ${ssh_port_prod} "cd ${ssh_location_prod}; composer update -W; npm install; php artisan optimize:clear; exit"
   deploy-staging:
     docker:
       - image: circleci/node:8-browsers
     working_directory: ~/repo
     steps:
-    - checkout
-    - run: npm install
-    - run: git status
-    - run:
-        name: Deploy development branch on remote ftp server
-        command: |
-          sudo apt-get update
-          sudo apt-get -qq install git-ftp
-          echo "Deploying project to ftp server..."
-          git ftp push --user "${ftp_username_dev}" --passwd "${ftp_password_dev}" ${ftp_server_dev}/${ftp_location_dev}
-    - run:
-        name: Restart Laravel project
-        command: |
-          sudo apt-get -qq install sshpass
-          echo "Restarting artisan"
-         sshpass -p "${ssh_password_dev}" -v ssh -o StrictHostKeyChecking=no ${ssh_username_dev}@${ssh_server_dev} -p ${ssh_port_dev} "cd ${ssh_location_dev}; composer update -W; npm install; php artisan migrate:fresh --seed; php artisan optimize:clear; exit"
+      - checkout
+      - run: npm install
+      - run: git status
+      - run:
+          name: Deploy development branch on remote ftp server
+          command: |
+            sudo apt-get update
+            sudo apt-get -qq install git-ftp
+            echo "Deploying project to ftp server..."
+            git ftp push --user "${ftp_username_dev}" --passwd "${ftp_password_dev}" ${ftp_server_dev}/${ftp_location_dev}
+      - run:
+          name: Restart Laravel project
+          command: |
+            sudo apt-get -qq install sshpass
+            echo "Restarting artisan"
+            sshpass -p "${ssh_password_dev}" -v ssh -o StrictHostKeyChecking=no ${ssh_username_dev}@${ssh_server_dev} -p ${ssh_port_dev} "cd ${ssh_location_dev}; composer update -W; npm install; php artisan migrate:fresh --seed; php artisan optimize:clear; exit"
 
 workflows:
   version: 2
