@@ -12,6 +12,8 @@ class Project extends Model
 
     public $fillable = [
         'language_code',
+        'name',
+        'description'
     ];
 
     public function video()

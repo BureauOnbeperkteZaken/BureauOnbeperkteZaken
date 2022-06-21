@@ -18,7 +18,6 @@ class MediaSeeder extends Seeder
         DB::table('media')->insert([
             'filename' => 'boz.jpg',
             'type' => 'jpg',
-            'alt' => 'alt text for boz.jpg',
         ]);
     }
 }

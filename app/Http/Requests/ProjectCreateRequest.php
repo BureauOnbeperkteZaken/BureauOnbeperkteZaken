@@ -28,7 +28,11 @@ class ProjectCreateRequest extends FormRequest
             'video_name' => 'max:255',
             'video_file' => 'file|mimes:mp4,mov,wmv,avi,flv',
             'template' => 'required',
-            'video_link' => 'nullable|url'
+            'video_link' => 'nullable|url',
+            'project_name' => 'required|max:255',
+            'project_description' => 'required|max:255',
+            'image_file' => 'file|mimes:jpeg,png,jpg,gif|max:2048',
+            'image_link' => 'nullable|url',
         ];
     }
 }

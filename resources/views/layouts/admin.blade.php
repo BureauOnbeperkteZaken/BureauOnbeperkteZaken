@@ -20,10 +20,12 @@
                 @break;
             @case('project_details')
                 <a href="{{ route('panelproject.edit.video', $project_id) }}">Verander hoofdvideo</a>
+                <a href="{{ route('panelproject.edit.image', $project_id) }}">Verander project foto</a>
+                <a href="{{ route('panelproject.edit.namedesc', $project_id) }}">Verander naam of beschrijving</a>
                 <a href="#" id="remove_project">Verwijder project</a>
                 @break;
         @endswitch
-        <a href="/panel/metadata/{{request()->segment(count(request()->segments()))}}">Metadata aanpassen</a>
+        <a href="/panel/metadata/{{request()->path()}}">Metadata aanpassen</a>
         <a href="{{ url('/panel/new_project') }}">Nieuw project</a>
         <a href="{{ url('/panel/add_user') }}">Nieuwe Gebruiker</a>
         {{-- Insert admin pages here --}}

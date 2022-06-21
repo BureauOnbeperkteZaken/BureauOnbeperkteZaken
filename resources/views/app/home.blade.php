@@ -1,26 +1,149 @@
-<x-page.sidebar>
-    <x-slot:background>
-        <iframe id="ytplayer" type="text/html" title="Vimeo player"
-                src="@isset($videoLink){{ $videoLink }} @else https://player.vimeo.com/video/188017888?h=dc7d85e4c7' @endisset"></iframe>
-    </x-slot:background>
-    <div class="paragraph">
-        <h5>Cupcake time</h5>
-        <h1>Cupcake ipsum dolor sit amet</h1>
-        <p>
-            Cupcake ipsum dolor sit amet liquorice jelly jelly beans icing. Tiramisu sesame snaps chocolate bar tootsie roll donut. Lemon drops gummi bears pie cookie jelly-o. Jelly-o muffin chocolate bar fruitcake lollipop. I love lollipop icing bear claw bonbon liquorice carrot cake tart. Cupcake tart I love I love oat cake jujubes toffee toffee toffee. Cake jelly ice cream brownie candy canes toffee jujubes gummi bears cake. Pudding candy canes sugar plum oat cake jelly-o. Jelly-o marshmallow chocolate bar oat cake jujubes. Fruitcake oat cake topping danish fruitcake I love. Halvah croissant toffee jelly-o donut sweet. Marzipan lollipop tart macaroon sweet lemon drops I love caramels. Toffee I love I love cake cotton candy macaroon halvah wafer tiramisu.
-            Bear claw fruitcake I love I love lollipop chocolate bar I love sweet. Marzipan cotton candy apple pie shortbread jujubes liquorice shortbread jelly beans cake. I love toffee brownie fruitcake I love chocolate cake cake. Donut donut donut dessert icing. Pie brownie topping toffee icing cheesecake dragée. Icing croissant powder sesame snaps I love powder danish cupcake brownie. Bonbon lemon drops oat cake tart bear claw muffin. Carrot cake tiramisu marshmallow pie gummi bears gummi bears liquorice wafer. Jelly-o cheesecake halvah shortbread I love sugar plum sweet jelly-o. Candy I love pastry dessert sweet roll dessert jelly-o. Sugar plum jelly beans bonbon I love toffee danish halvah. Fruitcake cookie jelly beans halvah jelly beans toffee I love I love.
-            Soufflé icing cake gummi bears I love. I love croissant I love liquorice sesame snaps chocolate. Jelly gummies caramels sweet tiramisu. Biscuit oat cake fruitcake dragée dragée. I love gingerbread chupa chups biscuit icing candy canes fruitcake. Liquorice cotton candy I love carrot cake I love bonbon I love muffin I love. Bear claw sugar plum bonbon I love tiramisu pie pastry caramels. Toffee chupa chups croissant topping lemon drops tart I love tart lemon drops. Tootsie roll cotton candy sugar plum lollipop macaroon I love cake. Chocolate bar candy cotton candy bonbon soufflé pastry shortbread. Donut cookie candy ice cream cake jelly beans I love soufflé. Gummies jelly beans pie bear claw I love. Jelly shortbread I love cotton candy chocolate cake marzipan candy jelly-o I love. Gummi bears I love liquorice gummies chocolate cake.
-            I love chocolate bar fruitcake toffee jelly-o. Caramels toffee candy canes chupa chups lemon drops biscuit brownie I love. Carrot cake candy canes powder lollipop tiramisu. I love dragée muffin lollipop cupcake dessert cake candy halvah. Jelly beans jelly-o jelly beans marzipan candy canes bonbon cotton candy. Pastry danish I love gingerbread cotton candy cake pie. Cheesecake I love chocolate jelly bear claw. Chupa chups marshmallow macaroon cake cheesecake. I love marshmallow chupa chups jelly sweet candy canes carrot cake sweet soufflé. Pudding candy sweet roll wafer croissant pie macaroon oat cake lemon drops. I love cake croissant carrot cake bonbon carrot cake. Dragée pudding I love macaroon macaroon caramels sweet chocolate cake marshmallow.
-            Jelly-o gummi bears dragée I love gingerbread candy canes jujubes. Carrot cake gummies bear claw marzipan sweet sugar plum sugar plum bear claw dragée. Tart jelly beans I love sesame snaps tootsie roll cake dragée. Candy canes dessert danish jelly beans soufflé jujubes candy. Halvah tart I love sweet roll marshmallow I love fruitcake bonbon. Ice cream apple pie chocolate bar I love shortbread donut pastry chupa chups carrot cake. Gummi bears lollipop candy canes cake sweet jelly-o. Bear claw I love sweet bonbon jelly beans. Pastry pudding apple pie I love chupa chups gummi bears brownie chupa chups. Jujubes ice cream oat cake marzipan ice cream chocolate bar. Icing jelly beans marzipan dessert cake muffin toffee. Lollipop powder chocolate bar pie liquorice candy canes macaroon.
-        </p>
+<x-page.fullwidth-novid>
+
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    </head>
+    <div class="home-box">
+        <div class="home-banner" style="background-image: url({{asset('img/BOZ_banner.JPG')}});"></div>
     </div>
-    <div class="paragraph">
-        <p>
-            Cupcake ipsum dolor sit amet liquorice jelly jelly beans icing. Tiramisu sesame snaps chocolate bar tootsie roll donut. Lemon drops gummi bears pie cookie jelly-o. Jelly-o muffin chocolate bar fruitcake lollipop. I love lollipop icing bear claw bonbon liquorice carrot cake tart. Cupcake tart I love I love oat cake jujubes toffee toffee toffee. Cake jelly ice cream brownie candy canes toffee jujubes gummi bears cake. Pudding candy canes sugar plum oat cake jelly-o. Jelly-o marshmallow chocolate bar oat cake jujubes. Fruitcake oat cake topping danish fruitcake I love. Halvah croissant toffee jelly-o donut sweet. Marzipan lollipop tart macaroon sweet lemon drops I love caramels. Toffee I love I love cake cotton candy macaroon halvah wafer tiramisu.
-            Bear claw fruitcake I love I love lollipop chocolate bar I love sweet. Marzipan cotton candy apple pie shortbread jujubes liquorice shortbread jelly beans cake. I love toffee brownie fruitcake I love chocolate cake cake. Donut donut donut dessert icing. Pie brownie topping toffee icing cheesecake dragée. Icing croissant powder sesame snaps I love powder danish cupcake brownie. Bonbon lemon drops oat cake tart bear claw muffin. Carrot cake tiramisu marshmallow pie gummi bears gummi bears liquorice wafer. Jelly-o cheesecake halvah shortbread I love sugar plum sweet jelly-o. Candy I love pastry dessert sweet roll dessert jelly-o. Sugar plum jelly beans bonbon I love toffee danish halvah. Fruitcake cookie jelly beans halvah jelly beans toffee I love I love.
-            Soufflé icing cake gummi bears I love. I love croissant I love liquorice sesame snaps chocolate. Jelly gummies caramels sweet tiramisu. Biscuit oat cake fruitcake dragée dragée. I love gingerbread chupa chups biscuit icing candy canes fruitcake. Liquorice cotton candy I love carrot cake I love bonbon I love muffin I love. Bear claw sugar plum bonbon I love tiramisu pie pastry caramels. Toffee chupa chups croissant topping lemon drops tart I love tart lemon drops. Tootsie roll cotton candy sugar plum lollipop macaroon I love cake. Chocolate bar candy cotton candy bonbon soufflé pastry shortbread. Donut cookie candy ice cream cake jelly beans I love soufflé. Gummies jelly beans pie bear claw I love. Jelly shortbread I love cotton candy chocolate cake marzipan candy jelly-o I love. Gummi bears I love liquorice gummies chocolate cake.
-            I love chocolate bar fruitcake toffee jelly-o. Caramels toffee candy canes chupa chups lemon drops biscuit brownie I love. Carrot cake candy canes powder lollipop tiramisu. I love dragée muffin lollipop cupcake dessert cake candy halvah. Jelly beans jelly-o jelly beans marzipan candy canes bonbon cotton candy. Pastry danish I love gingerbread cotton candy cake pie. Cheesecake I love chocolate jelly bear claw. Chupa chups marshmallow macaroon cake cheesecake. I love marshmallow chupa chups jelly sweet candy canes carrot cake sweet soufflé. Pudding candy sweet roll wafer croissant pie macaroon oat cake lemon drops. I love cake croissant carrot cake bonbon carrot cake. Dragée pudding I love macaroon macaroon caramels sweet chocolate cake marshmallow.
-            Jelly-o gummi bears dragée I love gingerbread candy canes jujubes. Carrot cake gummies bear claw marzipan sweet sugar plum sugar plum bear claw dragée. Tart jelly beans I love sesame snaps tootsie roll cake dragée. Candy canes dessert danish jelly beans soufflé jujubes candy. Halvah tart I love sweet roll marshmallow I love fruitcake bonbon. Ice cream apple pie chocolate bar I love shortbread donut pastry chupa chups carrot cake. Gummi bears lollipop candy canes cake sweet jelly-o. Bear claw I love sweet bonbon jelly beans. Pastry pudding apple pie I love chupa chups gummi bears brownie chupa chups. Jujubes ice cream oat cake marzipan ice cream chocolate bar. Icing jelly beans marzipan dessert cake muffin toffee. Lollipop powder chocolate bar pie liquorice candy canes macaroon.
-        </p>
+    <div class="home-setup">
+        <div class="home-text-banner">
+            <h2 class="text-center">Denk liever in mogelijkheden dan beperkingen</h2>
+            <h6 class="text-center" style="color: #525252;">Stichting Bureau Onbeperkte Zaken wil dat mensen met een
+                handicap gezien worden zoals ze zijn, talentvolle mensen. Geen gehandicapten</h6>
+        </div>
+        <div class="home-wrapper">
+            <h1 class="text-center">Wie wij zijn</h1>
+            <div class="home-item">
+                <div class="home-wzw">
+                    <img class="home-logo" src="{{asset('img/BOZ_logo.JPG')}}" alt="Logo Bureau Onbeperkte Zaken" />
+                    <p>5 jaar horen we verhalen, wensen en verlangens van mensen met een beperking.
+                        Ons eerste project "Onbeperkt Anders", zal in een aantal korte heftige films
+                        laten zien welke kwaliteiten mensen met een beperking/handicap hebben en hoe
+                        zij in onze samenleving een volwaardige plaats kunnen innemen.</p>
+                </div>
+                <a class="button" href="/overons" style="float: right">Lees meer</a>
+            </div>
+            <figure class="home-quotebox">
+                <blockquote class="blockquote text-center">
+                    <p>“Ik wil dat mensen met een handicap worden gezien als wie we zijn, talentvolle mensen, dat zijn
+                        wij!”</p>
+                </blockquote>
+                <figcaption class="blockquote-footer text-center">
+                    <cite title="Source Title">Tijmen</cite>
+                </figcaption>
+            </figure>
+            <div>
+                <h1 class="text-center">Wat wij doen</h1>
+                <div class="home-item">
+                    <p class="text-center">Bekijk de trailer!</p>
+
+                    <div class="home-trailer-container">
+                        <iframe src="https://player.vimeo.com/video/715744582?h=f481fd74c0&color=61e0b8&title=0&byline=0&portrait=0" width="640" height="360" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h1 class="text-center">Wat wij willen bereiken</h1>
+                <div class="home-item">
+                    <div class="plan-card-layout">
+                        <div class="plan-card-box">
+                            <div class="plan-card">
+                                <h4>Onderzoeken</h4>
+                                <p>Hoe het VN-verdrag van mensen met een beperking na te leven.
+                                    En bewustwording creëren hoe mensen met een beperking hun talenten kunnen inzetten in de
+                                    maatschappij.</p>
+                            </div>
+                        </div>
+                        <div class="plan-card-box">
+                            <div class="plan-card">
+                                <h4>Acceptatie</h4>
+                                <p>"Als je het probleem accepteert is het al voor een deel opgelost."
+                                    - Robin, Theaterwerkplaats Novalis</p>
+                            </div>
+                        </div>
+                        <div class="plan-card-box">
+                            <div class="plan-card">
+                                <h4>Co-Creatie</h4>
+                                <p>Iedereen moet met elkaar samenwerken. Op de werkvloer, in de kunst en in het dagelijks
+                                    leven</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-end">
+                        <a class="button" href="/jarenplan">Lees meer</a>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h1 class="text-center">Recente projecten</h1>
+                <div class="home-project-gallery">
+                    @foreach ($projects as $project)
+                    <div class="home-project">
+                        <img src="{{ $project->image_path }}" alt="" />
+                        <h3>{{ $project->name }}</h3>
+                        <p>{{ (strlen($project->description) > 80) ? substr($project->description, 0, 80) . '...' : $project->description; }}</p>
+                        <a href="/project/{{ $project->id }}">{{ __('more') }}</a>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+            <div>
+                <h3 class="text-center">Deze mensen steunen onze doelstelling</h3>
+                <div class="flex-home">
+                    <div class="flex-inline-home">
+                        <div class="photo">
+                            <img src="{{ asset('storage/uploads/Gemeente-Vught.png') }}" alt="Afbeelding gemeente Vught">
+                        </div>
+                    </div>
+                    <div class="flex-inline-home">
+                        <div class="photo">
+                            <img src="{{ asset('storage/uploads/Moved-Media.jpg') }}" alt="Logo Moved Media">
+                        </div>
+                    </div>
+                    <div class="flex-inline-home">
+                        <div class="photo">
+                            <img src="{{ asset('storage/uploads/ZomaarZichtbaar.jpg') }}" alt="Logo Zomaar Zichtbaar">
+                        </div>
+                    </div>
+                    <div class="flex-inline-home">
+                        <div class="photo">
+                            <img src="{{ asset('storage/uploads/Scarable.png') }}" alt="Logo Scarable">
+                        </div>
+                    </div>
+                    <div class="flex-inline-home">
+                        <div class="photo">
+                            <img src="{{ asset('storage/uploads/NoortjeVanLith.jpg') }}" alt="Foto Noortje van Lith">
+                        </div>
+                    </div>
+                    <div class="flex-inline-home">
+                        <div class="photo">
+                            <img src="{{ asset('storage/uploads/van-kruisdijk.jpg') }}" alt="Logo van Kruisdijk">
+                        </div>
+                    </div>
+                    <div class="flex-inline-home">
+                        <div class="photo">
+                            <img src="{{ asset('storage/uploads/Kunstloc-brabant.png') }}" alt="Logo Kunstloc Brabant">
+                        </div>
+                    </div>
+                    <div class="flex-inline-home">
+                        <div class="photo">
+                            <img src="{{ asset('storage/uploads/Nieuwerwets.png') }}" alt="Logo Nieuwerwets">
+                        </div>
+                    </div>
+                    <div class="flex-inline-home">
+                        <div class="photo">
+                            <img src="{{ asset('storage/uploads/AVE.jpeg') }}" alt="Logo Albert Verlinde">
+                        </div>
+                    </div>
+                    <div class="flex-inline-home">
+                        <div class="photo">
+                            <img src="{{ asset('storage/uploads/Hans-Kroon.jpg') }}" alt="Logo Hans Kroon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</x-page.fullwidth>
+</x-page.fullwidth-novid>
