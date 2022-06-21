@@ -247,7 +247,7 @@ ul > li + li {
 
 .wrapper > main {
     flex: 3;
-    margin-top: 80vh;
+    margin-top: 56.25vw;
     background-color: var(--color-white-background);
     padding: 80px 120px;
     pointer-events: all;
