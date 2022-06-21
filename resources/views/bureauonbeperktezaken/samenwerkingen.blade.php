@@ -62,7 +62,7 @@
             <div class="text">
                 <h4>Noortje van Lith</h4>
                 <p>Noortje van Lith</p>
-                <a class="button" href="https://www.noortjevanlith.nl/" target="blank">
+                <a class="button" href="https://twitter.com/LithNoortje?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="blank">
                     Lees meer
                 </a>
             </div>
