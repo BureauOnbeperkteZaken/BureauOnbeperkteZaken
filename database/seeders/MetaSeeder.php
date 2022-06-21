@@ -22,9 +22,9 @@ class MetaSeeder extends Seeder
             'description' => 'Neem contact met ons op'
         ]);
         DB::table('meta_data')->insert([
-            'url' => 'home',
+            'url' => '/',
             'title' => 'Home',
-            'description' => 'Welkom bij Bureau Onbeperkte Zaken'
+            'description' => 'Welkom bij Bureau Onbeperkte Zaken. Denk liever in mogelijkheden dan beperkingen'
         ]);
         DB::table('meta_data')->insert([
             'url' => 'jarenplan',
