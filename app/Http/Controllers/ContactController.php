@@ -32,8 +32,7 @@ class ContactController extends Controller
         $message = Message::create($request->all());
 
         //Mail
-        Mail::to('boz.mailforward@gmail.com')->send(new ContactMail($message));
-        //Gmail development account login email: boz.mailforward@gmail.com ww: ZJukqZ8HKzi7aMZ
+        Mail::to('bureau.onbeperkte.zaken@gmail.com')->send(new ContactMail($message));
 
         return view('contact')->with('success', 'Bericht verzonden');
     }
