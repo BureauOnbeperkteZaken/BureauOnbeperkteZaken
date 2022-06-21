@@ -15,5 +15,6 @@ return [
 
     '404_message' => 'The page you are looking for could not be found.',
     '500_message' => 'Something went wrong. Try to refresh the page.',
+    'oops' => 'Whoops!'
 
 ];
