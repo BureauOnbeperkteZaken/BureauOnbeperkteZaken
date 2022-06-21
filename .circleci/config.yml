@@ -107,7 +107,6 @@ jobs:
             sshpass -p "${ssh_password_dev}" -v ssh -o StrictHostKeyChecking=no ${ssh_username_dev}@${ssh_server_dev} -p ${ssh_port_dev} "cd ${ssh_location_dev}; composer install -W; npm install; php artisan migrate:fresh --seed; php artisan optimize:clear; exit"
       - store_artifacts:
           path: /tmp/artifacts
-
 workflows:
   version: 2
   build-test-deploy:
